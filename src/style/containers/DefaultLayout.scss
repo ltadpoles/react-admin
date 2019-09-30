@@ -1,0 +1,21 @@
+.app {
+    display: flex;
+    .app-aside {
+        height: 100vh;
+        background-color: #001529;
+    }
+
+    .app-body{
+        flex: auto;
+        .app-header {
+            height: 60px;
+            background-color: #fff;
+            line-height: 60px;
+            padding: 0 10px;
+            border-bottom: 1px solid #e6e6e6;
+        }
+    }
+    .app-footer {
+        
+    }
+}
