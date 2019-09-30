@@ -11,6 +11,7 @@ class App extends Component {
     render() {
         return (
             <Router>
+                <div className='apps'></div>
                <Route path='/' exact component={DefaultLayout} />
             </Router>
         );
