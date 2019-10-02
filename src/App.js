@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import Button from 'antd/es/button'
-import 'antd/dist/antd.css'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { DefaultLayout } from './containers'
+import './style/App.scss'
 
 class App extends Component {
     constructor(props) {
@@ -9,9 +10,10 @@ class App extends Component {
     }
     render() {
         return (
-            <div>
-                 <Button type="primary">Button</Button>
-            </div>
+            <Router>
+                <div className='apps'></div>
+               <Route path='/' exact component={DefaultLayout} />
+            </Router>
         );
     }
 }
