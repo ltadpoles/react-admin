@@ -7,7 +7,7 @@ class AppFooter extends Component {
     }
     render() { 
         return ( 
-            <div>AppFooter页面</div>
+            <footer>AppFooter页面</footer>
          );
     }
 }

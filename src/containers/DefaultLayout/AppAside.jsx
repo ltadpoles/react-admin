@@ -28,7 +28,7 @@ class AppAside extends Component {
 
     render() {
         return (
-            <div>
+            <aside className='aside'>
                 <Menu
                     defaultSelectedKeys={['/index']}
                     mode="inline"
@@ -41,7 +41,7 @@ class AppAside extends Component {
                        })
                    }
                 </Menu>
-             </div>
+             </aside>
         );
     }
 }

@@ -8,6 +8,7 @@ class DefaultLayout extends Component {
     constructor(props) {
         super(props);
         this.state = { 
+            avatar: '',
             menu: [
                 {
                     key: '/index',
@@ -42,6 +43,86 @@ class DefaultLayout extends Component {
                             icon: ''
                         }
                     ]
+                },
+                {
+                    title: '三级组件',
+                    key: '/three',
+                    icon: 'edit',
+                    subs: [
+                        { 
+                            title: '三级子组件', 
+                            key: '/three/ss', 
+                            icon: 'bars',
+                            subs: [
+                                {title: '子组件', key: '/three/ss/s', icon: ''}
+                            ]
+                        },
+                        {
+                            title: '表单',
+                            key: '/three/list',
+                            icon: ''
+                        }
+                    ]
+                },
+                {
+                    title: '三级组件',
+                    key: '/three',
+                    icon: 'edit',
+                    subs: [
+                        { 
+                            title: '三级子组件', 
+                            key: '/three/ss', 
+                            icon: 'bars',
+                            subs: [
+                                {title: '子组件', key: '/three/ss/s', icon: ''}
+                            ]
+                        },
+                        {
+                            title: '表单',
+                            key: '/three/list',
+                            icon: ''
+                        }
+                    ]
+                },
+                {
+                    title: '三级组件',
+                    key: '/three',
+                    icon: 'edit',
+                    subs: [
+                        { 
+                            title: '三级子组件', 
+                            key: '/three/ss', 
+                            icon: 'bars',
+                            subs: [
+                                {title: '子组件', key: '/three/ss/s', icon: ''}
+                            ]
+                        },
+                        {
+                            title: '表单',
+                            key: '/three/list',
+                            icon: ''
+                        }
+                    ]
+                },
+                {
+                    title: '三级组件',
+                    key: '/three',
+                    icon: 'edit',
+                    subs: [
+                        { 
+                            title: '三级子组件', 
+                            key: '/three/ss', 
+                            icon: 'bars',
+                            subs: [
+                                {title: '子组件', key: '/three/ss/s', icon: ''}
+                            ]
+                        },
+                        {
+                            title: '表单',
+                            key: '/three/list',
+                            icon: ''
+                        }
+                    ]
                 }
             ]
          }
@@ -54,7 +135,7 @@ class DefaultLayout extends Component {
                 </div>
                 <div className='app-body'>
                     <div className='app-header'>
-                        <AppHeader />
+                        <AppHeader avatar={this.state.avatar} />
                     </div>
 
                     <div className='content'>

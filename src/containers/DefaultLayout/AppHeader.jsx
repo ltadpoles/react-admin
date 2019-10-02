@@ -1,15 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
+import '../../style/containers/app-header.scss'
+import avatar from '../../assets/images/user.jpg'
 
-class AppHeader extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
-    render() { 
-        return ( 
-            <div>AppHeader页面</div>
-         );
-    }
-}
- 
-export default AppHeader
+export default props => (
+    <header className='header'>
+        <div className="left">React 管理系统</div>
+        <div className="right">
+            <img src={props.avatar ? props.avatar : avatar} alt='头像'></img>
+        </div> 
+    </header>
+)
