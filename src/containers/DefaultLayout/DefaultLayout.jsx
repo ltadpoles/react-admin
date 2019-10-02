@@ -43,89 +43,9 @@ class DefaultLayout extends Component {
                             icon: ''
                         }
                     ]
-                },
-                {
-                    title: '三级组件',
-                    key: '/three',
-                    icon: 'edit',
-                    subs: [
-                        { 
-                            title: '三级子组件', 
-                            key: '/three/ss', 
-                            icon: 'bars',
-                            subs: [
-                                {title: '子组件', key: '/three/ss/s', icon: ''}
-                            ]
-                        },
-                        {
-                            title: '表单',
-                            key: '/three/list',
-                            icon: ''
-                        }
-                    ]
-                },
-                {
-                    title: '三级组件',
-                    key: '/three',
-                    icon: 'edit',
-                    subs: [
-                        { 
-                            title: '三级子组件', 
-                            key: '/three/ss', 
-                            icon: 'bars',
-                            subs: [
-                                {title: '子组件', key: '/three/ss/s', icon: ''}
-                            ]
-                        },
-                        {
-                            title: '表单',
-                            key: '/three/list',
-                            icon: ''
-                        }
-                    ]
-                },
-                {
-                    title: '三级组件',
-                    key: '/three',
-                    icon: 'edit',
-                    subs: [
-                        { 
-                            title: '三级子组件', 
-                            key: '/three/ss', 
-                            icon: 'bars',
-                            subs: [
-                                {title: '子组件', key: '/three/ss/s', icon: ''}
-                            ]
-                        },
-                        {
-                            title: '表单',
-                            key: '/three/list',
-                            icon: ''
-                        }
-                    ]
-                },
-                {
-                    title: '三级组件',
-                    key: '/three',
-                    icon: 'edit',
-                    subs: [
-                        { 
-                            title: '三级子组件', 
-                            key: '/three/ss', 
-                            icon: 'bars',
-                            subs: [
-                                {title: '子组件', key: '/three/ss/s', icon: ''}
-                            ]
-                        },
-                        {
-                            title: '表单',
-                            key: '/three/list',
-                            icon: ''
-                        }
-                    ]
                 }
             ]
-         }
+        }
     }
     render() { 
         return ( 
@@ -138,7 +58,7 @@ class DefaultLayout extends Component {
                         <AppHeader avatar={this.state.avatar} />
                     </div>
 
-                    <div className='content'>
+                    <div className='content' style={{minHeight: (document.body.offsetHeight - 115) + 'px'}}>
                         中间内容
                     </div>
 

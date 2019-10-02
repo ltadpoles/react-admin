@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Menu, Icon } from 'antd';
 import { Link } from 'react-router-dom'
+import '../../style/containers/app-aside.scss'
 
 class AppAside extends Component {
 
@@ -29,6 +30,7 @@ class AppAside extends Component {
     render() {
         return (
             <aside className='aside'>
+                <div className="logo"></div>
                 <Menu
                     defaultSelectedKeys={['/index']}
                     mode="inline"

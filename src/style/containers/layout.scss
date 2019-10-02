@@ -18,7 +18,15 @@
             border-bottom: 1px solid #e6e6e6;
         }
     }
-    // .app-footer {
-        
-    // }
+    .content {
+        padding: 0 1rem;
+        box-sizing: border-box;
+    }
+    .app-footer {
+        padding: 0 1rem;
+        box-sizing: border-box;
+        height: 4.8rem;
+        text-align: center;
+        line-height: 4.8rem;
+    }
 }

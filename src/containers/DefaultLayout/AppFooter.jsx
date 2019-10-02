@@ -7,7 +7,7 @@ class AppFooter extends Component {
     }
     render() { 
         return ( 
-            <footer>AppFooter页面</footer>
+            <footer>React Admin &copy;2019 Created By 游荡de蝌蚪</footer>
          );
     }
 }
