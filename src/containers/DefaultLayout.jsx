@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import AppHeader from './AppHeader.jsx'
 import AppAside from './AppAside.jsx'
 import AppFooter from './AppFooter.jsx'
-import '../../style/containers/layout.scss'
+import routes from '../routes'
+import { Route, Switch, Redirect } from 'react-router-dom'
+import '../style/containers/layout.scss'
+
 
 class DefaultLayout extends Component {
     constructor(props) {
@@ -59,7 +62,14 @@ class DefaultLayout extends Component {
                     </div>
 
                     <div className='content' style={{minHeight: (document.body.offsetHeight - 115) + 'px'}}>
-                        中间内容
+                        <Switch>
+                            {
+                                routes.map(res => {
+                                    return <Route key={res.path} path={res.path}  exact={res.exact} component={res.component}></Route>
+                                } )
+                            }
+                            <Redirect to='/404' />
+                        </Switch>
                     </div>
 
                     <div className='app-footer'>

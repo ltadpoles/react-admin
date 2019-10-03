@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Menu, Icon } from 'antd';
 import { Link } from 'react-router-dom'
-import '../../style/containers/app-aside.scss'
+import '../style/containers/app-aside.scss'
 
 class AppAside extends Component {
 

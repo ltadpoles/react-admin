@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import loadable from './utils/loadable'
 import './style/App.scss'
 
@@ -17,10 +17,11 @@ class App extends Component {
         return (
             <Router>
                 <Switch>
-                    <Route path='/' exact component={DefaultLayout} />
-                    <Route path='/404' exact component={App404} />
-                    <Route path='/500' exact component={App500} />
-                    <Route path='/login' exact component={Login} />
+                    <Route path='/' exact render={() => <Redirect to='/index' />} />
+                    <Route path='/500' component={App500} />
+                    <Route path='/login' component={Login} />
+                    <Route path='/404' component={App404} />
+                    <Route path='/' component={DefaultLayout} />
                 </Switch>
             </Router>
         );

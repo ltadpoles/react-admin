@@ -1,6 +1,6 @@
 import React from 'react'
-import '../../style/containers/app-header.scss'
-import avatar from '../../assets/images/user.jpg'
+import '../style/containers/app-header.scss'
+import avatar from '../assets/images/user.jpg'
 
 export default props => (
     <header className='header'>
