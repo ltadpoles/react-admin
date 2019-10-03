@@ -19,7 +19,7 @@ class DefaultLayout extends Component {
                     icon: 'home'
                 },
                 {
-                    title: '基础功能',
+                    title: '通用',
                     key: '/public',
                     icon: 'appstore',
                     subs: [
@@ -28,23 +28,42 @@ class DefaultLayout extends Component {
                     ]
                 },
                 {
-                    title: '三级组件',
-                    key: '/three',
-                    icon: 'edit',
+                    title: '导航',
+                    key: '/nav',
+                    icon: 'bulb',
                     subs: [
-                        { 
-                            title: '三级子组件', 
-                            key: '/three/ss', 
-                            icon: 'bars',
+                        {title: '面包屑', key: '/nav/breadcrumb', icon: ''},
+                        {title: '下拉菜单', key: '/nav/dropdown', icon: ''},
+                        {title: '导航菜单', key: '/nav/menu', icon: ''},
+                        {title: '分页', key: '/nav/pagination', icon: ''},
+                        {title: '步骤条', key: '/nav/steps', icon: ''}
+                    ]
+                },
+                {
+                    title: '表单类',
+                    key: '/form',
+                    icon: 'form',
+                    subs: [
+                        {title: '单选框', key: '/form/radio', icon: ''},
+                        {title: '多选框', key: '/form/checkbox', icon: ''},
+                        {title: '级联选择', key: '/form/cascader', icon: ''},
+                        {title: '日期选择', key: '/form/datepicker', icon: ''},
+                        {title: '表单', key: '/form/form', icon: ''},
+                        {
+                            title: '输入框', 
+                            key: '/form/input', 
+                            icon: 'edit',
                             subs: [
-                                {title: '子组件', key: '/three/ss/s', icon: ''}
+                                {title: '普通输入框', key: '/form/input/base', icon: ''},
+                                {title: '数字输入框', key: '/form/input/number', icon: ''}
                             ]
                         },
-                        {
-                            title: '表单',
-                            key: '/three/list',
-                            icon: ''
-                        }
+                        {title: '评分', key: '/form/rate', icon: ''},
+                        {title: 'switch开关', key: '/form/switch', icon: ''},
+                        {title: '下拉选择框', key: '/form/select', icon: ''},
+                        {title: '穿梭框', key: '/form/transfer', icon: ''},
+                        {title: '时间选择框', key: '/form/timepicker', icon: ''},
+                        {title: '上传', key: '/form/upload', icon: ''},
                     ]
                 }
             ]
