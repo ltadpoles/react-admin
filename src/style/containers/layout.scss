@@ -1,7 +1,7 @@
 .app {
     display: flex;
     .app-aside {
-        position: fixed;
+        // position: fixed;
         height: 100vh;
         background-color: #001529;
         overflow-y: auto;
@@ -9,7 +9,7 @@
 
     .app-body{
         flex: auto;
-        margin-left: 17rem;
+        // margin-left: 17rem;
         .app-header {
             height: 4.8rem;
             background-color: #fff;

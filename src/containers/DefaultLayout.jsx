@@ -4,6 +4,8 @@ import AppAside from './AppAside.jsx'
 import AppFooter from './AppFooter.jsx'
 import routes from '../routes'
 import { Route, Switch, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { menuToggleAction } from '../store/actionCreators'
 import '../style/containers/layout.scss'
 
 
@@ -73,11 +75,11 @@ class DefaultLayout extends Component {
         return ( 
             <div className='app'>
                 <div className='app-aside'>
-                    <AppAside menu={this.state.menu} />
+                    <AppAside menuToggle={this.props.menuToggle} menu={this.state.menu} />
                 </div>
                 <div className='app-body'>
                     <div className='app-header'>
-                        <AppHeader avatar={this.state.avatar} />
+                        <AppHeader menuClick={this.props.menuClick} avatar={this.state.avatar} />
                     </div>
 
                     <div className='content' style={{minHeight: (document.body.offsetHeight - 115) + 'px'}}>
@@ -99,5 +101,15 @@ class DefaultLayout extends Component {
          );
     }
 }
+
+const stateToProp = state => ({
+    menuToggle: state.menuToggle
+})
+
+const dispatchToProp = dispatch => ({
+    menuClick() {
+        dispatch(menuToggleAction())
+    }
+})
  
-export default DefaultLayout
+export default connect(stateToProp, dispatchToProp)(DefaultLayout)

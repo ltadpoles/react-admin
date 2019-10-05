@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { Component } from 'react'
 import '../style/containers/app-header.scss'
-import avatar from '../assets/images/user.jpg'
+import baseAvatar from '../assets/images/user.jpg'
+import { Button } from 'antd'
+import store from '../store'
 
-export default props => (
-    <header className='header'>
-        <div className="left">React 管理系统</div>
-        <div className="right">
-            <img src={props.avatar ? props.avatar : avatar} alt='头像'></img>
-        </div> 
-    </header>
-)
+
+class AppHeader extends Component {
+    render() { 
+        let { menuClick, avatar } = this.props
+        return ( 
+            <header className='header'>
+                <div className="left">
+                    <Button onClick={menuClick}>DefaultLayout</Button>
+                </div>
+                <div className="right">
+                    <img src={avatar ? avatar : baseAvatar} alt='头像'></img>
+                </div> 
+            </header>
+        );
+    }
+}
+ 
+export default AppHeader;

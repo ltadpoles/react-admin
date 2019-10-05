@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
-import { Menu, Icon } from 'antd';
+import { Menu, Icon } from 'antd'
 import { Link } from 'react-router-dom'
+import store from '../store'
 import '../style/containers/app-aside.scss'
 
 class AppAside extends Component {
+
+    constructor(props) {
+        super(props)
+    }
 
     renderMenuItem = ({key, icon, title}) => (
         <Menu.Item key={key}>
@@ -28,6 +33,7 @@ class AppAside extends Component {
     }
 
     render() {
+        let {menuToggle, menu} = this.props
         return (
             <aside className='aside'>
                 <div className="logo"></div>
@@ -35,10 +41,10 @@ class AppAside extends Component {
                     defaultSelectedKeys={['/index']}
                     mode="inline"
                     theme="dark"
-                    style={{width: '17rem'}}
+                    inlineCollapsed={menuToggle}
                 >
                    {
-                       this.props.menu && this.props.menu.map(item => {
+                       menu && menu.map(item => {
                            return item.subs && item.subs.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
                        })
                    }
