@@ -72,14 +72,15 @@ class DefaultLayout extends Component {
         }
     }
     render() { 
+        let { menuClick, menuToggle } = this.props
         return ( 
             <div className='app'>
                 <div className='app-aside'>
-                    <AppAside menuToggle={this.props.menuToggle} menu={this.state.menu} />
+                    <AppAside menuToggle={menuToggle} menu={this.state.menu} />
                 </div>
                 <div className='app-body'>
                     <div className='app-header'>
-                        <AppHeader menuClick={this.props.menuClick} avatar={this.state.avatar} />
+                        <AppHeader menuToggle={menuToggle} menuClick={menuClick} avatar={this.state.avatar} />
                     </div>
 
                     <div className='content' style={{minHeight: (document.body.offsetHeight - 115) + 'px'}}>

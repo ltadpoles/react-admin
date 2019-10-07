@@ -1,14 +1,9 @@
 import React, { Component } from 'react'
 import { Menu, Icon } from 'antd'
 import { Link } from 'react-router-dom'
-import store from '../store'
 import '../style/containers/app-aside.scss'
 
 class AppAside extends Component {
-
-    constructor(props) {
-        super(props)
-    }
 
     renderMenuItem = ({key, icon, title}) => (
         <Menu.Item key={key}>

@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
 import '../style/containers/app-header.scss'
 import baseAvatar from '../assets/images/user.jpg'
-import { Button } from 'antd'
-import store from '../store'
-
+import { Icon } from 'antd'
 
 class AppHeader extends Component {
     render() { 
-        let { menuClick, avatar } = this.props
+        let { menuClick, avatar, menuToggle } = this.props
         return ( 
             <header className='header'>
                 <div className="left">
-                    <Button onClick={menuClick}>DefaultLayout</Button>
+                    <Icon style={{fontSize: '2.4rem'}} onClick={menuClick} type={menuToggle ? "menu-unfold" : "menu-fold"} />
                 </div>
                 <div className="right">
                     <img src={avatar ? avatar : baseAvatar} alt='头像'></img>
