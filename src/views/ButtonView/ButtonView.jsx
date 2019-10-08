@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CustomBreadcrumb from '../../containers/NavPath.jsx'
+import CustomBreadcrumb from '../../components/CustomBreadcrumb'
 
 class ButtonView extends Component {
     constructor(props) {
