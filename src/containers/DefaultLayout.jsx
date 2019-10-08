@@ -6,6 +6,7 @@ import routes from '../routes'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { menuToggleAction } from '../store/actionCreators'
+import Test from './NavPath.jsx'
 import '../style/containers/layout.scss'
 
 class DefaultLayout extends Component {
@@ -81,7 +82,7 @@ class DefaultLayout extends Component {
                     <div className='app-header'>
                         <AppHeader menuToggle={menuToggle} menuClick={menuClick} avatar={this.state.avatar} />
                     </div>
-
+                    <Test></Test>
                     <div className='content' style={{minHeight: (document.body.offsetHeight - 115) + 'px'}}>
                         <Switch>
                             {
