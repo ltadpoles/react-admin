@@ -8,7 +8,6 @@ import { connect } from 'react-redux'
 import { menuToggleAction } from '../store/actionCreators'
 import '../style/containers/layout.scss'
 
-
 class DefaultLayout extends Component {
     constructor(props) {
         super(props);

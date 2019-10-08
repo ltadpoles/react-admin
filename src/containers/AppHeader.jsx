@@ -9,7 +9,7 @@ class AppHeader extends Component {
         return ( 
             <header className='header'>
                 <div className="left">
-                    <Icon style={{fontSize: '2.4rem'}} onClick={menuClick} type={menuToggle ? "menu-unfold" : "menu-fold"} />
+                    <Icon style={{fontSize: '2rem'}} onClick={menuClick} type={menuToggle ? "menu-unfold" : "menu-fold"} />
                 </div>
                 <div className="right">
                     <img src={avatar ? avatar : baseAvatar} alt='头像'></img>

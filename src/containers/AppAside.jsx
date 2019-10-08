@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { Menu, Icon } from 'antd'
+import { Menu, Icon, Layout } from 'antd'
 import { Link } from 'react-router-dom'
 import '../style/containers/app-aside.scss'
+
+const { Sider } = Layout
 
 class AppAside extends Component {
 
@@ -30,21 +32,22 @@ class AppAside extends Component {
     render() {
         let {menuToggle, menu} = this.props
         return (
-            <aside className='aside'>
-                <div className="logo"></div>
-                <Menu
-                    defaultSelectedKeys={['/index']}
-                    mode="inline"
-                    theme="dark"
-                    inlineCollapsed={menuToggle}
-                >
-                   {
-                       menu && menu.map(item => {
-                           return item.subs && item.subs.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
-                       })
-                   }
-                </Menu>
-             </aside>
+            <Layout>
+                <Sider className='aside' collapsed={menuToggle}>
+                    <div className="logo"></div>
+                    <Menu
+                        defaultSelectedKeys={['/index']}
+                        mode="inline"
+                        theme="dark"
+                    >
+                    {
+                        menu && menu.map(item => {
+                            return item.subs && item.subs.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
+                        })
+                    }
+                    </Menu>
+                </Sider>
+            </Layout>
         );
     }
 }
