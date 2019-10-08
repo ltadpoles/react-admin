@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import CustomBreadcrumb from '../../containers/NavPath.jsx'
 
 class ButtonView extends Component {
     constructor(props) {
@@ -7,7 +8,10 @@ class ButtonView extends Component {
     }
     render() { 
         return ( 
-            <div>ButtonView 页面</div>
+            <div>
+                <div><CustomBreadcrumb arr={['通用', '按钮']}></CustomBreadcrumb></div>
+                <div>ButtonView 页面</div>
+            </div>
          );
     }
 }

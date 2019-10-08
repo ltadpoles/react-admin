@@ -1,22 +1,22 @@
 import React from 'react'
 import { Breadcrumb } from 'antd'
-import { withRouter } from 'react-router-dom'
-import BreadcrumbItem from 'antd/lib/breadcrumb/BreadcrumbItem'
+import { Link } from 'react-router-dom'
 
-const Test = props => {
-    console.log(props)
-    let { location } = props
-    let a = location.pathname.split('/').filter(i => i)
+const CustomBreadcrumb = props => {
     return (
-        <Breadcrumb>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
+        <Breadcrumb style={{marginBottom: 16}}>
+            <Breadcrumb.Item><Link to='/index'>首页</Link></Breadcrumb.Item>
             {
-                a.map(res => (
-                    <Breadcrumb.Item>{res}</Breadcrumb.Item>
-               ))
+                props.arr && props.arr.map(res => {
+                    if ((typeof res) === 'object'){
+                        return <Breadcrumb.Item key={res.path}><Link to={res.path}>{res.title}</Link></Breadcrumb.Item>
+                      } else {
+                        return <Breadcrumb.Item key={res}>{res}</Breadcrumb.Item>
+                      }
+                })
             }
         </Breadcrumb>
     )
 }
 
-export default withRouter(Test)
+export default CustomBreadcrumb
