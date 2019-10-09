@@ -1,13 +1,70 @@
 import React, { Component } from 'react'
 import { Menu, Icon } from 'antd'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 
 class CustomMenu extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
+
+    state = {
+        openKeys: [],
+        selectedKeys: []
     }
+
+    // 处理 pathname
+    getOpenKeys = string => {
+        let newStr = '', newArr = [], arr = string.split('/').map(i => '/' + i)
+        for (let i = 1; i < arr.length - 1; i++) {
+            newStr += arr[i]
+            newArr.push(newStr)
+        }
+        return newArr
+    }
+
+    // 页面刷新的时候可以定位到 menu 显示
+    componentDidMount() {
+        let pathname = this.props.location.pathname
+        this.setState({
+            selectedKeys: [pathname],
+            openKeys: this.getOpenKeys(pathname)
+        })
+    }
+
+    // 点击面包屑导航时 侧边栏同步响应
+    componentDidUpdate(prevProps, prevState) {
+        let pathname = this.props.location.pathname
+        if (prevProps.location.pathname !== pathname) {
+            this.setState({
+                selectedKeys: [pathname],
+                openKeys: this.getOpenKeys(pathname)
+            })
+        }
+    }
+
+    // 只展开一个 SubMenu
+    onOpenChange = openKeys => {
+        if (openKeys.length === 0 || openKeys.length === 1) {
+            this.setState({
+                openKeys
+            });
+            return
+        }
+
+        // 最新展开的 SubMenu
+        const latestOpenKey = openKeys[openKeys.length - 1]
+      
+        // 这里与定义的路由规则有关
+        if (latestOpenKey.includes(openKeys[0])) {
+            this.setState({
+                openKeys
+            })
+        } else {
+            this.setState({
+                openKeys: [latestOpenKey]
+            })
+        }
+         
+    }
+
     renderMenuItem = ({key, icon, title}) => (
         <Menu.Item key={key}>
             <Link to={key}>
@@ -31,15 +88,18 @@ class CustomMenu extends Component {
     }
 
     render() { 
-        let { menu } = this.props
+        let { openKeys, selectedKeys } = this.state
         return ( 
             <Menu
-                defaultSelectedKeys={['/index']}
                 mode="inline"
                 theme="dark"
+                openKeys={openKeys}
+                selectedKeys={selectedKeys}
+                onClick={({key}) => this.setState({selectedKeys: [key]})}
+                onOpenChange={this.onOpenChange}
             >
             {
-                menu && menu.map(item => {
+                this.props.menu && this.props.menu.map(item => {
                     return item.subs && item.subs.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
                 })
             }
@@ -48,4 +108,4 @@ class CustomMenu extends Component {
     }
 }
  
-export default CustomMenu;
+export default withRouter(CustomMenu)

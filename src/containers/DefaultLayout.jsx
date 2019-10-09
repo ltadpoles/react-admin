@@ -49,7 +49,7 @@ class DefaultLayout extends Component {
                         {title: '多选框', key: '/form/checkbox', icon: ''},
                         {title: '级联选择', key: '/form/cascader', icon: ''},
                         {title: '日期选择', key: '/form/datepicker', icon: ''},
-                        {title: '表单', key: '/form/form', icon: ''},
+                        {title: '表单', key: '/form/formlist', icon: ''},
                         {
                             title: '输入框', 
                             key: '/form/input', 
@@ -110,5 +110,5 @@ const dispatchToProp = dispatch => ({
         dispatch(menuToggleAction())
     }
 })
- 
+
 export default connect(stateToProp, dispatchToProp)(DefaultLayout)
