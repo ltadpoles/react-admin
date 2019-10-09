@@ -2,15 +2,15 @@
     display: flex;
     background-color: #f0f2f5;
     .app-aside {
-        // position: fixed;
+        position: fixed;
         height: 100vh;
         background-color: #001529;
         overflow-y: auto;
     }
 
     .app-body{
-        flex: auto;
-        // margin-left: 17rem;
+        flex: 1;
+        margin-left: 200px;
         .app-header {
             height: 4.8rem;
             background-color: #fff;

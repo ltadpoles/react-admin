@@ -77,7 +77,7 @@ class DefaultLayout extends Component {
                 <div className='app-aside'>
                     <AppAside menuToggle={menuToggle} menu={this.state.menu} />
                 </div>
-                <div className='app-body'>
+                <div className='app-body' style={{marginLeft: menuToggle ? '80px' : '200px'}}>
                     <div className='app-header'>
                         <AppHeader menuToggle={menuToggle} menuClick={menuClick} avatar={this.state.avatar} />
                     </div>
