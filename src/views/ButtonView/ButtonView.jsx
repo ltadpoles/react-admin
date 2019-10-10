@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CustomBreadcrumb from '../../components/CustomBreadcrumb'
+import '../../style/view-style/button.scss'
 
 import { Layout, Row, Col, Button, Divider, Icon } from 'antd'
 
