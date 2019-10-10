@@ -76,7 +76,7 @@ class IconView extends Component {
                 <div className='base-style'>
                     <ul className='anticons-list'>
                         <li><Icon type="sync" spin /></li>
-                        <li><Icon type="smile" theme="outlined" /></li>
+                        <li><Icon type="smile" theme="outlined" spin /></li>
                         <li><Icon type="smile" rotate={180} /></li>
                         <li><Icon type="smile" theme="twoTone" /></li>
                         <li><Icon type="heart" theme="twoTone" twoToneColor="#eb2f96" /></li>
