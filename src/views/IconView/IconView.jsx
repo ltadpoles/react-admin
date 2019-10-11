@@ -192,29 +192,6 @@ class IconView extends Component {
                         <li><Icon type="youtube" /></li>
                     </ul>
                 </div>
-
-                <div className='base-style'>
-                    <h4>品牌和标识</h4>
-                    <Divider />
-                    <ul className='anticons-list'>
-                        <li><Icon type="ant-design" /></li>
-                        <li><Icon type="android" /></li>
-                        <li><Icon type="apple" /></li>
-                        <li><Icon type="windows" /></li>
-                        <li><Icon type="github" /></li>
-                        <li><Icon type="weibo-circle" /></li>
-                        <li><Icon type="weibo" /></li>
-                        <li><Icon type="taobao-circle" /></li>
-                        <li><Icon type="taobao" /></li>
-                        <li><Icon type="wechat" /></li>
-                        <li><Icon type="alipay-circle" /></li>
-                        <li><Icon type="qq" /></li>
-                        <li><Icon type="google" /></li>
-                        <li><Icon type="facebook" /></li>
-                        <li><Icon type="twitter" /></li>
-                        <li><Icon type="youtube" /></li>
-                    </ul>
-                </div>
             </Layout>
          );
     }
