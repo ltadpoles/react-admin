@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Layout, Divider, Menu, Dropdown, Icon, Row, Col, message, Button } from 'antd'
-import CustomBreadcrumb from '../../components/CustomBreadcrumb'
-import '../../style/view-style/dropdown.scss'
+import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
+import '../../../style/view-style/dropdown.scss'
 
 const { SubMenu } = Menu
 
@@ -32,12 +32,7 @@ function handleButtonClick(e) {
     console.log('click left button', e);
 }
 
-function handleMenuClick(e) {
-    message.info('Click on menu item.');
-    console.log('click', e);
-}
-
-class NavView extends Component {
+class DropdownView extends Component {
     constructor(props) {
         super(props);
         this.state = {}
@@ -117,4 +112,4 @@ class NavView extends Component {
     }
 }
 
-export default NavView;
+export default DropdownView;
