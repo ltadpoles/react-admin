@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
-import '../style/containers/app-header.scss'
-import baseAvatar from '../assets/images/user.jpg'
-import { Menu, Dropdown, Icon } from 'antd'
+import { Menu, Dropdown, Icon, Layout, Avatar } from 'antd'
+
+const { Header } = Layout
 
 const menu = (
     <Menu>
-        <Menu.Item>个人信息</Menu.Item>
-        <Menu.Item>系统设置</Menu.Item>
-        <Menu.Item><Icon type="logout" />退出登录</Menu.Item>
+        <Menu.ItemGroup title='用户设置'>
+            <Menu.Divider />
+            <Menu.Item><Icon type="edit" />个人设置</Menu.Item>
+            <Menu.Item><Icon type="setting" theme="filled" />系统设置</Menu.Item>
+        </Menu.ItemGroup>
+        <Menu.Divider />
+        <Menu.Item><Icon type="logout" className='out' />退出登录</Menu.Item>
     </Menu>
 )
 
@@ -15,19 +19,18 @@ class AppHeader extends Component {
     render() { 
         let { menuClick, avatar, menuToggle } = this.props
         return ( 
-            <header className='header'>
+            <Header className='header'>
                 <div className="left">
                     <Icon style={{fontSize: '2rem'}} onClick={menuClick} type={menuToggle ? "menu-unfold" : "menu-fold"} />
                 </div>
                 <div className="right">
-                    {/* <div><Icon style={{fontSize: '2rem', marginRight: '2rem'}} type="sound" /></div> */}
-                    <Dropdown overlay={menu}>
-                        <div className="ant-dropdown-link">
-                            <img src={avatar ? avatar : baseAvatar} alt='头像'></img>
+                    <Dropdown overlay={menu} overlayStyle={{width: '20rem'}}>
+                        <div className='ant-dropdown-link'>
+                            <Avatar icon="user" src={avatar} alt='avatar' style={{cursor: 'pointer'}} />
                         </div>
                     </Dropdown>
                 </div> 
-            </header>
+            </Header>
         );
     }
 }

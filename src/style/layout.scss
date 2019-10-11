@@ -1,0 +1,29 @@
+.app {
+    .aside {
+        position: fixed;
+        left: 0;
+        height: 100vh;
+        overflow-y: auto;
+
+        .logo {
+            height: 3rem;
+            margin: 1rem;
+            box-sizing: border-box;
+            border-radius: 1rem;
+            background-color: #fff;
+        }
+    }
+    .header {
+        background-color: #fff;
+        padding: 0 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        
+    }
+    .content {
+        padding: 10px 18px;
+    }
+    .footer {
+        text-align: center;
+    }
+}

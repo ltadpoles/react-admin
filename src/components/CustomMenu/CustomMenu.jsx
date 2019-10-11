@@ -98,11 +98,11 @@ class CustomMenu extends Component {
                 onClick={({key}) => this.setState({selectedKeys: [key]})}
                 onOpenChange={this.onOpenChange}
             >
-            {
-                this.props.menu && this.props.menu.map(item => {
-                    return item.subs && item.subs.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
-                })
-            }
+                {
+                    this.props.menu && this.props.menu.map(item => {
+                        return item.subs && item.subs.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
+                    })
+                }
             </Menu>
          );
     }

@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
+import { Route, Switch, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { Layout } from 'antd'
+import routes from '../routes'
+import { menuToggleAction } from '../store/actionCreators'
+import '../style/layout.scss'
+
 import AppHeader from './AppHeader.jsx'
 import AppAside from './AppAside.jsx'
 import AppFooter from './AppFooter.jsx'
-import routes from '../routes'
-import { Route, Switch, Redirect } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { menuToggleAction } from '../store/actionCreators'
-import '../style/containers/layout.scss'
+
+const { Content } = Layout
 
 class DefaultLayout extends Component {
     constructor(props) {
@@ -73,30 +77,23 @@ class DefaultLayout extends Component {
     render() { 
         let { menuClick, menuToggle } = this.props
         return ( 
-            <div className='app'>
-                <div className='app-aside'>
-                    <AppAside menuToggle={menuToggle} menu={this.state.menu} />
-                </div>
-                <div className='app-body' style={{marginLeft: menuToggle ? '80px' : '200px'}}>
-                    <div className='app-header'>
-                        <AppHeader menuToggle={menuToggle} menuClick={menuClick} avatar={this.state.avatar} />
-                    </div>
-                    <div className='content' style={{minHeight: '35rem'}}>
+            <Layout className='app'>
+                <AppAside menuToggle={menuToggle} menu={this.state.menu} />
+                <Layout style={{marginLeft: menuToggle ? '80px' : '200px', minHeight: '100vh'}}>
+                    <AppHeader menuToggle={menuToggle} menuClick={menuClick} avatar={this.state.avatar} />
+                    <Content className='content'>
                         <Switch>
                             {
                                 routes.map(res => {
-                                    return <Route key={res.path} path={res.path}  exact={res.exact} component={res.component}></Route>
-                                } )
+                                    return <Route key={res.path} path={res.path} exact={res.exact} component={res.component}></Route>
+                                })
                             }
                             <Redirect to='/404' />
                         </Switch>
-                    </div>
-
-                    <div className='app-footer'>
-                        <AppFooter />
-                    </div>
-                </div>
-            </div>
+                    </Content>
+                    <AppFooter />
+                </Layout>
+            </Layout>
          );
     }
 }

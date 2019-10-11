@@ -1,5 +1,8 @@
 import React from 'react'
+import { Layout } from 'antd'
+
+const { Footer } = Layout
 
 export default props => (
-    <footer>React Admin &copy;2019 Created By 游荡de蝌蚪</footer>
+    <Footer className='footer'>React Admin &copy;2019 Created By 游荡de蝌蚪</Footer>
 )
