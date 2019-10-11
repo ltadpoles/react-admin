@@ -6,12 +6,14 @@ const ButtonView = loadable(() => import('../views/PublicView/Button'))
 const IconView = loadable(() => import('../views/PublicView/Icon'))
 // 导航
 const DropdownView = loadable(() => import('../views/NavView/Dropdown'))
+const MenuView = loadable(() => import('../views/NavView/Menu'))
 
 const routes = [
     {path: '/index', exact: true, name: 'Index', component: Index},
     {path: '/public/button', exact: false, name: '按钮', component: ButtonView},
     {path: '/public/icon', exact: false, name: '图标', component: IconView},
-    {path: '/nav/dropdown', exact: false, name: '下拉菜单', component: DropdownView}
+    {path: '/nav/dropdown', exact: false, name: '下拉菜单', component: DropdownView},
+    {path: '/nav/menu', exact: false, name: '下拉菜单', component: MenuView}
 ]
 
 export default routes
