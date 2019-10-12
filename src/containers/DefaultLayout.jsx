@@ -45,17 +45,7 @@ class DefaultLayout extends Component {
                 {
                     title: '表单',
                     key: '/form',
-                    icon: 'form',
-                    subs: [
-                        {title: '选择框', key: '/form/choice', icon: ''},
-                        {title: '表单', key: '/form/formlist', icon: ''},
-                        {title: '输入框', key: '/form/input', icon: '',},
-                        {title: '评分', key: '/form/rate', icon: ''},
-                        {title: 'switch', key: '/form/switch', icon: ''},
-                        {title: '穿梭框', key: '/form/transfer', icon: ''},
-                        {title: '时间选择框', key: '/form/timepicker', icon: ''},
-                        {title: '上传', key: '/form/upload', icon: ''},
-                    ]
+                    icon: 'form'
                 },
                 {
                     title: '展示',
