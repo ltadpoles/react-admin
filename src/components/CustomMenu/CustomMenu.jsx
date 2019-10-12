@@ -51,7 +51,7 @@ class CustomMenu extends Component {
 
         // 最新展开的 SubMenu
         const latestOpenKey = openKeys[openKeys.length - 1]
-      
+
         // 这里与定义的路由规则有关
         if (latestOpenKey.includes(openKeys[0])) {
             this.setState({
@@ -62,22 +62,22 @@ class CustomMenu extends Component {
                 openKeys: [latestOpenKey]
             })
         }
-         
+
     }
 
-    renderMenuItem = ({key, icon, title}) => (
+    renderMenuItem = ({ key, icon, title }) => (
         <Menu.Item key={key}>
             <Link to={key}>
-                {icon && <Icon type={icon}/>}
+                {icon && <Icon type={icon} />}
                 <span>{title}</span>
             </Link>
         </Menu.Item>
     )
-    
+
     // 循环遍历数组中的子项 subs ，生成子级 menu
-    renderSubMenu = ({key, icon, title, subs}) => {
+    renderSubMenu = ({ key, icon, title, subs }) => {
         return (
-            <Menu.SubMenu key={key} title={<span>{icon && <Icon type={icon}/>}<span>{title}</span></span>}>
+            <Menu.SubMenu key={key} title={<span>{icon && <Icon type={icon} />}<span>{title}</span></span>}>
                 {
                     subs && subs.map(item => {
                         return item.subs && item.subs.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
@@ -87,15 +87,15 @@ class CustomMenu extends Component {
         )
     }
 
-    render() { 
+    render() {
         let { openKeys, selectedKeys } = this.state
-        return ( 
+        return (
             <Menu
                 mode="inline"
                 theme="dark"
                 openKeys={openKeys}
                 selectedKeys={selectedKeys}
-                onClick={({key}) => this.setState({selectedKeys: [key]})}
+                onClick={({ key }) => this.setState({ selectedKeys: [key] })}
                 onOpenChange={this.onOpenChange}
             >
                 {
@@ -104,8 +104,8 @@ class CustomMenu extends Component {
                     })
                 }
             </Menu>
-         );
+        );
     }
 }
- 
+
 export default withRouter(CustomMenu)

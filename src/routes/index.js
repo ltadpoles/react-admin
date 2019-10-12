@@ -15,13 +15,13 @@ const StepView = loadable(() => import('../views/NavView/Step'))
 const FormView = loadable(() => import('../views/FormView'))
 
 const routes = [
-    {path: '/index', exact: true, name: 'Index', component: Index},
-    {path: '/public/button', exact: false, name: '按钮', component: ButtonView},
-    {path: '/public/icon', exact: false, name: '图标', component: IconView},
-    {path: '/nav/dropdown', exact: false, name: '下拉菜单', component: DropdownView},
-    {path: '/nav/menu', exact: false, name: '下拉菜单', component: MenuView},
-    {path: '/nav/steps', exact: false, name: '步骤条', component:　StepView},
-    {path: '/form', exact: false, name: '表单', component: FormView},
+    { path: '/index', exact: true, name: 'Index', component: Index },
+    { path: '/public/button', exact: false, name: '按钮', component: ButtonView },
+    { path: '/public/icon', exact: false, name: '图标', component: IconView },
+    { path: '/nav/dropdown', exact: false, name: '下拉菜单', component: DropdownView },
+    { path: '/nav/menu', exact: false, name: '下拉菜单', component: MenuView },
+    { path: '/nav/steps', exact: false, name: '步骤条', component: StepView },
+    { path: '/form', exact: false, name: '表单', component: FormView },
 ]
 
 export default routes

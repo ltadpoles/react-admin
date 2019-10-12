@@ -7,7 +7,7 @@ const { Sider } = Layout
 class AppAside extends Component {
 
     render() {
-        let {menuToggle, menu} = this.props
+        let { menuToggle, menu } = this.props
         return (
             <Sider className='aside' collapsed={menuToggle}>
                 <div className="logo"></div>
@@ -16,5 +16,5 @@ class AppAside extends Component {
         );
     }
 }
- 
+
 export default AppAside

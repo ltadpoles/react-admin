@@ -3,13 +3,13 @@ import React, { Component } from 'react'
 class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {}
     }
-    render() { 
-        return ( 
+    render() {
+        return (
             <div>Login页面</div>
-         );
+        );
     }
 }
- 
+
 export default Login;

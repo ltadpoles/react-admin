@@ -71,7 +71,7 @@ class FromView extends Component {
     handleSubmit = e => {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, fieldsValue) => {
-            if(err) return
+            if (err) return
             const values = {
                 ...fieldsValue,
                 'date-picker': fieldsValue['date-picker'] ? fieldsValue['date-picker'].format('YYYY-MM-DD') : '',

@@ -16,23 +16,23 @@ const menu = (
 )
 
 class AppHeader extends Component {
-    render() { 
+    render() {
         let { menuClick, avatar, menuToggle } = this.props
-        return ( 
+        return (
             <Header className='header'>
                 <div className="left">
-                    <Icon style={{fontSize: '2rem'}} onClick={menuClick} type={menuToggle ? "menu-unfold" : "menu-fold"} />
+                    <Icon style={{ fontSize: '2rem' }} onClick={menuClick} type={menuToggle ? "menu-unfold" : "menu-fold"} />
                 </div>
                 <div className="right">
-                    <Dropdown overlay={menu} overlayStyle={{width: '20rem'}}>
+                    <Dropdown overlay={menu} overlayStyle={{ width: '20rem' }}>
                         <div className='ant-dropdown-link'>
-                            <Avatar icon="user" src={avatar} alt='avatar' style={{cursor: 'pointer'}} />
+                            <Avatar icon="user" src={avatar} alt='avatar' style={{ cursor: 'pointer' }} />
                         </div>
                     </Dropdown>
-                </div> 
+                </div>
             </Header>
         );
     }
 }
- 
+
 export default AppHeader;
