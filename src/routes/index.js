@@ -14,6 +14,9 @@ const StepView = loadable(() => import('../views/NavView/Step'))
 // 表单
 const FormView = loadable(() => import('../views/FormView'))
 
+// 展示
+const TableView = loadable(() => import('../views/showView/Table'))
+
 const routes = [
     { path: '/index', exact: true, name: 'Index', component: Index },
     { path: '/public/button', exact: false, name: '按钮', component: ButtonView },
@@ -22,6 +25,7 @@ const routes = [
     { path: '/nav/menu', exact: false, name: '下拉菜单', component: MenuView },
     { path: '/nav/steps', exact: false, name: '步骤条', component: StepView },
     { path: '/form', exact: false, name: '表单', component: FormView },
+    { path: '/show/table', exact: false, name: '表格', component: TableView }
 ]
 
 export default routes
