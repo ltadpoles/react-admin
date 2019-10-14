@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "animate.css": "^3.7.2",
     "antd": "^3.23.5",
     "babel-plugin-import": "^1.12.2",
     "customize-cra": "^0.8.0",

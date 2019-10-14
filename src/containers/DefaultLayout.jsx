@@ -59,14 +59,12 @@ class DefaultLayout extends Component {
                     ]
                 },
                 {
-                    title: '反馈',
-                    key: '/feedback',
-                    icon: 'file-text',
+                    title: '其它',
+                    key: '/others',
+                    icon: 'paper-clip',
                     subs: [
-                        { title: '抽屉', key: '/feedback/drawer', icon: '' },
-                        { title: '对话框', key: '/feedback/modal', icon: '' },
-                        { title: '进度条', key: '/feedback/progress', icon: '' },
-                        { title: '加载中', key: '/feedback/spin', icon: '' },
+                        { title: '进度条', key: '/others/progress', icon: '' },
+                        { title: '动画', key: '/others/animation', icon: '' }
                     ]
                 },
                 {

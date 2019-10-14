@@ -20,6 +20,10 @@ const CollapseView = loadable(() => import('../views/showView/Collapse'))
 const TreeView = loadable(() => import('../views/showView/Tree'))
 const TabsView = loadable(() => import('../views/showView/Tabs'))
 
+// 其它
+const ProgressView = loadable(() => import('../views/Others/Progress'))
+const AnimationView = loadable(() => import('../views/Others/Animation'))
+
 const routes = [
     { path: '/index', exact: true, name: 'Index', component: Index },
     { path: '/public/button', exact: false, name: '按钮', component: ButtonView },
@@ -31,7 +35,9 @@ const routes = [
     { path: '/show/table', exact: false, name: '表格', component: TableView },
     { path: '/show/collapse', exact: false, name: '折叠面板', component: CollapseView },
     { path: '/show/tree', exact: false, name: '树形控件', component: TreeView },
-    { path: '/show/tabs', exact: false, name: '标签页', component: TabsView }
+    { path: '/show/tabs', exact: false, name: '标签页', component: TabsView },
+    { path: '/others/progress', exact: false, name: '进度条', component: ProgressView },
+    { path: '/others/animation', exact: false, name: '动画', component: AnimationView }
 ]
 
 export default routes
