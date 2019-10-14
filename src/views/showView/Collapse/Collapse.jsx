@@ -29,7 +29,7 @@ class CollapseView extends Component {
     }
     render() {
         return (
-            <Layout>
+            <Layout className='animated fadeIn'>
                 <div>
                     <CustomBreadcrumb arr={['展示', '折叠面板']}></CustomBreadcrumb>
                 </div>

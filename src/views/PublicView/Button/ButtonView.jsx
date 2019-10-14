@@ -21,7 +21,7 @@ class ButtonView extends Component {
 	};
 	render() {
 		return (
-			<Layout className="button">
+			<Layout className="button animated fadeIn">
 				<div>
 					<CustomBreadcrumb arr={["通用", "按钮"]}></CustomBreadcrumb>
 				</div>

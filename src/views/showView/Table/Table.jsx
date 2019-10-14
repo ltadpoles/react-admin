@@ -116,7 +116,7 @@ class TableView extends Component {
             },
         ];
         return (
-            <Layout>
+            <Layout className='animated fadeIn'>
                 <div>
                     <CustomBreadcrumb arr={["通用", "按钮"]}></CustomBreadcrumb>
                 </div>

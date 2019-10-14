@@ -272,7 +272,7 @@ class TreeView extends Component {
                 return <TreeNode key={item.key} title={title} />;
             });
         return (
-            <Layout>
+            <Layout className='animated fadeIn'>
                 <div>
                     <CustomBreadcrumb arr={['展示', '树形控件']}></CustomBreadcrumb>
                 </div>

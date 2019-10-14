@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import { Layout, Divider, Row, Col, Button, Tabs } from 'antd'
 import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
 import '../../../style/view-style/animation.scss'
-import 'animate.css'
 
 const { TabPane } = Tabs
-const typeIn = ['bounceInDown', 'bounceInLeft', 'bounceInRight', 'bounceInUp', 'fadeIn', 'fadeInDown', 'fadeInLeft', 'fadeInLeftBig', 'fadeInRight', 'fadeInRightBig', 'fadeInUp', 'fadeInUpBig', 'flipInX', 'flipInY', 'zoomIn', 'rotateIn']
+const typeIn = ['bounceInDown', 'bounceInLeft', 'bounceInRight', 'bounceInUp', 'fadeIn', 'fadeInDown', 'fadeInLeft', 'fadeInLeftBig', 'fadeInRight', 'fadeInRightBig', 'fadeInUp', 'fadeInUpBig', 'flipInX', 'flipInY', 'fadeIn', 'rotateIn']
 const typeOut = ['bounceOut', 'bounceOutDown', 'bounceOutLeft', 'bounceOutRight', 'bounceOutUp', 'fadeInDown', 'fadeOut', 'fadeOutDown', 'fadeOutDownBig', 'fadeOutLeft', 'fadeOutLeftBig', 'fadeOutRight', 'fadeOutRightBig', 'fadeOutUp', 'fadeOutUpBig', 'rotateOut']
 const typeOther = ['bounceIn', 'bounce', 'flash', 'pulse', 'rubberBand', 'shake', 'headShake', 'swing', 'tada', 'wobble', 'jello']
 
@@ -24,7 +23,7 @@ class AnimationView extends Component {
     }
     render() {
         return (
-            <Layout>
+            <Layout className='animated fadeIn'>
                 <div>
                     <CustomBreadcrumb arr={['其他', '动画']}></CustomBreadcrumb>
                 </div>

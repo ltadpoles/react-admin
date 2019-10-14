@@ -28,7 +28,7 @@ class DrawerView extends Component {
 
     render() {
         return (
-            <Layout className='progress'>
+            <Layout className='progress animated fadeIn'>
                 <div>
                     <CustomBreadcrumb arr={['其他', '进度条']}></CustomBreadcrumb>
                 </div>

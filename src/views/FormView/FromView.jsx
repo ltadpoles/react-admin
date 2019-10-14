@@ -153,7 +153,7 @@ class FromView extends Component {
             <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
         ));
         return (
-            <Layout>
+            <Layout className='animated fadeIn'>
                 <div><CustomBreadcrumb arr={['表单']}></CustomBreadcrumb></div>
                 <div className="base-style">
                     <h3>何时使用</h3>

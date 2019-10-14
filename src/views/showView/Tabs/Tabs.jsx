@@ -69,7 +69,7 @@ class TabsViews extends Component {
 
     render() {
         return (
-            <Layout>
+            <Layout className='animated fadeIn'>
                 <div>
                     <CustomBreadcrumb arr={['展示', '标签页']}></CustomBreadcrumb>
                 </div>

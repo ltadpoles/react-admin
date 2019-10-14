@@ -43,7 +43,7 @@ class StepView extends Component {
     render() {
         const { current } = this.state;
         return (
-            <Layout>
+            <Layout className='animated fadeIn'>
                 <div>
                     <CustomBreadcrumb arr={["导航", "下拉菜单"]}></CustomBreadcrumb>
                 </div>
