@@ -92,9 +92,9 @@ class MenuView extends Component {
                                     </Menu.ItemGroup>
                                 </SubMenu>
                                 <Menu.Item key="alipay">
-                                    <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+                                    <Button type='link'>
                                         Navigation Four - Link
-                                </a>
+                                    </Button>
                                 </Menu.Item>
                             </Menu>
                         </div>

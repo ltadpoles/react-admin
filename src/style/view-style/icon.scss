@@ -15,7 +15,7 @@
             float: left;
             width: 10%;
             height: 60px;
-            padding: 5px 0 0;
+            line-height: 60px;
             overflow: hidden;
             color: #555;
             text-align: center;
@@ -24,6 +24,10 @@
             border-radius: 4px;
             font-size: 28px;
             cursor: pointer;
+        }
+
+        li:hover {
+            background-color: #ccc;
         }
     }
 }

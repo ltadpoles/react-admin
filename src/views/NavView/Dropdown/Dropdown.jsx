@@ -50,9 +50,9 @@ class DropdownView extends Component {
                     <Col span={8}>
                         <div className='base-style'>
                             <Dropdown overlay={menu}>
-                                <a className="ant-dropdown-link" href="https://github.com/ltadpoles">
+                                <Button type='link'>
                                     Hover me <Icon type="down" />
-                                </a>
+                                </Button>
                             </Dropdown>
                         </div>
                         <div className="base-style">
@@ -80,9 +80,9 @@ class DropdownView extends Component {
                     <Col span={8}>
                         <div className="base-style">
                             <Dropdown overlay={menu} trigger={['click']}>
-                                <a className="ant-dropdown-link" href='https://github.com/ltadpoles'>
+                                <Button type='link'>
                                     Click me <Icon type="down" />
-                                </a>
+                                </Button>
                             </Dropdown>
                         </div>
                     </Col>

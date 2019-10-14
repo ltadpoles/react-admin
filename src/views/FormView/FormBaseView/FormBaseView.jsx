@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CustomBreadcrumb from '../../components/CustomBreadcrumb'
+import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
 import {
     Layout,
     Row,
@@ -22,7 +22,7 @@ import {
     AutoComplete,
     message
 } from 'antd'
-import '../../style/view-style/form.scss'
+import '../../../style/view-style/form.scss'
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
@@ -154,7 +154,7 @@ class FromView extends Component {
         ));
         return (
             <Layout className='animated fadeIn'>
-                <div><CustomBreadcrumb arr={['表单']}></CustomBreadcrumb></div>
+                <div><CustomBreadcrumb arr={['表单', '基础表单']}></CustomBreadcrumb></div>
                 <div className="base-style">
                     <h3>何时使用</h3>
                     <Divider></Divider>

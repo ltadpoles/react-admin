@@ -45,7 +45,11 @@ class DefaultLayout extends Component {
                 {
                     title: '表单',
                     key: '/form',
-                    icon: 'form'
+                    icon: 'form',
+                    subs: [
+                        { title: '基础表单', key: '/form/base-form', icon: '' },
+                        { title: '步骤表单', key: '/form/step-form', icon: '' }
+                    ]
                 },
                 {
                     title: '展示',
