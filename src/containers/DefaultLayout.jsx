@@ -54,9 +54,6 @@ class DefaultLayout extends Component {
                     subs: [
                         { title: '表格', key: '/show/table', icon: '' },
                         { title: '折叠面板', key: '/show/collapse', icon: '' },
-                        { title: '走马灯', key: '/show/carousel', icon: '' },
-                        { title: '日历', key: '/show/calendar', icon: '' },
-                        { title: '列表', key: '/show/list', icon: '' },
                         { title: '树形控件', key: '/show/tree', icon: '' },
                         { title: '标签页', key: '/show/tabs', icon: '' },
                     ]
