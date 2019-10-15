@@ -6,6 +6,7 @@
     "animate.css": "^3.7.2",
     "antd": "^3.23.5",
     "babel-plugin-import": "^1.12.2",
+    "braft-editor": "^2.3.8",
     "customize-cra": "^0.8.0",
     "node-sass": "^4.12.0",
     "nprogress": "^0.2.0",

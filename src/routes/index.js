@@ -24,6 +24,7 @@ const TabsView = loadable(() => import('../views/ShowView/Tabs'))
 // 其它
 const ProgressView = loadable(() => import('../views/Others/Progress'))
 const AnimationView = loadable(() => import('../views/Others/Animation'))
+const EditorView = loadable(() => import('../views/Others/Editor'))
 
 const Three = loadable(() => import('../views/TestView'))
 const About = loadable(() => import('../views/About'))
@@ -43,6 +44,7 @@ const routes = [
     { path: '/show/tabs', exact: false, name: '标签页', component: TabsView },
     { path: '/others/progress', exact: false, name: '进度条', component: ProgressView },
     { path: '/others/animation', exact: false, name: '动画', component: AnimationView },
+    { path: '/others/editor', exact: false, name: '富文本', component: EditorView },
     { path: '/one/two/three', exact: false, name: '三级', component: Three },
     { path: '/about', exact: false, name: '关于', component: About }
 ]

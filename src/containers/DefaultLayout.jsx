@@ -69,6 +69,7 @@ class DefaultLayout extends Component {
                     subs: [
                         { title: '进度条', key: '/others/progress', icon: '' },
                         { title: '动画', key: '/others/animation', icon: '' },
+                        { title: '富文本', key: '/others/editor', icon: '' },
                         { title: '404', key: '/404', icon: '' },
                         { title: '500', key: '/500', icon: '' }
                     ]
