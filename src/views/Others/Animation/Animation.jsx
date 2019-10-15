@@ -9,11 +9,9 @@ const typeOut = ['bounceOut', 'bounceOutDown', 'bounceOutLeft', 'bounceOutRight'
 const typeOther = ['bounceIn', 'bounce', 'flash', 'pulse', 'rubberBand', 'shake', 'headShake', 'swing', 'tada', 'wobble', 'jello']
 
 class AnimationView extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            fontType: 'animated bounceInRight'
-        }
+
+    state = {
+        fontType: 'animated bounceInRight'
     }
     changeType = v => {
         console.log(v)

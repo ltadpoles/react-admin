@@ -53,6 +53,7 @@ class MenuView extends Component {
     };
 
     render() {
+        const { current, openKeys, collapsed, mode, theme } = this.state
         return (
             <Layout className='animated fadeIn'>
                 <div><CustomBreadcrumb arr={['导航', '下拉菜单']}></CustomBreadcrumb></div>
@@ -65,7 +66,7 @@ class MenuView extends Component {
                     <Col>
                         <div className="base-style">
                             <Divider orientation="left">顶部导航</Divider>
-                            <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
+                            <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
                                 <Menu.Item key="mail">
                                     <Icon type="mail" />
                                     Navigation One
@@ -164,7 +165,7 @@ class MenuView extends Component {
                             <Divider>只展开当前父级菜单</Divider>
                             <Menu
                                 mode="inline"
-                                openKeys={this.state.openKeys}
+                                openKeys={openKeys}
                                 onOpenChange={this.onOpenChange}
                                 style={{ width: 256 }}
                             >
@@ -220,14 +221,14 @@ class MenuView extends Component {
                             <Divider>可收缩菜单</Divider>
                             <div style={{ width: 256 }}>
                                 <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
-                                    <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} />
+                                    <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />
                                 </Button>
                                 <Menu
                                     defaultSelectedKeys={['1']}
                                     defaultOpenKeys={['sub1']}
                                     mode="inline"
                                     theme="dark"
-                                    inlineCollapsed={this.state.collapsed}
+                                    inlineCollapsed={collapsed}
                                 >
                                     <Menu.Item key="1">
                                         <Icon type="pie-chart" />
@@ -279,16 +280,16 @@ class MenuView extends Component {
                             <Divider>可切换动态菜单</Divider>
                             <div>
                                 <Switch onChange={this.changeMode} /> Change Mode
-        <span className="ant-divider" style={{ margin: '0 1em' }} />
+                                    <span className="ant-divider" style={{ margin: '0 1em' }} />
                                 <Switch onChange={this.changeTheme} /> Change Theme
-        <br />
+                                 <br />
                                 <br />
                                 <Menu
                                     style={{ width: 256 }}
                                     defaultSelectedKeys={['1']}
                                     defaultOpenKeys={['sub1']}
-                                    mode={this.state.mode}
-                                    theme={this.state.theme}
+                                    mode={mode}
+                                    theme={theme}
                                 >
                                     <Menu.Item key="1">
                                         <Icon type="mail" />

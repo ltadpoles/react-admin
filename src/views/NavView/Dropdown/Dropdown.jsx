@@ -6,7 +6,7 @@ import '../../../style/view-style/dropdown.scss'
 const { SubMenu } = Menu
 
 const onClick = ({ key }) => {
-    message.info(`Click on item ${key}`);
+    message.info(`Click on item ${key}`)
 };
 
 const menu = (
@@ -33,10 +33,7 @@ function handleButtonClick(e) {
 }
 
 class DropdownView extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
+
     render() {
         return (
             <Layout className='animated fadeIn'>

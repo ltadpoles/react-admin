@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import CustomBreadcrumb from "../../../components/CustomBreadcrumb";
-import "../../../style/view-style/button.scss";
+import React, { Component } from "react"
+import CustomBreadcrumb from "../../../components/CustomBreadcrumb"
+import "../../../style/view-style/button.scss"
 
-import { Layout, Row, Col, Button, Divider, Icon } from "antd";
+import { Layout, Row, Col, Button, Divider, Icon } from "antd"
 
-const ButtonGroup = Button.Group;
+const ButtonGroup = Button.Group
 
 class ButtonView extends Component {
 	state = {
@@ -13,11 +13,11 @@ class ButtonView extends Component {
 	};
 
 	enterLoading = () => {
-		this.setState({ loading: true });
+		this.setState({ loading: true })
 	};
 
 	enterIconLoading = () => {
-		this.setState({ iconLoading: true });
+		this.setState({ iconLoading: true })
 	};
 	render() {
 		return (

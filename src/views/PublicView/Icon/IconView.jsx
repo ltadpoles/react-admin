@@ -59,10 +59,7 @@ const HeartIcon = props => <Icon component={HeartSvg} {...props} />;
 const PandaIcon = props => <Icon component={PandaSvg} {...props} />;
 
 class IconView extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
+   
     render() {
         return (
             <Layout className='icon animated fadeIn'>
@@ -197,4 +194,4 @@ class IconView extends Component {
     }
 }
 
-export default IconView;
+export default IconView

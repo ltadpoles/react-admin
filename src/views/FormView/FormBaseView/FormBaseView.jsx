@@ -25,8 +25,8 @@ import {
 } from 'antd'
 import '../../../style/view-style/form.scss'
 
-const { Option } = Select;
-const AutoCompleteOption = AutoComplete.Option;
+const { Option } = Select
+const AutoCompleteOption = AutoComplete.Option
 
 const residences = [
     {
@@ -67,11 +67,11 @@ class FromView extends Component {
     state = {
         confirmDirty: false,
         autoCompleteResult: [],
-        visible: true,
+        visible: true
     };
 
     handleClose = () => {
-        this.setState({ visible: false });
+        this.setState({ visible: false })
     };
 
     handleSubmit = e => {
@@ -83,7 +83,7 @@ class FromView extends Component {
                 'date-picker': fieldsValue['date-picker'] ? fieldsValue['date-picker'].format('YYYY-MM-DD') : '',
             };
             console.log('这就是你填好的数据' + values)
-            message.info('你很棒哦,这么快就填好了!');
+            message.info('你很棒哦,这么快就填好了!')
         });
     };
 
@@ -121,17 +121,16 @@ class FromView extends Component {
 
 
     render() {
-        const { getFieldDecorator, getFieldValue } = this.props.form;
-        const { autoCompleteResult } = this.state;
+        const { getFieldDecorator, getFieldValue } = this.props.form
 
         const formItemLayout = {
             labelCol: {
                 xs: { span: 16 },
-                sm: { span: 6 },
+                sm: { span: 6 }
             },
             wrapperCol: {
                 xs: { span: 16 },
-                sm: { span: 10 },
+                sm: { span: 10 }
             },
         };
         const tailFormItemLayout = {
@@ -147,17 +146,18 @@ class FromView extends Component {
             },
         };
         const prefixSelector = getFieldDecorator('prefix', {
-            initialValue: '86',
+            initialValue: '86'
         })(
             <Select style={{ width: 70 }}>
                 <Option value="86">+86</Option>
                 <Option value="87">+87</Option>
-            </Select>,
+            </Select>
         );
 
-        const websiteOptions = autoCompleteResult.map(website => (
+        const websiteOptions = this.state.autoCompleteResult.map(website => (
             <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
-        ));
+        ))
+
         return (
             <Layout className='animated fadeIn'>
                 <div><CustomBreadcrumb arr={['表单', '基础表单']}></CustomBreadcrumb></div>

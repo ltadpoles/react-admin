@@ -250,7 +250,6 @@ class Table4 extends Component {
 
 
 class TableView extends Component {
-    state = {};
     render() {
         return (
             <Layout className='animated fadeIn'>

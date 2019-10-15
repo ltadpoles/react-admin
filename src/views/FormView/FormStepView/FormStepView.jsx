@@ -24,7 +24,7 @@ const tailFormItemLayout = {
 class Step1 extends Component {
     handleSelectChange = value => {
         this.props.form.setFieldsValue({
-            'Email': `${value === 'kenan' ? 'kenan@google.com' : 'maoli@google.com'}`,
+            'Email': `${value === 'kenan' ? 'kenan@google.com' : 'maoli@google.com'}`
         });
     }
 
@@ -191,7 +191,7 @@ class Step3From extends Component {
                 subTitle="耐心地等待好消息吧!"
                 extra={[
                     <Button type="primary" key="console" onClick={this.oneMore}>再发一封</Button>,
-                    <Button key="buy">查看记录</Button>,
+                    <Button key="buy">查看记录</Button>
                 ]}
             />
         )
@@ -207,10 +207,6 @@ class FormStepView extends Component {
         formData: null
     }
 
-    componentDidUpdate() {
-        console.log(this.state.formData)
-    }
-
     getFormData = val => {
         this.setState({
             formData: val
@@ -224,6 +220,7 @@ class FormStepView extends Component {
     }
 
     render() {
+        const { current, formData } = this.state
         return (
             <Layout className='animated fadeIn'>
                 <div>
@@ -239,29 +236,27 @@ class FormStepView extends Component {
                         <div className="base-style">
                             <Divider orientation='left'>分步表单</Divider>
                             <div>
-                                <Steps style={{ margin: '3rem auto', maxWidth: '65rem' }} current={this.state.current}>
+                                <Steps style={{ margin: '3rem auto', maxWidth: '65rem' }} current={current}>
                                     <Step title='填写接收信息'></Step>
                                     <Step title='确认接收信息'></Step>
                                     <Step title='完成'></Step>
                                 </Steps>
 
                                 {
-                                    this.state.current === 0 && (
+                                    current === 0 && (
                                         <Step1From getFormData={this.getFormData} setCurrent={this.setCurrent} />
                                     )
                                 }
                                 {
-                                    this.state.current === 1 && (
-                                        <Step2From formData={this.state.formData} setCurrent={this.setCurrent} />
+                                    current === 1 && (
+                                        <Step2From formData={formData} setCurrent={this.setCurrent} />
                                     )
                                 }
                                 {
-                                    this.state.current === 2 && (
+                                    current === 2 && (
                                         <Step3From setCurrent={this.setCurrent} />
                                     )
                                 }
-
-
                             </div>
                         </div>
                     </Col>

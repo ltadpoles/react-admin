@@ -68,6 +68,7 @@ class TabsViews extends Component {
     };
 
     render() {
+        const { size, tabPosition, activeKey, panes } = this.state
         return (
             <Layout className='animated fadeIn'>
                 <div>
@@ -101,12 +102,12 @@ class TabsViews extends Component {
                         <div className="base-style">
                             <Divider orientation='left'>控制大小</Divider>
                             <div>
-                                <Radio.Group value={this.state.size} onChange={this.onChange} style={{ marginBottom: 16 }}>
+                                <Radio.Group value={size} onChange={this.onChange} style={{ marginBottom: 16 }}>
                                     <Radio.Button value="small">Small</Radio.Button>
                                     <Radio.Button value="default">Default</Radio.Button>
                                     <Radio.Button value="large">Large</Radio.Button>
                                 </Radio.Group>
-                                <Tabs defaultActiveKey="1" size={this.state.size}>
+                                <Tabs defaultActiveKey="1" size={size}>
                                     <TabPane tab="Tab 1" key="1">
                                         Content of tab 1
                                     </TabPane>
@@ -127,7 +128,7 @@ class TabsViews extends Component {
                                 <div style={{ marginBottom: 16 }}>
                                     Tab position：
                                     <Select
-                                        value={this.state.tabPosition}
+                                        value={tabPosition}
                                         onChange={this.changeTabPosition}
                                         dropdownMatchSelectWidth={false}
                                     >
@@ -137,7 +138,7 @@ class TabsViews extends Component {
                                         <Option value="right">right</Option>
                                     </Select>
                                 </div>
-                                <Tabs tabPosition={this.state.tabPosition}>
+                                <Tabs tabPosition={tabPosition}>
                                     <TabPane tab="Tab 1" key="1">
                                         Content of Tab 1
                                     </TabPane>
@@ -164,11 +165,11 @@ class TabsViews extends Component {
                                 <Tabs
                                     hideAdd
                                     onChange={this.onTabsChange}
-                                    activeKey={this.state.activeKey}
+                                    activeKey={activeKey}
                                     type="editable-card"
                                     onEdit={this.onEdit}
                                 >
-                                    {this.state.panes.map(pane => (
+                                    {panes.map(pane => (
                                         <TabPane tab={pane.title} key={pane.key}>
                                             {pane.content}
                                         </TabPane>

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
 import { Layout, Divider, Row, Col, Collapse, Icon } from 'antd'
 
-const { Panel } = Collapse;
+const { Panel } = Collapse
 
 const text = `
   A dog is a type of domesticated animal.
@@ -23,10 +23,7 @@ const customPanelStyle = {
 };
 
 class CollapseView extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
+  
     render() {
         return (
             <Layout className='animated fadeIn'>
