@@ -9,3 +9,13 @@
 #components-form-demo-normal-login .login-form-button {
     width: 100%;
 }
+
+.show-data  {
+    .ant-form-item {
+        margin: 0
+    }
+    .ant-btn {
+        margin-right: 8px;
+        margin-bottom: 12px;
+    }
+}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CustomBreadcrumb from "../../../components/CustomBreadcrumb";
-import { Layout, Divider, Row, Col, Tag, Table, Button } from "antd";
+import { Layout, Divider, Row, Col, Tag, Table, Button } from "antd"
 
 // 数据源
 

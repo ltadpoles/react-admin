@@ -4,7 +4,7 @@ import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
 import '../../../style/view-style/animation.scss'
 
 const { TabPane } = Tabs
-const typeIn = ['bounceInDown', 'bounceInLeft', 'bounceInRight', 'bounceInUp', 'fadeIn', 'fadeInDown', 'fadeInLeft', 'fadeInLeftBig', 'fadeInRight', 'fadeInRightBig', 'fadeInUp', 'fadeInUpBig', 'flipInX', 'flipInY', 'fadeIn', 'rotateIn']
+const typeIn = ['bounceInDown', 'bounceInLeft', 'bounceInRight', 'bounceInUp', 'fadeIn', 'fadeInDown', 'fadeInLeft', 'fadeInLeftBig', 'fadeInRight', 'fadeInRightBig', 'fadeInUp', 'fadeInUpBig', 'flipInX', 'flipInY', 'rotateIn']
 const typeOut = ['bounceOut', 'bounceOutDown', 'bounceOutLeft', 'bounceOutRight', 'bounceOutUp', 'fadeInDown', 'fadeOut', 'fadeOutDown', 'fadeOutDownBig', 'fadeOutLeft', 'fadeOutLeftBig', 'fadeOutRight', 'fadeOutRightBig', 'fadeOutUp', 'fadeOutUpBig', 'rotateOut']
 const typeOther = ['bounceIn', 'bounce', 'flash', 'pulse', 'rubberBand', 'shake', 'headShake', 'swing', 'tada', 'wobble', 'jello']
 
@@ -12,7 +12,7 @@ class AnimationView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            fontType: 'animated bounce'
+            fontType: 'animated bounceInRight'
         }
     }
     changeType = v => {
@@ -32,40 +32,36 @@ class AnimationView extends Component {
                     <Divider />
                     <p>当页面需要动态效果时。</p>
                 </div>
-                <Row gutter={8}>
+                <Row gutter={8} style={{marginTop: '3rem'}}>
                     <Col span={10}>
-                        <div className="base-style">
-                            <Tabs type="card">
-                                <TabPane tab="进场" key="1">
-                                    {
-                                        typeIn.map((v, i) => (
-                                            <Button type="primary" size='small' key={i} onClick={this.changeType.bind(this, v)}>{v}</Button>
-                                        ))
-                                    }
-                                </TabPane>
-                                <TabPane tab="出场" key="2">
-                                    {
-                                        typeOut.map((v, i) => (
-                                            <Button type="primary" size='small' key={i} onClick={this.changeType.bind(this, v)}>{v}</Button>
-                                        ))
-                                    }
-                                </TabPane>
-                                <TabPane tab="其它" key="3">
-                                    {
-                                        typeOther.map((v, i) => (
-                                            <Button type="primary" size='small' key={i} onClick={this.changeType.bind(this, v)}>{v}</Button>
-                                        ))
-                                    }
-                                </TabPane>
-                            </Tabs>
-                        </div>
+                        <Tabs type="card" tabPosition='left'>
+                            <TabPane tab="进场" key="1">
+                                {
+                                    typeIn.map((v, i) => (
+                                        <Button type="primary" size='small' key={i} onClick={this.changeType.bind(this, v)} ghost>{v}</Button>
+                                    ))
+                                }
+                            </TabPane>
+                            <TabPane tab="退场" key="2">
+                                {
+                                    typeOut.map((v, i) => (
+                                        <Button type="primary" size='small' key={i} onClick={this.changeType.bind(this, v)} ghost>{v}</Button>
+                                    ))
+                                }
+                            </TabPane>
+                            <TabPane tab="其它" key="3">
+                                {
+                                    typeOther.map((v, i) => (
+                                        <Button type="primary" size='small' key={i} onClick={this.changeType.bind(this, v)} ghost>{v}</Button>
+                                    ))
+                                }
+                            </TabPane>
+                        </Tabs>
                     </Col>
                     <Col span={14}>
-                        <div className="base-style">
-                            <div style={{ fontSize: '4.8rem', textAlign: 'center', padding: '3rem' }} className={this.state.fontType}>
-                                Animate.css
+                        <div style={{ fontSize: '4.8rem', textAlign: 'center', padding: '2rem' }} className={this.state.fontType}>
+                            Animate.css
                             </div>
-                        </div>
                     </Col>
                 </Row>
             </Layout>

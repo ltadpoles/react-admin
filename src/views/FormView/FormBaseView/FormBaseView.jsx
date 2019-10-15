@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
 import {
+    Alert,
     Layout,
     Row,
     Col,
@@ -66,6 +67,11 @@ class FromView extends Component {
     state = {
         confirmDirty: false,
         autoCompleteResult: [],
+        visible: true,
+    };
+
+    handleClose = () => {
+        this.setState({ visible: false });
     };
 
     handleSubmit = e => {
@@ -165,6 +171,17 @@ class FromView extends Component {
                 <Row>
                     <Col>
                         <div className="base-style">
+                            <div>
+                                {this.state.visible ? (
+                                    <Alert
+                                        message="你最好认真的填写表单!"
+                                        type="warning"
+                                        closable
+                                        banner
+                                        afterClose={this.handleClose}
+                                    />
+                                ) : null}
+                            </div>
                             <Divider orientation='left'>基础功能</Divider>
                             <Form {...formItemLayout} onSubmit={this.handleSubmit}>
                                 <Form.Item label={
