@@ -9,8 +9,8 @@ import './style/base.scss'
 const DefaultLayout = loadable(() => import('./containers'))
 
 // 基础页面
-const View404 = loadable(() => import('./views/ErrorView/404'))
-const View500 = loadable(() => import('./views/ErrorView/500'))
+const View404 = loadable(() => import('./views/Others/404'))
+const View500 = loadable(() => import('./views/Others/500'))
 const Login = loadable(() => import('./views/Login'))
 
 const App = (props) => (

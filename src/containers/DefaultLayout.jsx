@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Layout } from 'antd'
+import { Layout, BackTop } from 'antd'
 import routes from '../routes'
 import { menuToggleAction } from '../store/actionCreators'
 import '../style/layout.scss'
@@ -68,7 +68,9 @@ class DefaultLayout extends Component {
                     icon: 'paper-clip',
                     subs: [
                         { title: '进度条', key: '/others/progress', icon: '' },
-                        { title: '动画', key: '/others/animation', icon: '' }
+                        { title: '动画', key: '/others/animation', icon: '' },
+                        { title: '404', key: '/404', icon: '' },
+                        { title: '500', key: '/500', icon: '' }
                     ]
                 },
                 {
@@ -98,6 +100,7 @@ class DefaultLayout extends Component {
         let { menuClick, menuToggle } = this.props
         return (
             <Layout className='app'>
+                <BackTop />
                 <AppAside menuToggle={menuToggle} menu={this.state.menu} />
                 <Layout style={{ marginLeft: menuToggle ? '80px' : '200px', minHeight: '100vh' }}>
                     <AppHeader menuToggle={menuToggle} menuClick={menuClick} avatar={this.state.avatar} />

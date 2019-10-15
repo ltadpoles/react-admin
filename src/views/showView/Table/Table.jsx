@@ -1,120 +1,120 @@
 import React, { Component } from "react";
-import CustomBreadcrumb from "../../../components/CustomBreadcrumb";
+import CustomBreadcrumb from "../../../components/CustomBreadcrumb"
 import { Layout, Divider, Row, Col, Tag, Table, Button } from "antd"
 
-// 数据源
+const { Column, ColumnGroup } = Table
+
+const columns = [
+    {
+        title: 'Name',
+        dataIndex: 'name',
+        key: 'name',
+        render: text => <a>{text}</a>,
+    },
+    {
+        title: 'Age',
+        dataIndex: 'age',
+        key: 'age',
+    },
+    {
+        title: 'Address',
+        dataIndex: 'address',
+        key: 'address',
+    },
+    {
+        title: 'Tags',
+        key: 'tags',
+        dataIndex: 'tags',
+        render: tags => (
+            <span>
+                {tags.map(tag => {
+                    let color = tag.length > 5 ? 'geekblue' : 'green';
+                    if (tag === 'loser') {
+                        color = 'volcano';
+                    }
+                    return (
+                        <Tag color={color} key={tag}>
+                            {tag.toUpperCase()}
+                        </Tag>
+                    );
+                })}
+            </span>
+        ),
+    },
+    {
+        title: 'Action',
+        key: 'action',
+        render: (text, record) => (
+            <span>
+                <a>Invite {record.name}</a>
+                <Divider type="vertical" />
+                <a>Delete</a>
+            </span>
+        ),
+    },
+];
 
 const data = [];
 for (let i = 0; i < 46; i++) {
     data.push({
         key: i,
-        name: `John ${i}`,
-        // lastName: `Brown ${i}`,
-        age: i + 1,
+        name: `Edward King ${i}`,
+        age: 32,
         address: `London, Park Lane no. ${i}`,
-        tags: [`nice ${i}`]
+        tags: ['nice', 'developer']
     });
 }
 
+class Table1 extends Component {
+    render() {
+        return (
+            <Table columns={columns} dataSource={data} />
+        )
+    }
+}
+
+class Table2 extends Component {
+    render() {
+        return (
+            <Table dataSource={data}>
+                <Column title="Name" dataIndex="name" key="lastName" />
+                <Column title="Age" dataIndex="age" key="age" />
+                <Column title="Address" dataIndex="address" key="address" />
+                <Column
+                    title="Tags"
+                    dataIndex="tags"
+                    key="tags"
+                    render={tags => (
+                        <span>
+                            {tags.map(tag => (
+                                <Tag color="blue" key={tag}>
+                                    {tag}
+                                </Tag>
+                            ))}
+                        </span>
+                    )}
+                />
+                <Column
+                    title="Action"
+                    key="action"
+                    render={(text, record) => (
+                        <span>
+                            <a>Invite {record.lastName}</a>
+                            <Divider type="vertical" />
+                            <a>Delete</a>
+                        </span>
+                    )}
+                />
+            </Table>
+        )
+    }
+}
+
+
 
 class TableView extends Component {
-    state = {
-        filteredInfo: null,
-        sortedInfo: null,
-    };
-
-    handleChange = (pagination, filters, sorter) => {
-        console.log('Various parameters', pagination, filters, sorter);
-        this.setState({
-            filteredInfo: filters,
-            sortedInfo: sorter,
-        });
-    };
-
-    clearFilters = () => {
-        this.setState({ filteredInfo: null });
-    };
-
-    clearAll = () => {
-        this.setState({
-            filteredInfo: null,
-            sortedInfo: null,
-        });
-    };
-
-    setAgeSort = () => {
-        this.setState({
-            sortedInfo: {
-                order: 'descend',
-                columnKey: 'age',
-            },
-        });
-    };
-
+    state = {};
     render() {
-        let { sortedInfo, filteredInfo } = this.state;
-        sortedInfo = sortedInfo || {};
-        filteredInfo = filteredInfo || {};
-        const columns = [
-            {
-                title: 'Name',
-                dataIndex: 'name',
-                key: 'name',
-                filters: [{ text: 'Joe', value: 'Joe' }, { text: 'Jim', value: 'Jim' }],
-                filteredValue: filteredInfo.name || null,
-                onFilter: (value, record) => record.name.includes(value),
-                sorter: (a, b) => a.name.length - b.name.length,
-                sortOrder: sortedInfo.columnKey === 'name' && sortedInfo.order,
-            },
-            {
-                title: 'Age',
-                dataIndex: 'age',
-                key: 'age',
-                sorter: (a, b) => a.age - b.age,
-                sortOrder: sortedInfo.columnKey === 'age' && sortedInfo.order,
-            },
-            {
-                title: 'Address',
-                dataIndex: 'address',
-                key: 'address',
-                filters: [{ text: 'London', value: 'London' }, { text: 'New York', value: 'New York' }],
-                filteredValue: filteredInfo.address || null,
-                onFilter: (value, record) => record.address.includes(value),
-                sorter: (a, b) => a.address.length - b.address.length,
-                sortOrder: sortedInfo.columnKey === 'address' && sortedInfo.order,
-            },
-            {
-                title: 'Tags',
-                key: 'tags',
-                dataIndex: 'tags',
-                render: tags => (
-                    <span>
-                        {tags.map(tag => {
-                            let color = tag.length > 5 ? 'geekblue' : 'green';
-                            if (tag === 'loser') {
-                                color = 'volcano';
-                            }
-                            return (
-                                <Tag color={color} key={tag}>
-                                    {tag.toUpperCase()}
-                                </Tag>
-                            );
-                        })}
-                    </span>
-                ),
-            },
-            {
-                title: 'Action',
-                key: 'action',
-                render: (text, record) => (
-                    <span>
-                        <Button type='link'>Invite {record.name}</Button>
-                        <Divider type="vertical" />
-                        <Button type='link'>Delete</Button>
-                    </span>
-                ),
-            },
-        ];
         return (
             <Layout className='animated fadeIn'>
                 <div>
@@ -129,14 +129,14 @@ class TableView extends Component {
                 <Row>
                     <Col>
                         <div className="base-style">
-                            <div>
-                                <div className="table-operations">
-                                    <Button onClick={this.setAgeSort}>Sort age</Button>
-                                    <Button onClick={this.clearFilters}>Clear filters</Button>
-                                    <Button onClick={this.clearAll}>Clear filters and sorters</Button>
-                                </div>
-                                <Table columns={columns} dataSource={data} onChange={this.handleChange} />
-                            </div>
+                            <Divider orientation='left'>基础表单</Divider>
+                            <Table1 />
+                        </div>
+                    </Col>
+                    <Col>
+                        <div className="base-style">
+                            <Divider orientation='left'>JSX表单</Divider>
+                            <Table2 />
                         </div>
                     </Col>
                 </Row>
