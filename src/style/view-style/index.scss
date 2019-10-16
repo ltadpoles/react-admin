@@ -1,0 +1,36 @@
+.index {
+    padding: 1.6rem 0;
+    .index-header {
+        color: #fff;
+        span {
+            font-weight: 600;
+            font-size: 2rem;
+        }
+        .base-style {
+            display: flex;
+        }
+
+        .wechat {
+            background-color: #70ca63;
+        }
+
+        .qq {
+            background-color: #967adc;
+        }
+
+        .dingding {
+            background-color: #5d5dfd;
+        }
+
+        .weibo {
+            background-color: #fb452d;
+        }
+
+        .icon-style {
+            color: #fbfbf4b3;
+            font-size: 6rem;
+            padding-right: 1rem;
+        }
+    }
+
+}
