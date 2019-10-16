@@ -101,7 +101,9 @@ class Bar extends Component {
                 }
             ]
         })
-        window.onresize = myChart.resize;
+        window.addEventListener('resize', function() {
+            myChart.resize()
+        })
     }
     render() {
         return (

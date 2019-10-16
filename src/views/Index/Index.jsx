@@ -3,10 +3,10 @@ import { Layout, Row, Col, Icon } from 'antd'
 import '../../style/view-style/index.scss'
 
 import BarEcharts from './bar.jsx'
-import CircleEcharts from './circle.jsx'
-
-
-
+import PieEcharts from './pie.jsx'
+import LineEcharts from './line.jsx'
+import ScatterEcharts from './scatter.jsx'
+import PictorialBarEcharts from './pictorialBar.jsx'
 
 class Index extends Component {
     constructor(props) {
@@ -53,7 +53,7 @@ class Index extends Component {
                         </div>
                     </Col>
                 </Row>
-                <Row> 
+                <Row>
                     <Col>
                         <div className="base-style">
                             <BarEcharts />
@@ -61,9 +61,24 @@ class Index extends Component {
                     </Col>
                 </Row>
                 <Row gutter={8}>
-                    <Col span={8}>
+                    <Col span={12}>
                         <div className="base-style">
-                            {/* <CircleEcharts /> */}
+                            <LineEcharts />
+                        </div>
+                    </Col>
+                    <Col span={12}>
+                        <div className="base-style">
+                            <PieEcharts />
+                        </div>
+                    </Col>
+                    <Col span={12}>
+                        <div className="base-style">
+                            <ScatterEcharts />
+                        </div>
+                    </Col>
+                    <Col span={12}>
+                        <div className="base-style">
+                            <PictorialBarEcharts />
                         </div>
                     </Col>
                 </Row>
