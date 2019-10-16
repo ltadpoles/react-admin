@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Menu, Dropdown, Icon, Layout, Avatar } from 'antd'
+import { Menu, Dropdown, Icon, Layout, Avatar, Badge } from 'antd'
 
 const { Header } = Layout
 
@@ -17,13 +17,19 @@ const menu = (
 
 class AppHeader extends Component {
     render() {
-        let { menuClick, avatar, menuToggle } = this.props
+        let { menuClick, avatar, menuToggle, show } = this.props
         return (
             <Header className='header'>
                 <div className="left">
                     <Icon style={{ fontSize: '2rem' }} onClick={menuClick} type={menuToggle ? "menu-unfold" : "menu-fold"} />
                 </div>
                 <div className="right">
+                    <a rel="noopener noreferrer" href="https://github.com/ltadpoles/react-admin" target='_blank' style={{ color: '#000' }}><Icon type="github" /></a>
+                    <div style={{ padding: '0 1.5rem' }}>
+                        <Badge dot={show} offset={[-2, 0]}>
+                            <a href="https://github.com/ltadpoles/react-admin" style={{ color: '#000' }}><Icon type="bell" /></a>
+                        </Badge>
+                    </div>
                     <Dropdown overlay={menu} overlayStyle={{ width: '20rem' }}>
                         <div className='ant-dropdown-link'>
                             <Avatar icon="user" src={avatar} alt='avatar' style={{ cursor: 'pointer' }} />

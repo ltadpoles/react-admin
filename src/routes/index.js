@@ -25,6 +25,7 @@ const TabsView = loadable(() => import('../views/ShowView/Tabs'))
 const ProgressView = loadable(() => import('../views/Others/Progress'))
 const AnimationView = loadable(() => import('../views/Others/Animation'))
 const EditorView = loadable(() => import('../views/Others/Editor'))
+const UploadView = loadable(() => import('../views/Others/Upload'))
 
 const Three = loadable(() => import('../views/TestView'))
 const About = loadable(() => import('../views/About'))
@@ -45,6 +46,7 @@ const routes = [
     { path: '/others/progress', exact: false, name: '进度条', component: ProgressView },
     { path: '/others/animation', exact: false, name: '动画', component: AnimationView },
     { path: '/others/editor', exact: false, name: '富文本', component: EditorView },
+    { path: '/others/upload', exact: false, name: '上传', component: UploadView },
     { path: '/one/two/three', exact: false, name: '三级', component: Three },
     { path: '/about', exact: false, name: '关于', component: About }
 ]

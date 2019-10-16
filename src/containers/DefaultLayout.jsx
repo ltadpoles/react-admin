@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Layout, BackTop } from 'antd'
 import routes from '../routes'
 import { menuToggleAction } from '../store/actionCreators'
+import avatar from '../assets/images/user.jpg'
 import '../style/layout.scss'
 
 import AppHeader from './AppHeader.jsx'
@@ -16,7 +17,8 @@ class DefaultLayout extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            avatar: '',
+            avatar,
+            show: true,
             menu: [
                 {
                     key: '/index',
@@ -69,6 +71,7 @@ class DefaultLayout extends Component {
                     subs: [
                         { title: '进度条', key: '/others/progress', icon: '' },
                         { title: '动画', key: '/others/animation', icon: '' },
+                        { title: '上传', key: '/others/upload', icon: '' },
                         { title: '富文本', key: '/others/editor', icon: '' },
                         { title: '404', key: '/404', icon: '' },
                         { title: '500', key: '/500', icon: '' }
@@ -104,7 +107,7 @@ class DefaultLayout extends Component {
                 <BackTop />
                 <AppAside menuToggle={menuToggle} menu={this.state.menu} />
                 <Layout style={{ marginLeft: menuToggle ? '80px' : '200px', minHeight: '100vh' }}>
-                    <AppHeader menuToggle={menuToggle} menuClick={menuClick} avatar={this.state.avatar} />
+                    <AppHeader menuToggle={menuToggle} menuClick={menuClick} avatar={this.state.avatar} show={this.state.show} />
                     <Content className='content'>
                         <Switch>
                             {
