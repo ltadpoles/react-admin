@@ -8,15 +8,34 @@ import '../../../style/view-style/editor.scss'
 class EditorView extends Component {
 
     state = {
-        editorState: null
+        editorState: BraftEditor.createEditorState('<p>你好 <b>世界!</b></p>'),
+        outputHTML: '<p>你好 <b>世界!</b></p>'
+    }
+
+    componentDidMount() {
+        this.isLivinig = true
+        setTimeout(this.setEditorContentAsync, 3000)
+    }
+
+    componentWillUnmount() {
+        this.isLivinig = false
     }
 
     handleEditorChange = (editorState) => {
-        this.setState({ editorState })
+        this.setState({
+            editorState: editorState,
+            outputHTML: editorState.toHTML()
+        })
+    }
+
+    setEditorContentAsync = () => {
+        this.isLivinig && this.setState({
+            editorState: BraftEditor.createEditorState('你好,<b>可爱的人! 很幸运在这里与你相遇!</b>')
+        })
     }
 
     render() {
-        const { editorState } = this.state
+        const { editorState, outputHTML } = this.state
         return (
             <Layout className='animated fadeIn'>
                 <div>
@@ -33,7 +52,12 @@ class EditorView extends Component {
                             value={editorState}
                             onChange={this.handleEditorChange}
                         />
+                        
                     </div>
+                </div>
+                <div className="base-style">
+                    <h5>输出内容</h5>
+                    <div className="output-content">{outputHTML}</div>
                 </div>
             </Layout>
         )
