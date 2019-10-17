@@ -14,6 +14,7 @@ class Login extends Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 if (values.username === 'admin' && values.password === 'admin') {
+                    notification.destroy()
                     // 这里可以做一些请求 成功登录之后将信息或者token保存起来
                     localStorage.setItem('user', JSON.stringify(values))
                     this.props.history.push('/')
@@ -66,7 +67,7 @@ class Login extends Component {
                             </Form.Item>
                             <Form.Item>
                                 <Button type="primary" htmlType="submit" className='login-form-button'>
-                                    登陆
+                                    登录
                                 </Button>
                             </Form.Item>
                         </Form>
