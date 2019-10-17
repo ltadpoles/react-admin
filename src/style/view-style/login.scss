@@ -1,0 +1,27 @@
+.login {
+    background: url('../../assets/images/login.jpg') no-repeat;
+    background-size: cover;
+
+    .model {
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(245, 245, 221, 0.8);
+
+        .login-form {
+            padding: 2rem;
+            box-shadow: 0px 2px 13px 0px rgba(228, 228, 228, 0.6);
+            border-radius: 5px;
+            background-color: #fff;
+            width: 35rem;
+
+            .login-form-button {
+                width: 100%;
+
+            }
+        }
+    }
+
+}

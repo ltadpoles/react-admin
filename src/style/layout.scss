@@ -10,7 +10,12 @@
             margin: 1rem;
             box-sizing: border-box;
             border-radius: 1rem;
-            background-color: #fff;
+            color: #fff;
+            padding: 0 1rem;
+            font-size: 2.4rem;
+            img {
+                height: 100%;
+            }
         }
     }
 

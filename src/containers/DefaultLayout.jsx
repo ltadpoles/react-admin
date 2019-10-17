@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Layout, BackTop } from 'antd'
+import { Layout, BackTop, message } from 'antd'
 import routes from '../routes'
 import { menuToggleAction } from '../store/actionCreators'
 import avatar from '../assets/images/user.jpg'
@@ -100,6 +100,23 @@ class DefaultLayout extends Component {
             ]
         }
     }
+
+    isLogin = () => {
+        if (!localStorage.getItem('user')) {
+            this.props.history.push('/login')
+        }
+    }
+
+    loginOut = () => {
+        localStorage.removeItem('user')
+        this.props.history.push('/login')
+        message.success('登出成功!')
+    }
+
+    componentDidMount() {
+        this.isLogin()
+    }
+    
     render() {
         let { menuClick, menuToggle } = this.props
         return (
@@ -107,7 +124,7 @@ class DefaultLayout extends Component {
                 <BackTop />
                 <AppAside menuToggle={menuToggle} menu={this.state.menu} />
                 <Layout style={{ marginLeft: menuToggle ? '80px' : '200px', minHeight: '100vh' }}>
-                    <AppHeader menuToggle={menuToggle} menuClick={menuClick} avatar={this.state.avatar} show={this.state.show} />
+                    <AppHeader menuToggle={menuToggle} menuClick={menuClick} avatar={this.state.avatar} show={this.state.show} loginOut={this.loginOut} />
                     <Content className='content'>
                         <Switch>
                             {
@@ -135,4 +152,4 @@ const dispatchToProp = dispatch => ({
     }
 })
 
-export default connect(stateToProp, dispatchToProp)(DefaultLayout)
+export default withRouter(connect(stateToProp, dispatchToProp)(DefaultLayout))
