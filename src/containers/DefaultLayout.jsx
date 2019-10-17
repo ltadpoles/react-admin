@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Layout, BackTop, message } from 'antd'
 import routes from '../routes'
 import { menuToggleAction } from '../store/actionCreators'
+import echarts from 'echarts/lib/echarts'
 import avatar from '../assets/images/user.jpg'
 import '../style/layout.scss'
 
@@ -115,6 +116,18 @@ class DefaultLayout extends Component {
 
     componentDidMount() {
         this.isLogin()
+    }
+
+    componentDidUpdate() {
+        // 菜单收缩展开时 echarts 图表的自适应
+        setTimeout(() => {
+            echarts.init(document.getElementById('bar')).resize()
+            echarts.init(document.getElementById('line')).resize()
+            echarts.init(document.getElementById('pie')).resize()
+            echarts.init(document.getElementById('pictorialBar')).resize()
+            echarts.init(document.getElementById('scatter')).resize()
+        });
+        
     }
     
     render() {
