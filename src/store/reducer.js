@@ -5,10 +5,10 @@ const defaultStore = {
 }
 
 export default (state = defaultStore, action) => {
-    if (action.type === MENU_TOGGLE) {
-        let newState = JSON.parse(JSON.stringify(state))
-        newState.menuToggle = !newState.menuToggle
-        return newState
+    switch (action.type) {
+        case MENU_TOGGLE:
+            return { ...state, menuToggle: !state.menuToggle }
+        default:
+            return state
     }
-    return state
 }
