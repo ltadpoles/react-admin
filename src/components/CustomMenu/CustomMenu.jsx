@@ -22,7 +22,7 @@ class CustomMenu extends Component {
 
     // 页面刷新的时候可以定位到 menu 显示
     componentDidMount() {
-        let pathname = this.props.location.pathname
+        let { pathname } = this.props.location
         this.setState({
             selectedKeys: [pathname],
             openKeys: this.getOpenKeys(pathname)
@@ -31,7 +31,7 @@ class CustomMenu extends Component {
 
     // 点击面包屑导航时 侧边栏同步响应
     componentDidUpdate(prevProps, prevState) {
-        let pathname = this.props.location.pathname
+        let { pathname } = this.props.location
         if (prevProps.location.pathname !== pathname) {
             this.setState({
                 selectedKeys: [pathname],
