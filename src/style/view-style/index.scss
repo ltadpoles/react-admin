@@ -32,5 +32,8 @@
             padding-right: 1rem;
         }
     }
-
+    .bar-header {
+        display: flex;
+        justify-content: space-between;
+    }
 }

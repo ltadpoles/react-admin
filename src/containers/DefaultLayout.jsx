@@ -5,7 +5,6 @@ import { Layout, BackTop, message } from 'antd'
 import routes from '../routes'
 import { menuToggleAction } from '../store/actionCreators'
 import echarts from 'echarts/lib/echarts'
-import screenfull from 'screenfull'
 import avatar from '../assets/images/user.jpg'
 import '../style/layout.scss'
 
@@ -21,7 +20,6 @@ class DefaultLayout extends Component {
         this.state = {
             avatar,
             show: true,
-            isFull: false,
             menu: [
                 {
                     key: '/index',
@@ -118,11 +116,6 @@ class DefaultLayout extends Component {
 
     componentDidMount() {
         this.isLogin()
-        screenfull.onchange(() => {
-            this.setState({
-                isFull: !this.state.isFull
-            })
-        })
     }
 
     componentDidUpdate() {
@@ -144,15 +137,7 @@ class DefaultLayout extends Component {
 
     componentWillUnmount() {
         this.timer && clearTimeout(this.timer)
-        screenfull.off('change')
     }
-
-    fullToggle = () => {
-        if (screenfull.isEnabled) {
-            screenfull.toggle()
-        }
-    }
-
 
     render() {
         let { menuClick, menuToggle } = this.props
@@ -161,7 +146,7 @@ class DefaultLayout extends Component {
                 <BackTop />
                 <AppAside menuToggle={menuToggle} menu={this.state.menu} />
                 <Layout style={{ marginLeft: menuToggle ? '80px' : '200px', minHeight: '100vh' }}>
-                    <AppHeader menuToggle={menuToggle} menuClick={menuClick} avatar={this.state.avatar} show={this.state.show} loginOut={this.loginOut} isFull={this.state.isFull} fullToggle={this.fullToggle} />
+                    <AppHeader menuToggle={menuToggle} menuClick={menuClick} avatar={this.state.avatar} show={this.state.show} loginOut={this.loginOut} />
                     <Content className='content'>
                         <Switch>
                             {

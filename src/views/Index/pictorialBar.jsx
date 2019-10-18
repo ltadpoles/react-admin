@@ -108,6 +108,9 @@ class PictorialBar extends Component {
             myChart.resize()
         })
     }
+    componentWillUnmount() {
+        window.removeEventListener('resize')
+    }
     render() {
         return (
             <div id="pictorialBar" style={{ height: 300 }}></div>

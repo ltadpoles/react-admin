@@ -5,7 +5,7 @@ const { Header } = Layout
 
 class AppHeader extends Component {
     render() {
-        let { menuClick, avatar, menuToggle, show, loginOut, fullToggle, isFull } = this.props
+        let { menuClick, avatar, menuToggle, show, loginOut } = this.props
         const menu = (
             <Menu>
                 <Menu.ItemGroup title='用户设置'>
@@ -23,7 +23,6 @@ class AppHeader extends Component {
                     <Icon style={{ fontSize: '2rem' }} onClick={menuClick} type={menuToggle ? "menu-unfold" : "menu-fold"} />
                 </div>
                 <div className="right">
-                    <div className='mr15'><Icon type={!isFull ? 'fullscreen' : 'fullscreen-exit'} style={{ cursor: 'pointer' }} onClick={fullToggle} /></div>
                     <div className='mr15'>
                         <a rel="noopener noreferrer" href="https://github.com/ltadpoles/react-admin" target='_blank'><Icon type="github" style={{ color: '#000' }} /></a>
                     </div>

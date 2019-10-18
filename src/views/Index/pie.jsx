@@ -45,6 +45,9 @@ class Pie extends Component {
             myChart.resize()
         })
     }
+    componentWillUnmount() {
+        window.removeEventListener('resize')
+    }
     render() {
         return (
             <div id="pie" style={{ height: 300 }}></div>
