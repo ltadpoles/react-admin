@@ -105,9 +105,6 @@ class Bar extends Component {
             myChart.resize()
         })
     }
-    componentWillUnmount() {
-        window.removeEventListener('resize')
-    }
     render() {
         return (
             <div id="bar" style={{ height: 300, background: '#fff' }}></div>

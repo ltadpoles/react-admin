@@ -56,9 +56,6 @@ class Line extends Component {
             myChart.resize()
         })
     }
-    componentWillUnmount() {
-        window.removeEventListener('resize')
-    }
     render() {
         return (
             <div id="line" style={{ height: 300 }}></div>

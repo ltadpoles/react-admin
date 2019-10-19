@@ -129,7 +129,7 @@ class DefaultLayout extends Component {
                 echarts.init(document.getElementById('pie')).resize()
                 echarts.init(document.getElementById('pictorialBar')).resize()
                 echarts.init(document.getElementById('scatter')).resize()
-            }, 200);
+            }, 500);
         } else {
             this.timer = null
         }
