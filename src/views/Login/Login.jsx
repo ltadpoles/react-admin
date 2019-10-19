@@ -22,9 +22,10 @@ class Login extends Component {
                         password: values.password
                     }
                 }).then(res => {
-                    if (res.data.data.code === 0) {
+                    console.log(res.data.code)
+                    if (res.data.code === 0) {
                         // 请求成功
-                        localStorage.setItem('user', JSON.stringify(res.data.data.data))
+                        localStorage.setItem('user', JSON.stringify(res.data.data.user))
                         this.props.history.push('/')
                         message.success('登录成功!')
                     } else {
