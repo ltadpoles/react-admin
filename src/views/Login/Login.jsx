@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Layout, Input, Icon, Form, Button, Divider, message, notification } from 'antd'
+import { Layout, Input, Icon, Form, Button, Divider, message } from 'antd'
 import { withRouter } from 'react-router-dom'
+import axios from '../../api'
 import '../../style/view-style/login.scss'
 
 class Login extends Component {
@@ -13,29 +14,38 @@ class Login extends Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                if (values.username === 'admin' && values.password === 'admin') {
-                    // 这里可以做一些请求 成功登录之后将信息或者token保存起来
-                    localStorage.setItem('user', JSON.stringify(values))
-                    this.props.history.push('/')
-                    message.success('登录成功!')
-                } else {
-                    message.warning('用户名或密码错误，请重新输入!');
-                }
+                axios({
+                    url: 'http://rap2api.taobao.org/app/mock/234047/login',
+                    method: 'post',
+                    data: {
+                        username: values.username,
+                        password: values.password
+                    }
+                }).then(res => {
+                    if (res.data.data.code === 0) {
+                        // 请求成功
+                        localStorage.setItem('user', JSON.stringify(res.data.data.data))
+                        this.props.history.push('/')
+                        message.success('登录成功!')
+                    } else {
+                        // 这里处理一些错误信息
+                    }
+                })
             }
         });
     };
 
     componentDidMount() {
-        notification.open({
-            message: '欢迎使用后台管理平台',
-            duration: null,
-            description:
-                '账号:admin  密码:admin'
-        });
+        // notification.open({
+        //     message: '欢迎使用后台管理平台',
+        //     duration: null,
+        //     description:
+        //         '账号:admin  密码:admin'
+        // });
     }
 
     componentWillUnmount() {
-        notification.destroy()
+        // notification.destroy()
     }
 
     render() {
