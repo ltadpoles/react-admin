@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Layout, Input, Icon, Form, Button, Divider, message } from 'antd'
+import { Layout, Input, Icon, Form, Button, Divider, message, notification } from 'antd'
 import { withRouter } from 'react-router-dom'
 import axios from '../../api'
+import { API } from '../../api/config'
 import '../../style/view-style/login.scss'
 
 class Login extends Component {
@@ -14,39 +15,34 @@ class Login extends Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                axios({
-                    url: 'http://rap2api.taobao.org/app/mock/234047/login',
-                    method: 'post',
-                    data: {
-                        username: values.username,
-                        password: values.password
-                    }
-                }).then(res => {
-                    console.log(res.data.code)
-                    if (res.data.code === 0) {
-                        // 请求成功
-                        localStorage.setItem('user', JSON.stringify(res.data.data.user))
-                        this.props.history.push('/')
-                        message.success('登录成功!')
-                    } else {
-                        // 这里处理一些错误信息
-                    }
-                })
+                let { username, password } = values
+                axios.post(`${API}/login`, { username, password })
+                    .then(res => {
+                        if (res.data.code === 0) {
+                            localStorage.setItem('user', JSON.stringify(res.data.data.user))
+                            localStorage.setItem('token', res.data.data.token)
+                            this.props.history.push('/')
+                            message.success('登录成功!')
+                        } else {
+                            // 这里处理一些错误信息
+                        }
+                    })
+                    .catch(err => { })
             }
         });
     };
 
     componentDidMount() {
-        // notification.open({
-        //     message: '欢迎使用后台管理平台',
-        //     duration: null,
-        //     description:
-        //         '账号:admin  密码:admin'
-        // });
+        notification.open({
+            message: '欢迎使用后台管理平台',
+            duration: null,
+            description:
+                '账号密码随意'
+        });
     }
 
     componentWillUnmount() {
-        // notification.destroy()
+        notification.destroy()
     }
 
     render() {
