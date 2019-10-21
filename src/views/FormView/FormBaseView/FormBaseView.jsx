@@ -39,11 +39,11 @@ const residences = [
                 children: [
                     {
                         value: 'gaoxin',
-                        label: '高新区',
-                    },
-                ],
-            },
-        ],
+                        label: '高新区'
+                    }
+                ]
+            }
+        ]
     },
     {
         value: 'gansu',
@@ -55,70 +55,69 @@ const residences = [
                 children: [
                     {
                         value: 'anning',
-                        label: '安宁区',
-                    },
-                ],
-            },
-        ],
-    },
-];
+                        label: '安宁区'
+                    }
+                ]
+            }
+        ]
+    }
+]
 
 class FromView extends Component {
     state = {
         confirmDirty: false,
         autoCompleteResult: [],
         visible: true
-    };
+    }
 
     handleClose = () => {
         this.setState({ visible: false })
-    };
+    }
 
     handleSubmit = e => {
-        e.preventDefault();
+        e.preventDefault()
         this.props.form.validateFieldsAndScroll((err, fieldsValue) => {
             if (err) return
             const values = {
                 ...fieldsValue,
-                'date-picker': fieldsValue['date-picker'] ? fieldsValue['date-picker'].format('YYYY-MM-DD') : '',
-            };
+                'date-picker': fieldsValue['date-picker'] ? fieldsValue['date-picker'].format('YYYY-MM-DD') : ''
+            }
             console.log('这就是你填好的数据' + values)
             message.info('你很棒哦,这么快就填好了!')
-        });
-    };
+        })
+    }
 
     handleConfirmBlur = e => {
-        const { value } = e.target;
-        this.setState({ confirmDirty: this.state.confirmDirty || !!value });
-    };
+        const { value } = e.target
+        this.setState({ confirmDirty: this.state.confirmDirty || !!value })
+    }
 
     compareToFirstPassword = (rule, value, callback) => {
-        const { form } = this.props;
+        const { form } = this.props
         if (value && value !== form.getFieldValue('password')) {
-            callback('两次输入密码不一致!');
+            callback('两次输入密码不一致!')
         } else {
-            callback();
+            callback()
         }
-    };
+    }
 
     validateToNextPassword = (rule, value, callback) => {
-        const { form } = this.props;
+        const { form } = this.props
         if (value && this.state.confirmDirty) {
-            form.validateFields(['confirm'], { force: true });
+            form.validateFields(['confirm'], { force: true })
         }
-        callback();
-    };
+        callback()
+    }
 
     handleWebsiteChange = value => {
-        let autoCompleteResult;
+        let autoCompleteResult
         if (!value) {
-            autoCompleteResult = [];
+            autoCompleteResult = []
         } else {
-            autoCompleteResult = ['@google.com', '@163.com', '@qq.com'].map(domain => `${value}${domain}`);
+            autoCompleteResult = ['@google.com', '@163.com', '@qq.com'].map(domain => `${value}${domain}`)
         }
-        this.setState({ autoCompleteResult });
-    };
-
+        this.setState({ autoCompleteResult })
+    }
 
     render() {
         const { getFieldDecorator, getFieldValue } = this.props.form
@@ -131,20 +130,20 @@ class FromView extends Component {
             wrapperCol: {
                 xs: { span: 16 },
                 sm: { span: 10 }
-            },
-        };
+            }
+        }
         const tailFormItemLayout = {
             wrapperCol: {
                 xs: {
                     span: 16,
-                    offset: 0,
+                    offset: 0
                 },
                 sm: {
                     span: 10,
-                    offset: 6,
-                },
-            },
-        };
+                    offset: 6
+                }
+            }
+        }
         const prefixSelector = getFieldDecorator('prefix', {
             initialValue: '86'
         })(
@@ -152,15 +151,17 @@ class FromView extends Component {
                 <Option value="86">+86</Option>
                 <Option value="87">+87</Option>
             </Select>
-        );
+        )
 
         const websiteOptions = this.state.autoCompleteResult.map(website => (
             <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
         ))
 
         return (
-            <Layout className='animated fadeIn'>
-                <div><CustomBreadcrumb arr={['表单', '基础表单']}></CustomBreadcrumb></div>
+            <Layout className="animated fadeIn">
+                <div>
+                    <CustomBreadcrumb arr={['表单', '基础表单']}></CustomBreadcrumb>
+                </div>
                 <div className="base-style">
                     <h3>何时使用</h3>
                     <Divider></Divider>
@@ -182,23 +183,25 @@ class FromView extends Component {
                                     />
                                 ) : null}
                             </div>
-                            <Divider orientation='left'>基础功能</Divider>
+                            <Divider orientation="left">基础功能</Divider>
                             <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-                                <Form.Item label={
-                                    <span>
-                                        用户名&nbsp;
+                                <Form.Item
+                                    label={
+                                        <span>
+                                            用户名&nbsp;
                                             <Tooltip title="可以尽量好听点，真的!">
-                                            <Icon type="question-circle-o" />
-                                        </Tooltip>
-                                    </span>
-                                }>
+                                                <Icon type="question-circle-o" />
+                                            </Tooltip>
+                                        </span>
+                                    }
+                                >
                                     {getFieldDecorator('username', {
-                                        rules: [{ required: true, message: '请输入用户名' }],
-                                    })(<Input placeholder='请输入用户名' />)}
+                                        rules: [{ required: true, message: '请输入用户名' }]
+                                    })(<Input placeholder="请输入用户名" />)}
                                 </Form.Item>
                                 <Form.Item label="性别">
                                     {getFieldDecorator('sex', {
-                                        rules: [{ required: true, message: '请选择性别' }],
+                                        rules: [{ required: true, message: '请选择性别' }]
                                     })(
                                         <Radio.Group>
                                             <Radio value="man">男</Radio>
@@ -231,15 +234,13 @@ class FromView extends Component {
                                 </Form.Item>
                                 <Form.Item label="年龄">
                                     {getFieldDecorator('age', {
-                                        rules: [{ required: true, message: '请输入年龄' }],
-                                    })(<InputNumber placeholder='请输入年龄' style={{ width: '100%' }} />)}
+                                        rules: [{ required: true, message: '请输入年龄' }]
+                                    })(<InputNumber placeholder="请输入年龄" style={{ width: '100%' }} />)}
                                 </Form.Item>
                                 <Form.Item label="出生年月">
                                     {getFieldDecorator('date-picker', {
-                                        rules: [{ type: 'object', required: true, message: '请选择日期' }],
-                                    })(
-                                        <DatePicker style={{ width: '100%' }} placeholder='请选择日期' />
-                                    )}
+                                        rules: [{ type: 'object', required: true, message: '请选择日期' }]
+                                    })(<DatePicker style={{ width: '100%' }} placeholder="请选择日期" />)}
                                 </Form.Item>
 
                                 <Form.Item label="邮箱">
@@ -247,13 +248,13 @@ class FromView extends Component {
                                         rules: [
                                             {
                                                 type: 'email',
-                                                message: '请输入正确的邮箱!',
+                                                message: '请输入正确的邮箱!'
                                             },
                                             {
                                                 required: true,
-                                                message: '请输入邮箱',
-                                            },
-                                        ],
+                                                message: '请输入邮箱'
+                                            }
+                                        ]
                                     })(
                                         <AutoComplete
                                             dataSource={websiteOptions}
@@ -269,38 +270,36 @@ class FromView extends Component {
                                         rules: [
                                             {
                                                 required: true,
-                                                message: '请输入密码!',
+                                                message: '请输入密码!'
                                             },
                                             {
-                                                validator: this.validateToNextPassword,
-                                            },
-                                        ],
-                                    })(<Input.Password placeholder='请输入密码' />)}
+                                                validator: this.validateToNextPassword
+                                            }
+                                        ]
+                                    })(<Input.Password placeholder="请输入密码" />)}
                                 </Form.Item>
                                 <Form.Item label="确认密码" hasFeedback>
                                     {getFieldDecorator('confirm', {
                                         rules: [
                                             {
                                                 required: true,
-                                                message: '请确认密码!',
+                                                message: '请确认密码!'
                                             },
                                             {
-                                                validator: this.compareToFirstPassword,
-                                            },
-                                        ],
-                                    })(<Input.Password onBlur={this.handleConfirmBlur} placeholder='请确认密码' />)}
+                                                validator: this.compareToFirstPassword
+                                            }
+                                        ]
+                                    })(<Input.Password onBlur={this.handleConfirmBlur} placeholder="请确认密码" />)}
                                 </Form.Item>
                                 <Form.Item label="家庭住址">
                                     {getFieldDecorator('adress', {
                                         initialValue: ['sichuan', 'chengdu', 'gaoxin'],
-                                        rules: [
-                                            { type: 'array', required: true, message: '请选择住址!' },
-                                        ],
-                                    })(<Cascader options={residences} placeholder='请选择住址' />)}
+                                        rules: [{ type: 'array', required: true, message: '请选择住址!' }]
+                                    })(<Cascader options={residences} placeholder="请选择住址" />)}
                                 </Form.Item>
                                 <Form.Item label="联系电话" extra="你最好写真实的电话号码.">
                                     {getFieldDecorator('phone', {
-                                        rules: [{ required: true, message: '请输入联系电话!' }],
+                                        rules: [{ required: true, message: '请输入联系电话!' }]
                                     })(<Input addonBefore={prefixSelector} />)}
                                 </Form.Item>
                                 <Form.Item label="评分" extra="这个项目怎么样.">
@@ -321,15 +320,19 @@ class FromView extends Component {
                                 </Form.Item>
                                 <Form.Item {...tailFormItemLayout}>
                                     {getFieldDecorator('agreement', {
-                                        valuePropName: 'checked',
+                                        valuePropName: 'checked'
                                     })(
                                         <Checkbox>
                                             阅读并理解 <a href="https://github.com/ltadpoles">此协议</a>
-                                        </Checkbox>,
+                                        </Checkbox>
                                     )}
                                 </Form.Item>
                                 <Form.Item {...tailFormItemLayout}>
-                                    <Button type="primary" htmlType="submit" disabled={getFieldValue('agreement') ? false : true}>
+                                    <Button
+                                        type="primary"
+                                        htmlType="submit"
+                                        disabled={getFieldValue('agreement') ? false : true}
+                                    >
                                         注册
                                     </Button>
                                 </Form.Item>
@@ -338,10 +341,10 @@ class FromView extends Component {
                     </Col>
                 </Row>
             </Layout>
-        );
+        )
     }
 }
 
-const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(FromView);
+const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(FromView)
 
-export default WrappedNormalLoginForm;
+export default WrappedNormalLoginForm

@@ -16,7 +16,7 @@ const { Content } = Layout
 
 class DefaultLayout extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             avatar,
             show: true,
@@ -62,7 +62,7 @@ class DefaultLayout extends Component {
                         { title: '表格', key: '/show/table', icon: '' },
                         { title: '折叠面板', key: '/show/collapse', icon: '' },
                         { title: '树形控件', key: '/show/tree', icon: '' },
-                        { title: '标签页', key: '/show/tabs', icon: '' },
+                        { title: '标签页', key: '/show/tabs', icon: '' }
                     ]
                 },
                 {
@@ -87,9 +87,7 @@ class DefaultLayout extends Component {
                             title: '二级',
                             key: '/one/two',
                             icon: '',
-                            subs: [
-                                { title: '三级', key: '/one/two/three', icon: '' }
-                            ]
+                            subs: [{ title: '三级', key: '/one/two/three', icon: '' }]
                         }
                     ]
                 },
@@ -129,7 +127,7 @@ class DefaultLayout extends Component {
                 echarts.init(document.getElementById('pie')).resize()
                 echarts.init(document.getElementById('pictorialBar')).resize()
                 echarts.init(document.getElementById('scatter')).resize()
-            }, 500);
+            }, 500)
         } else {
             this.timer = null
         }
@@ -142,25 +140,36 @@ class DefaultLayout extends Component {
     render() {
         let { menuClick, menuToggle } = this.props
         return (
-            <Layout className='app'>
+            <Layout className="app">
                 <BackTop />
                 <AppAside menuToggle={menuToggle} menu={this.state.menu} />
                 <Layout style={{ marginLeft: menuToggle ? '80px' : '200px', minHeight: '100vh' }}>
-                    <AppHeader menuToggle={menuToggle} menuClick={menuClick} avatar={this.state.avatar} show={this.state.show} loginOut={this.loginOut} />
-                    <Content className='content'>
+                    <AppHeader
+                        menuToggle={menuToggle}
+                        menuClick={menuClick}
+                        avatar={this.state.avatar}
+                        show={this.state.show}
+                        loginOut={this.loginOut}
+                    />
+                    <Content className="content">
                         <Switch>
-                            {
-                                routes.map(res => {
-                                    return <Route key={res.path} path={res.path} exact={res.exact} component={res.component}></Route>
-                                })
-                            }
-                            <Redirect to='/404' />
+                            {routes.map(res => {
+                                return (
+                                    <Route
+                                        key={res.path}
+                                        path={res.path}
+                                        exact={res.exact}
+                                        component={res.component}
+                                    ></Route>
+                                )
+                            })}
+                            <Redirect to="/404" />
                         </Switch>
                     </Content>
                     <AppFooter />
                 </Layout>
             </Layout>
-        );
+        )
     }
 }
 
@@ -174,4 +183,9 @@ const dispatchToProp = dispatch => ({
     }
 })
 
-export default withRouter(connect(stateToProp, dispatchToProp)(DefaultLayout))
+export default withRouter(
+    connect(
+        stateToProp,
+        dispatchToProp
+    )(DefaultLayout)
+)

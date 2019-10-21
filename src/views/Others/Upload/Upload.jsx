@@ -1,56 +1,55 @@
 import React, { Component } from 'react'
-import { Layout, Row, Col, Upload, message, Button, Icon, Divider, Modal } from 'antd';
-import CustomBreadcrumb from '../../../components/CustomBreadcrumb';
+import { Layout, Row, Col, Upload, message, Button, Icon, Divider, Modal } from 'antd'
+import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
 
-const { Dragger } = Upload;
+const { Dragger } = Upload
 
 const props = {
     name: 'file',
     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
     headers: {
-        authorization: 'authorization-text',
+        authorization: 'authorization-text'
     },
     onChange(info) {
         if (info.file.status !== 'uploading') {
-            console.log(info.file, info.fileList);
+            console.log(info.file, info.fileList)
         }
         if (info.file.status === 'done') {
-            message.success(`${info.file.name} file uploaded successfully`);
+            message.success(`${info.file.name} file uploaded successfully`)
         } else if (info.file.status === 'error') {
-            message.error(`${info.file.name} file upload failed.`);
+            message.error(`${info.file.name} file upload failed.`)
         }
-    },
-};
+    }
+}
 
 function getBase64(img, callback) {
-    const reader = new FileReader();
-    reader.addEventListener('load', () => callback(reader.result));
-    reader.readAsDataURL(img);
+    const reader = new FileReader()
+    reader.addEventListener('load', () => callback(reader.result))
+    reader.readAsDataURL(img)
 }
 
 function getBase_64(file) {
     return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = error => reject(error);
-    });
+        const reader = new FileReader()
+        reader.readAsDataURL(file)
+        reader.onload = () => resolve(reader.result)
+        reader.onerror = error => reject(error)
+    })
 }
 
 function beforeUpload(file) {
-    const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
+    const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png'
     if (!isJpgOrPng) {
-        message.error('You can only upload JPG/PNG file!');
+        message.error('You can only upload JPG/PNG file!')
     }
-    const isLt2M = file.size / 1024 / 1024 < 2;
+    const isLt2M = file.size / 1024 / 1024 < 2
     if (!isLt2M) {
-        message.error('Image must smaller than 2MB!');
+        message.error('Image must smaller than 2MB!')
     }
-    return isJpgOrPng && isLt2M;
+    return isJpgOrPng && isLt2M
 }
 
 class UploadView extends Component {
-
     state = {
         loading: false,
         previewVisible: false,
@@ -60,64 +59,64 @@ class UploadView extends Component {
                 uid: '-1',
                 name: 'image.png',
                 status: 'done',
-                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
             },
             {
                 uid: '-2',
                 name: 'image.png',
                 status: 'done',
-                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
             },
             {
                 uid: '-3',
                 name: 'image.png',
                 status: 'done',
-                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
             },
             {
                 uid: '-4',
                 name: 'image.png',
                 status: 'done',
-                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
             },
             {
                 uid: '-5',
                 name: 'image.png',
                 status: 'done',
-                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-            },
-        ],
+                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
+            }
+        ]
     }
 
     handleChange = info => {
         if (info.file.status === 'uploading') {
-            this.setState({ loading: true });
-            return;
+            this.setState({ loading: true })
+            return
         }
         if (info.file.status === 'done') {
             // Get this url from response in real world.
             getBase64(info.file.originFileObj, imageUrl =>
                 this.setState({
                     imageUrl,
-                    loading: false,
-                }),
-            );
+                    loading: false
+                })
+            )
         }
-    };
+    }
 
-    handleCancel = () => this.setState({ previewVisible: false });
+    handleCancel = () => this.setState({ previewVisible: false })
 
     handlePreview = async file => {
         if (!file.url && !file.preview) {
-            file.preview = await getBase_64(file.originFileObj);
+            file.preview = await getBase_64(file.originFileObj)
         }
 
         this.setState({
             previewImage: file.url || file.preview,
-            previewVisible: true,
-        });
-    };
-    handle_Change = ({ fileList }) => this.setState({ fileList });
+            previewVisible: true
+        })
+    }
+    handle_Change = ({ fileList }) => this.setState({ fileList })
 
     render() {
         const uploadButton = (
@@ -125,8 +124,8 @@ class UploadView extends Component {
                 <Icon type={this.state.loading ? 'loading' : 'plus'} />
                 <div className="ant-upload-text">Upload</div>
             </div>
-        );
-        const { imageUrl, previewVisible, previewImage, fileList } = this.state;
+        )
+        const { imageUrl, previewVisible, previewImage, fileList } = this.state
         return (
             <Layout>
                 <div>
@@ -139,7 +138,7 @@ class UploadView extends Component {
                 <Row gutter={8}>
                     <Col span={12}>
                         <div className="base-style">
-                            <Divider orientation='left'>普通模式</Divider>
+                            <Divider orientation="left">普通模式</Divider>
                             <Upload {...props}>
                                 <Button>
                                     <Icon type="upload" /> Click to Upload
@@ -147,7 +146,7 @@ class UploadView extends Component {
                             </Upload>
                         </div>
                         <div className="base-style">
-                            <Divider orientation='left'>照片墙</Divider>
+                            <Divider orientation="left">照片墙</Divider>
                             <div className="clearfix">
                                 <Upload
                                     action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
@@ -166,7 +165,7 @@ class UploadView extends Component {
                     </Col>
                     <Col span={12}>
                         <div className="base-style">
-                            <Divider orientation='left'>自定义模式</Divider>
+                            <Divider orientation="left">自定义模式</Divider>
                             <Upload
                                 name="avatar"
                                 listType="picture-card"
@@ -176,27 +175,31 @@ class UploadView extends Component {
                                 beforeUpload={beforeUpload}
                                 onChange={this.handleChange}
                             >
-                                {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
+                                {imageUrl ? (
+                                    <img src={imageUrl} alt="avatar" style={{ width: '100%' }} />
+                                ) : (
+                                    uploadButton
+                                )}
                             </Upload>
                         </div>
                         <div className="base-style">
-                            <Divider orientation='left'>可拖拽上传</Divider>
+                            <Divider orientation="left">可拖拽上传</Divider>
                             <Dragger {...props}>
                                 <p className="ant-upload-drag-icon">
                                     <Icon type="inbox" />
                                 </p>
                                 <p className="ant-upload-text">Click or drag file to this area to upload</p>
                                 <p className="ant-upload-hint">
-                                    Support for a single or bulk upload. Strictly prohibit from uploading company data or other
-                                    band files
+                                    Support for a single or bulk upload. Strictly prohibit from uploading company data
+                                    or other band files
                                 </p>
                             </Dragger>
                         </div>
                     </Col>
                 </Row>
             </Layout>
-        );
+        )
     }
 }
 
-export default UploadView;
+export default UploadView

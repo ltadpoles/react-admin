@@ -11,8 +11,9 @@ class Bar extends Component {
         myChart.setOption({
             tooltip: {
                 trigger: 'axis',
-                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                axisPointer: {
+                    // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
                 }
             },
             legend: {
@@ -69,9 +70,7 @@ class Bar extends Component {
                                 type: 'dashed'
                             }
                         },
-                        data: [
-                            [{ type: 'min' }, { type: 'max' }]
-                        ]
+                        data: [[{ type: 'min' }, { type: 'max' }]]
                     }
                 },
                 {
@@ -106,10 +105,8 @@ class Bar extends Component {
         })
     }
     render() {
-        return (
-            <div id="bar" style={{ height: 300, background: '#fff' }}></div>
-        );
+        return <div id="bar" style={{ height: 300, background: '#fff' }}></div>
     }
 }
 
-export default Bar;
+export default Bar

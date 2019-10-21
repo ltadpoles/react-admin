@@ -8,10 +8,10 @@ const text = `
   A dog is a type of domesticated animal.
   Known for its loyalty and faithfulness,
   it can be found as a welcome guest in many households across the world.
-`;
+`
 
 function callback(key) {
-    console.log(key);
+    console.log(key)
 }
 
 const customPanelStyle = {
@@ -19,14 +19,13 @@ const customPanelStyle = {
     borderRadius: 4,
     marginBottom: 24,
     border: 0,
-    overflow: 'hidden',
-};
+    overflow: 'hidden'
+}
 
 class CollapseView extends Component {
-  
     render() {
         return (
-            <Layout className='animated fadeIn'>
+            <Layout className="animated fadeIn">
                 <div>
                     <CustomBreadcrumb arr={['展示', '折叠面板']}></CustomBreadcrumb>
                 </div>
@@ -39,7 +38,7 @@ class CollapseView extends Component {
                 <Row>
                     <Col>
                         <div className="base-style">
-                            <Divider orientation='left'>简单使用</Divider>
+                            <Divider orientation="left">简单使用</Divider>
                             <Collapse defaultActiveKey={['1']} onChange={callback}>
                                 <Panel header="This is panel header 1" key="1">
                                     <p>{text}</p>
@@ -50,12 +49,13 @@ class CollapseView extends Component {
                                 <Panel header="This is panel header 3" key="3" disabled>
                                     <p>{text}</p>
                                 </Panel>
-                            </Collapse>,
+                            </Collapse>
+                            ,
                         </div>
                     </Col>
                     <Col>
                         <div className="base-style">
-                            <Divider orientation='left'>手风琴</Divider>
+                            <Divider orientation="left">手风琴</Divider>
                             <Collapse accordion>
                                 <Panel header="This is panel header 1" key="1">
                                     <p>{text}</p>
@@ -71,10 +71,13 @@ class CollapseView extends Component {
                     </Col>
                     <Col>
                         <div className="base-style">
-                            <Divider orientation='left'>自定义样式功能</Divider>
-                            <Collapse onChange={callback} bordered={false}
+                            <Divider orientation="left">自定义样式功能</Divider>
+                            <Collapse
+                                onChange={callback}
+                                bordered={false}
                                 defaultActiveKey={['1']}
-                                expandIcon={({ isActive }) => <Icon type="caret-right" rotate={isActive ? 90 : 0} />}>
+                                expandIcon={({ isActive }) => <Icon type="caret-right" rotate={isActive ? 90 : 0} />}
+                            >
                                 <Panel header="This is panel header 1" key="1" style={customPanelStyle}>
                                     <Collapse defaultActiveKey="1">
                                         <Panel header="This is panel nest panel" key="1">
@@ -93,8 +96,8 @@ class CollapseView extends Component {
                     </Col>
                 </Row>
             </Layout>
-        );
+        )
     }
 }
 
-export default CollapseView;
+export default CollapseView

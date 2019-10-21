@@ -1,6 +1,6 @@
-import React, { Component } from "react"
-import CustomBreadcrumb from "../../../components/CustomBreadcrumb"
-import { Layout, Divider, Row, Col, Tag, Table, Button, Anchor } from "antd"
+import React, { Component } from 'react'
+import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
+import { Layout, Divider, Row, Col, Tag, Table, Button, Anchor } from 'antd'
 import '../../../style/view-style/table.scss'
 
 const { Column } = Table
@@ -11,17 +11,17 @@ const columns = [
         title: 'Name',
         dataIndex: 'name',
         key: 'name',
-        render: text => <Button type='link'>{text}</Button>,
+        render: text => <Button type="link">{text}</Button>
     },
     {
         title: 'Age',
         dataIndex: 'age',
-        key: 'age',
+        key: 'age'
     },
     {
         title: 'Address',
         dataIndex: 'address',
-        key: 'address',
+        key: 'address'
     },
     {
         title: 'Tags',
@@ -30,33 +30,33 @@ const columns = [
         render: tags => (
             <span>
                 {tags.map(tag => {
-                    let color = tag.length > 5 ? 'geekblue' : 'green';
+                    let color = tag.length > 5 ? 'geekblue' : 'green'
                     if (tag === 'loser') {
-                        color = 'volcano';
+                        color = 'volcano'
                     }
                     return (
                         <Tag color={color} key={tag}>
                             {tag.toUpperCase()}
                         </Tag>
-                    );
+                    )
                 })}
             </span>
-        ),
+        )
     },
     {
         title: 'Action',
         key: 'action',
         render: (text, record) => (
             <span>
-                <Button type='link'>Invite {record.name}</Button>
+                <Button type="link">Invite {record.name}</Button>
                 <Divider type="vertical" />
-                <Button type='link'>Delete</Button>
+                <Button type="link">Delete</Button>
             </span>
-        ),
-    },
-];
+        )
+    }
+]
 
-const data = [];
+const data = []
 for (let i = 0; i < 46; i++) {
     data.push({
         key: i,
@@ -64,14 +64,12 @@ for (let i = 0; i < 46; i++) {
         age: `${i + 1}`,
         address: `London, Park Lane no. ${i}`,
         tags: ['nice', 'developer']
-    });
+    })
 }
 
 class Table1 extends Component {
     render() {
-        return (
-            <Table columns={columns} dataSource={data} />
-        )
+        return <Table columns={columns} dataSource={data} />
     }
 }
 
@@ -101,9 +99,9 @@ class Table2 extends Component {
                     key="action"
                     render={(text, record) => (
                         <span>
-                            <Button type='link'>Invite {record.lastName}</Button>
+                            <Button type="link">Invite {record.lastName}</Button>
                             <Divider type="vertical" />
-                            <Button type='link'>Delete</Button>
+                            <Button type="link">Delete</Button>
                         </span>
                     )}
                 />
@@ -118,12 +116,12 @@ class Table3 extends Component {
     }
 
     onSelectChange = selectedRowKeys => {
-        console.log('selectedRowKeys changed: ', selectedRowKeys);
-        this.setState({ selectedRowKeys });
-    };
+        console.log('selectedRowKeys changed: ', selectedRowKeys)
+        this.setState({ selectedRowKeys })
+    }
 
     render() {
-        const { selectedRowKeys } = this.state;
+        const { selectedRowKeys } = this.state
         const rowSelection = {
             selectedRowKeys,
             onChange: this.onSelectChange,
@@ -134,107 +132,111 @@ class Table3 extends Component {
                     text: 'Select All Data',
                     onSelect: () => {
                         this.setState({
-                            selectedRowKeys: [...Array(46).keys()], // 0...45
-                        });
-                    },
+                            selectedRowKeys: [...Array(46).keys()] // 0...45
+                        })
+                    }
                 },
                 {
                     key: 'odd',
                     text: 'Select Odd Row',
                     onSelect: changableRowKeys => {
-                        let newSelectedRowKeys = [];
+                        let newSelectedRowKeys = []
                         newSelectedRowKeys = changableRowKeys.filter((key, index) => {
                             if (index % 2 !== 0) {
-                                return false;
+                                return false
                             }
-                            return true;
-                        });
-                        this.setState({ selectedRowKeys: newSelectedRowKeys });
-                    },
+                            return true
+                        })
+                        this.setState({ selectedRowKeys: newSelectedRowKeys })
+                    }
                 },
                 {
                     key: 'even',
                     text: 'Select Even Row',
                     onSelect: changableRowKeys => {
-                        let newSelectedRowKeys = [];
+                        let newSelectedRowKeys = []
                         newSelectedRowKeys = changableRowKeys.filter((key, index) => {
                             if (index % 2 !== 0) {
-                                return true;
+                                return true
                             }
-                            return false;
-                        });
-                        this.setState({ selectedRowKeys: newSelectedRowKeys });
-                    },
-                },
-            ],
-        };
-        return (
-            <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
-        )
+                            return false
+                        })
+                        this.setState({ selectedRowKeys: newSelectedRowKeys })
+                    }
+                }
+            ]
+        }
+        return <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
     }
 }
 
 class Table4 extends Component {
     state = {
         filteredInfo: null,
-        sortedInfo: null,
+        sortedInfo: null
     }
     handleChange = (pagination, filters, sorter) => {
-        console.log('Various parameters', pagination, filters, sorter);
+        console.log('Various parameters', pagination, filters, sorter)
         this.setState({
             filteredInfo: filters,
-            sortedInfo: sorter,
-        });
-    };
+            sortedInfo: sorter
+        })
+    }
 
     clearFilters = () => {
-        this.setState({ filteredInfo: null });
-    };
+        this.setState({ filteredInfo: null })
+    }
 
     clearAll = () => {
         this.setState({
             filteredInfo: null,
-            sortedInfo: null,
-        });
-    };
+            sortedInfo: null
+        })
+    }
 
     setAgeSort = () => {
         this.setState({
             sortedInfo: {
                 order: 'descend',
-                columnKey: 'age',
-            },
-        });
-    };
+                columnKey: 'age'
+            }
+        })
+    }
     render() {
-        let { sortedInfo, filteredInfo } = this.state;
-        sortedInfo = sortedInfo || {};
-        filteredInfo = filteredInfo || {};
+        let { sortedInfo, filteredInfo } = this.state
+        sortedInfo = sortedInfo || {}
+        filteredInfo = filteredInfo || {}
         const columns = [
             {
                 title: 'Name',
                 dataIndex: 'name',
                 key: 'name',
-                filters: [{ text: 'Edward King 20', value: 'Edward King 20' }, { text: 'Edward King 25', value: 'Edward King 25' }],
+                filters: [
+                    { text: 'Edward King 20', value: 'Edward King 20' },
+                    { text: 'Edward King 25', value: 'Edward King 25' }
+                ],
                 filteredValue: filteredInfo.name || null,
-                onFilter: (value, record) => record.name.includes(value),
+                onFilter: (value, record) => record.name.includes(value)
             },
             {
                 title: 'Age',
                 dataIndex: 'age',
                 key: 'age',
                 sorter: (a, b) => a.age - b.age,
-                sortOrder: sortedInfo.columnKey === 'age' && sortedInfo.order,
+                sortOrder: sortedInfo.columnKey === 'age' && sortedInfo.order
             },
             {
                 title: 'Address',
                 dataIndex: 'address',
                 key: 'address',
-                filters: [{ text: 'London, Park Lane no. 24', value: 'London, Park Lane no. 24' }, { text: 'London, Park Lane no. 27', value: 'London, Park Lane no. 27' }],
+                filters: [
+                    { text: 'London, Park Lane no. 24', value: 'London, Park Lane no. 24' },
+                    { text: 'London, Park Lane no. 27', value: 'London, Park Lane no. 27' }
+                ],
                 filteredValue: filteredInfo.address || null,
-                onFilter: (value, record) => record.address.includes(value),
-            },
-        ];
+                onFilter: (value, record) => record.address.includes(value)
+            }
+        ]
         return (
             <div>
                 <div className="table-operations">
@@ -248,14 +250,12 @@ class Table4 extends Component {
     }
 }
 
-
 class TableView extends Component {
     render() {
         return (
-            <Layout className='animated fadeIn'>
-
+            <Layout className="animated fadeIn">
                 <div>
-                    <CustomBreadcrumb arr={["通用", "按钮"]}></CustomBreadcrumb>
+                    <CustomBreadcrumb arr={['通用', '按钮']}></CustomBreadcrumb>
                 </div>
                 <div className="base-style">
                     <h3>何时使用</h3>
@@ -265,7 +265,7 @@ class TableView extends Component {
                 </div>
 
                 <Row>
-                    <Anchor className='toc-affix'>
+                    <Anchor className="toc-affix">
                         <Link href="#basic" title="基础表格" />
                         <Link href="#JSX" title="JSX表格" />
                         <Link href="#checked" title="可选表格" />
@@ -273,37 +273,36 @@ class TableView extends Component {
                     </Anchor>
                     <Col>
                         <div className="base-style">
-                            <h3 id='basic'>基础表格</h3>
+                            <h3 id="basic">基础表格</h3>
                             <Divider />
                             <Table1 />
                         </div>
                     </Col>
                     <Col>
                         <div className="base-style">
-                            <h3 id='JSX'>JSX表单</h3>
-                            <Divider orientation='left'>JSX表格</Divider>
+                            <h3 id="JSX">JSX表单</h3>
+                            <Divider orientation="left">JSX表格</Divider>
                             <Table2 />
                         </div>
                     </Col>
                     <Col>
                         <div className="base-style">
-                            <h3 id='checked'>可选表单</h3>
-                            <Divider orientation='left'>可选表格</Divider>
+                            <h3 id="checked">可选表单</h3>
+                            <Divider orientation="left">可选表格</Divider>
                             <Table3 />
                         </div>
                     </Col>
                     <Col>
                         <div className="base-style">
-                            <h3 id='sort'>可筛选排序表单</h3>
-                            <Divider orientation='left'>可筛选排序表格</Divider>
+                            <h3 id="sort">可筛选排序表单</h3>
+                            <Divider orientation="left">可筛选排序表格</Divider>
                             <Table4 />
                         </div>
                     </Col>
                 </Row>
-
             </Layout>
-        );
+        )
     }
 }
 
-export default TableView;
+export default TableView

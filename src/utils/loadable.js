@@ -12,9 +12,7 @@ class loadingComponent extends Component {
         NProgress.done()
     }
     render() {
-        return (
-            <div />
-        )
+        return <div />
     }
 }
 

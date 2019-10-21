@@ -2,75 +2,75 @@ import React, { Component } from 'react'
 import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
 import { Layout, Divider, Row, Col, Tabs, Select, Icon, Radio, Button } from 'antd'
 
-const { TabPane } = Tabs;
-const { Option } = Select;
+const { TabPane } = Tabs
+const { Option } = Select
 
 function callback(key) {
-    console.log(key);
+    console.log(key)
 }
 
 class TabsViews extends Component {
     constructor(props) {
         super(props)
-        this.newTabIndex = 0;
+        this.newTabIndex = 0
         const panes = [
             { title: 'Tab 1', content: 'Content of Tab Pane 1', key: '1' },
-            { title: 'Tab 2', content: 'Content of Tab Pane 2', key: '2' },
-        ];
+            { title: 'Tab 2', content: 'Content of Tab Pane 2', key: '2' }
+        ]
         this.state = {
             activeKey: panes[0].key,
             panes,
             tabPosition: 'top',
             size: 'small'
-        };
+        }
     }
 
     changeTabPosition = tabPosition => {
-        this.setState({ tabPosition });
-    };
+        this.setState({ tabPosition })
+    }
 
     onChange = e => {
-        this.setState({ size: e.target.value });
-    };
+        this.setState({ size: e.target.value })
+    }
 
     onTabsChange = activeKey => {
-        this.setState({ activeKey });
-    };
+        this.setState({ activeKey })
+    }
 
     onEdit = (targetKey, action) => {
-        this[action](targetKey);
-    };
+        this[action](targetKey)
+    }
 
     add = () => {
-        const { panes } = this.state;
-        const activeKey = `newTab${this.newTabIndex++}`;
-        panes.push({ title: 'New Tab', content: 'New Tab Pane', key: activeKey });
-        this.setState({ panes, activeKey });
-    };
+        const { panes } = this.state
+        const activeKey = `newTab${this.newTabIndex++}`
+        panes.push({ title: 'New Tab', content: 'New Tab Pane', key: activeKey })
+        this.setState({ panes, activeKey })
+    }
 
     remove = targetKey => {
-        let { activeKey } = this.state;
-        let lastIndex;
+        let { activeKey } = this.state
+        let lastIndex
         this.state.panes.forEach((pane, i) => {
             if (pane.key === targetKey) {
-                lastIndex = i - 1;
+                lastIndex = i - 1
             }
-        });
-        const panes = this.state.panes.filter(pane => pane.key !== targetKey);
+        })
+        const panes = this.state.panes.filter(pane => pane.key !== targetKey)
         if (panes.length && activeKey === targetKey) {
             if (lastIndex >= 0) {
-                activeKey = panes[lastIndex].key;
+                activeKey = panes[lastIndex].key
             } else {
-                activeKey = panes[0].key;
+                activeKey = panes[0].key
             }
         }
-        this.setState({ panes, activeKey });
-    };
+        this.setState({ panes, activeKey })
+    }
 
     render() {
         const { size, tabPosition, activeKey, panes } = this.state
         return (
-            <Layout className='animated fadeIn'>
+            <Layout className="animated fadeIn">
                 <div>
                     <CustomBreadcrumb arr={['展示', '标签页']}></CustomBreadcrumb>
                 </div>
@@ -86,7 +86,7 @@ class TabsViews extends Component {
                 <Row gutter={8}>
                     <Col span={12}>
                         <div className="base-style">
-                            <Divider orientation='left'>基础</Divider>
+                            <Divider orientation="left">基础</Divider>
                             <Tabs defaultActiveKey="1" onChange={callback}>
                                 <TabPane tab="Tab 1" key="1">
                                     Content of Tab Pane 1
@@ -100,7 +100,7 @@ class TabsViews extends Component {
                             </Tabs>
                         </div>
                         <div className="base-style">
-                            <Divider orientation='left'>控制大小</Divider>
+                            <Divider orientation="left">控制大小</Divider>
                             <div>
                                 <Radio.Group value={size} onChange={this.onChange} style={{ marginBottom: 16 }}>
                                     <Radio.Button value="small">Small</Radio.Button>
@@ -123,7 +123,7 @@ class TabsViews extends Component {
                     </Col>
                     <Col span={12}>
                         <div className="base-style">
-                            <Divider orientation='left'>控制显示位置</Divider>
+                            <Divider orientation="left">控制显示位置</Divider>
                             <div>
                                 <div style={{ marginBottom: 16 }}>
                                     Tab position：
@@ -142,12 +142,15 @@ class TabsViews extends Component {
                                     <TabPane tab="Tab 1" key="1">
                                         Content of Tab 1
                                     </TabPane>
-                                    <TabPane tab={
-                                        <span>
-                                            <Icon type="android" />
-                                            Tab 2
-                                        </span>
-                                    } key="2">
+                                    <TabPane
+                                        tab={
+                                            <span>
+                                                <Icon type="android" />
+                                                Tab 2
+                                            </span>
+                                        }
+                                        key="2"
+                                    >
                                         Content of Tab 2
                                     </TabPane>
                                     <TabPane tab="Tab 3" key="3">
@@ -157,7 +160,7 @@ class TabsViews extends Component {
                             </div>
                         </div>
                         <div className="base-style">
-                            <Divider orientation='left'>可增加删除</Divider>
+                            <Divider orientation="left">可增加删除</Divider>
                             <div>
                                 <div style={{ marginBottom: 16 }}>
                                     <Button onClick={this.add}>ADD</Button>
@@ -180,8 +183,8 @@ class TabsViews extends Component {
                     </Col>
                 </Row>
             </Layout>
-        );
+        )
     }
 }
 
-export default TabsViews;
+export default TabsViews

@@ -13,14 +13,14 @@ const View404 = loadable(() => import('./views/Others/404'))
 const View500 = loadable(() => import('./views/Others/500'))
 const Login = loadable(() => import('./views/Login'))
 
-const App = (props) => (
+const App = props => (
     <Router>
         <Switch>
-            <Route path='/' exact render={() => <Redirect to='/index' />} />
-            <Route path='/500' component={View500} />
-            <Route path='/login' component={Login} />
-            <Route path='/404' component={View404} />
-            <Route path='/' component={DefaultLayout} />
+            <Route path="/" exact render={() => <Redirect to="/index" />} />
+            <Route path="/500" component={View500} />
+            <Route path="/login" component={Login} />
+            <Route path="/404" component={View404} />
+            <Route path="/" component={DefaultLayout} />
         </Switch>
     </Router>
 )

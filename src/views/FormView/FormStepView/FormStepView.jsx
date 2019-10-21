@@ -12,8 +12,8 @@ const formItemLayout = {
     },
     wrapperCol: {
         span: 8
-    },
-};
+    }
+}
 
 const tailFormItemLayout = {
     wrapperCol: {
@@ -24,41 +24,43 @@ const tailFormItemLayout = {
 class Step1 extends Component {
     handleSelectChange = value => {
         this.props.form.setFieldsValue({
-            'Email': `${value === 'kenan' ? 'kenan@google.com' : 'maoli@google.com'}`
-        });
+            Email: `${value === 'kenan' ? 'kenan@google.com' : 'maoli@google.com'}`
+        })
     }
 
     step1Submit = e => {
-        e.preventDefault();
+        e.preventDefault()
         this.props.form.validateFields((err, val) => {
             if (!err) {
                 this.props.getFormData(val)
                 this.props.setCurrent(1)
             }
-        });
+        })
     }
 
     render() {
-        const { getFieldDecorator } = this.props.form;
+        const { getFieldDecorator } = this.props.form
         const selectBefore = getFieldDecorator('Type', {
-            initialValue: 'twitter',
+            initialValue: 'twitter'
         })(
             <Select style={{ width: '8rem' }}>
                 <Option value="twitter">twitter</Option>
                 <Option value="facebook">facebook</Option>
                 <Option value="weixin">微信</Option>
             </Select>
-        );
+        )
         return (
             <div>
                 <Form hideRequiredMark {...formItemLayout}>
-                    <Form.Item label='接收人'>
+                    <Form.Item label="接收人">
                         {getFieldDecorator('User', {
                             initialValue: '柯南',
-                            rules: [{
-                                required: true,
-                                message: '请选择接收人'
-                            }]
+                            rules: [
+                                {
+                                    required: true,
+                                    message: '请选择接收人'
+                                }
+                            ]
                         })(
                             <Select onChange={this.handleSelectChange}>
                                 <Option value="柯南">柯南</Option>
@@ -66,13 +68,15 @@ class Step1 extends Component {
                             </Select>
                         )}
                     </Form.Item>
-                    <Form.Item label='接收邮箱'>
+                    <Form.Item label="接收邮箱">
                         {getFieldDecorator('Email', {
                             initialValue: 'kenan@google.com',
-                            rules: [{
-                                required: true,
-                                message: '请选择接收人'
-                            }]
+                            rules: [
+                                {
+                                    required: true,
+                                    message: '请选择接收人'
+                                }
+                            ]
                         })(
                             <Select disabled>
                                 <Option value="kenan@google.com">kenan@google.com</Option>
@@ -80,26 +84,32 @@ class Step1 extends Component {
                             </Select>
                         )}
                     </Form.Item>
-                    <Form.Item label='暗号'>
+                    <Form.Item label="暗号">
                         {getFieldDecorator('Password', {
                             initialValue: '真相只有一个!',
-                            rules: [{
-                                required: true,
-                                message: '请输入对接暗号'
-                            }]
-                        })(<Input placeholder='请输入对接暗号' />)}
+                            rules: [
+                                {
+                                    required: true,
+                                    message: '请输入对接暗号'
+                                }
+                            ]
+                        })(<Input placeholder="请输入对接暗号" />)}
                     </Form.Item>
-                    <Form.Item label='联系方式'>
+                    <Form.Item label="联系方式">
                         {getFieldDecorator('Code', {
                             initialValue: 'kenan0528',
-                            rules: [{
-                                required: true,
-                                message: '请输入联系方式'
-                            }]
-                        })(<Input addonBefore={selectBefore} placeholder='请输入联系方式' />)}
+                            rules: [
+                                {
+                                    required: true,
+                                    message: '请输入联系方式'
+                                }
+                            ]
+                        })(<Input addonBefore={selectBefore} placeholder="请输入联系方式" />)}
                     </Form.Item>
                     <Form.Item {...tailFormItemLayout}>
-                        <Button type='primary' onClick={this.step1Submit}>下一步</Button>
+                        <Button type="primary" onClick={this.step1Submit}>
+                            下一步
+                        </Button>
                     </Form.Item>
                 </Form>
             </div>
@@ -114,15 +124,15 @@ class Step2From extends Component {
     }
 
     handleClose = () => {
-        this.setState({ visible: false });
+        this.setState({ visible: false })
     }
 
     step2Submit = () => {
-        this.setState({ iconLoading: true });
+        this.setState({ iconLoading: true })
         setTimeout(() => {
-            this.setState({ iconLoading: false });
+            this.setState({ iconLoading: false })
             this.props.setCurrent(2)
-        }, 2000);
+        }, 2000)
     }
     step2Cancle = () => {
         this.props.setCurrent(0)
@@ -145,36 +155,21 @@ class Step2From extends Component {
                         ) : null}
                     </Col>
                 </Row>
-                <Form hideRequiredMark {...formItemLayout} className='show-data'>
-                    <Form.Item label='接收人'>
-                        {formData.User}
-                    </Form.Item>
-                    <Form.Item label='接收邮箱'>
-                        {formData.Email}
-                    </Form.Item>
-                    <Form.Item label='暗号'>
-                        {formData.Password}
-                    </Form.Item>
-                    <Form.Item label='联系渠道'>
-                        {formData.Type}
-                    </Form.Item>
-                    <Form.Item label='联系方式'>
-                        {formData.Code}
-                    </Form.Item>
+                <Form hideRequiredMark {...formItemLayout} className="show-data">
+                    <Form.Item label="接收人">{formData.User}</Form.Item>
+                    <Form.Item label="接收邮箱">{formData.Email}</Form.Item>
+                    <Form.Item label="暗号">{formData.Password}</Form.Item>
+                    <Form.Item label="联系渠道">{formData.Type}</Form.Item>
+                    <Form.Item label="联系方式">{formData.Code}</Form.Item>
                     <Divider />
-                    <Form.Item {...tailFormItemLayout} >
-                        <Button
-                            type="primary"
-                            loading={this.state.iconLoading}
-                            onClick={this.step2Submit}
-                        >
+                    <Form.Item {...tailFormItemLayout}>
+                        <Button type="primary" loading={this.state.iconLoading} onClick={this.step2Submit}>
                             发送
                         </Button>
                         <Button onClick={this.step2Cancle}>上一步</Button>
                     </Form.Item>
                 </Form>
             </div>
-
         )
     }
 }
@@ -190,7 +185,9 @@ class Step3From extends Component {
                 title="发送成功!"
                 subTitle="耐心地等待好消息吧!"
                 extra={[
-                    <Button type="primary" key="console" onClick={this.oneMore}>再发一封</Button>,
+                    <Button type="primary" key="console" onClick={this.oneMore}>
+                        再发一封
+                    </Button>,
                     <Button key="buy">查看记录</Button>
                 ]}
             />
@@ -201,7 +198,6 @@ class Step3From extends Component {
 const Step1From = Form.create()(Step1)
 
 class FormStepView extends Component {
-
     state = {
         current: 0,
         formData: null
@@ -222,7 +218,7 @@ class FormStepView extends Component {
     render() {
         const { current, formData } = this.state
         return (
-            <Layout className='animated fadeIn'>
+            <Layout className="animated fadeIn">
                 <div>
                     <CustomBreadcrumb arr={['表单', '步骤表单']}></CustomBreadcrumb>
                 </div>
@@ -234,36 +230,26 @@ class FormStepView extends Component {
                 <Row>
                     <Col>
                         <div className="base-style">
-                            <Divider orientation='left'>分步表单</Divider>
+                            <Divider orientation="left">分步表单</Divider>
                             <div>
                                 <Steps style={{ margin: '3rem auto', maxWidth: '65rem' }} current={current}>
-                                    <Step title='填写接收信息'></Step>
-                                    <Step title='确认接收信息'></Step>
-                                    <Step title='完成'></Step>
+                                    <Step title="填写接收信息"></Step>
+                                    <Step title="确认接收信息"></Step>
+                                    <Step title="完成"></Step>
                                 </Steps>
 
-                                {
-                                    current === 0 && (
-                                        <Step1From getFormData={this.getFormData} setCurrent={this.setCurrent} />
-                                    )
-                                }
-                                {
-                                    current === 1 && (
-                                        <Step2From formData={formData} setCurrent={this.setCurrent} />
-                                    )
-                                }
-                                {
-                                    current === 2 && (
-                                        <Step3From setCurrent={this.setCurrent} />
-                                    )
-                                }
+                                {current === 0 && (
+                                    <Step1From getFormData={this.getFormData} setCurrent={this.setCurrent} />
+                                )}
+                                {current === 1 && <Step2From formData={formData} setCurrent={this.setCurrent} />}
+                                {current === 2 && <Step3From setCurrent={this.setCurrent} />}
                             </div>
                         </div>
                     </Col>
                 </Row>
             </Layout>
-        );
+        )
     }
 }
 
-export default FormStepView;
+export default FormStepView

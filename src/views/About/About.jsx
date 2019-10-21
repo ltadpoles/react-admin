@@ -4,7 +4,7 @@ import CustomBreadcrumb from '../../components/CustomBreadcrumb'
 
 class AboutView extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {}
     }
     render() {
@@ -19,8 +19,8 @@ class AboutView extends Component {
                     <p>这个人很懒，什么都没有留下……</p>
                 </div>
             </Layout>
-        );
+        )
     }
 }
 
-export default AboutView;
+export default AboutView

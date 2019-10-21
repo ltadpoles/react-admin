@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Layout, Divider } from 'antd';
+import { Layout, Divider } from 'antd'
 import CustomBreadcrumb from '../../components/CustomBreadcrumb'
 
 class TestView extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {}
     }
     render() {
@@ -19,8 +19,8 @@ class TestView extends Component {
                     <p>这个是多级导航</p>
                 </div>
             </Layout>
-        );
+        )
     }
 }
 
-export default TestView;
+export default TestView

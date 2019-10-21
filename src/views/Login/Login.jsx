@@ -7,16 +7,17 @@ import '../../style/view-style/login.scss'
 
 class Login extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {}
     }
 
     handleSubmit = e => {
-        e.preventDefault();
+        e.preventDefault()
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 let { username, password } = values
-                axios.post(`${API}/login`, { username, password })
+                axios
+                    .post(`${API}/login`, { username, password })
                     .then(res => {
                         if (res.data.code === 0) {
                             localStorage.setItem('user', JSON.stringify(res.data.data.user))
@@ -27,18 +28,17 @@ class Login extends Component {
                             // 这里处理一些错误信息
                         }
                     })
-                    .catch(err => { })
+                    .catch(err => {})
             }
-        });
-    };
+        })
+    }
 
     componentDidMount() {
         notification.open({
             message: '欢迎使用后台管理平台',
             duration: null,
-            description:
-                '账号密码随意'
-        });
+            description: '账号密码随意'
+        })
     }
 
     componentWillUnmount() {
@@ -46,9 +46,9 @@ class Login extends Component {
     }
 
     render() {
-        const { getFieldDecorator } = this.props.form;
+        const { getFieldDecorator } = this.props.form
         return (
-            <Layout className='login animated fadeIn'>
+            <Layout className="login animated fadeIn">
                 <div className="model">
                     <div className="login-form">
                         <h3>后台管理系统</h3>
@@ -56,27 +56,27 @@ class Login extends Component {
                         <Form onSubmit={this.handleSubmit}>
                             <Form.Item>
                                 {getFieldDecorator('username', {
-                                    rules: [{ required: true, message: '请输入用户名!' }],
+                                    rules: [{ required: true, message: '请输入用户名!' }]
                                 })(
                                     <Input
                                         prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                         placeholder="用户名"
-                                    />,
+                                    />
                                 )}
                             </Form.Item>
                             <Form.Item>
                                 {getFieldDecorator('password', {
-                                    rules: [{ required: true, message: '请输入密码' }],
+                                    rules: [{ required: true, message: '请输入密码' }]
                                 })(
                                     <Input
                                         prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                         type="password"
                                         placeholder="密码"
-                                    />,
+                                    />
                                 )}
                             </Form.Item>
                             <Form.Item>
-                                <Button type="primary" htmlType="submit" className='login-form-button'>
+                                <Button type="primary" htmlType="submit" className="login-form-button">
                                     登录
                                 </Button>
                             </Form.Item>
@@ -84,8 +84,8 @@ class Login extends Component {
                     </div>
                 </div>
             </Layout>
-        );
+        )
     }
 }
 
-export default withRouter(Form.create()(Login));
+export default withRouter(Form.create()(Login))

@@ -153,7 +153,7 @@ h3 {
 
 q:before,
 q:after {
-    content: "";
+    content: '';
 }
 
 /* 统一上标和下标 */
@@ -193,7 +193,7 @@ a:focus,
 /* 清除浮动 */
 .clearfix:before,
 .clearfix:after {
-    content: "";
+    content: '';
     display: block;
 }
 

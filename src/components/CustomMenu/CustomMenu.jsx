@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import { Menu, Icon } from 'antd'
 import { Link, withRouter } from 'react-router-dom'
 
-
 class CustomMenu extends Component {
-
     state = {
         openKeys: [],
         selectedKeys: []
@@ -12,7 +10,9 @@ class CustomMenu extends Component {
 
     // 处理 pathname
     getOpenKeys = string => {
-        let newStr = '', newArr = [], arr = string.split('/').map(i => '/' + i)
+        let newStr = '',
+            newArr = [],
+            arr = string.split('/').map(i => '/' + i)
         for (let i = 1; i < arr.length - 1; i++) {
             newStr += arr[i]
             newArr.push(newStr)
@@ -45,7 +45,7 @@ class CustomMenu extends Component {
         if (openKeys.length === 0 || openKeys.length === 1) {
             this.setState({
                 openKeys
-            });
+            })
             return
         }
 
@@ -62,7 +62,6 @@ class CustomMenu extends Component {
                 openKeys: [latestOpenKey]
             })
         }
-
     }
 
     renderMenuItem = ({ key, icon, title }) => (
@@ -77,12 +76,19 @@ class CustomMenu extends Component {
     // 循环遍历数组中的子项 subs ，生成子级 menu
     renderSubMenu = ({ key, icon, title, subs }) => {
         return (
-            <Menu.SubMenu key={key} title={<span>{icon && <Icon type={icon} />}<span>{title}</span></span>}>
-                {
-                    subs && subs.map(item => {
-                        return item.subs && item.subs.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
-                    })
+            <Menu.SubMenu
+                key={key}
+                title={
+                    <span>
+                        {icon && <Icon type={icon} />}
+                        <span>{title}</span>
+                    </span>
                 }
+            >
+                {subs &&
+                    subs.map(item => {
+                        return item.subs && item.subs.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
+                    })}
             </Menu.SubMenu>
         )
     }
@@ -98,13 +104,12 @@ class CustomMenu extends Component {
                 onClick={({ key }) => this.setState({ selectedKeys: [key] })}
                 onOpenChange={this.onOpenChange}
             >
-                {
-                    this.props.menu && this.props.menu.map(item => {
+                {this.props.menu &&
+                    this.props.menu.map(item => {
                         return item.subs && item.subs.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
-                    })
-                }
+                    })}
             </Menu>
-        );
+        )
     }
 }
 

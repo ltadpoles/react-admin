@@ -5,7 +5,6 @@ import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
 const { SubMenu } = Menu
 
 class MenuView extends Component {
-
     rootSubmenuKeys = ['sub1', 'sub2', 'sub4']
 
     state = {
@@ -14,53 +13,57 @@ class MenuView extends Component {
         openKeys: ['sub1'],
         mode: 'inline',
         theme: 'light'
-    };
+    }
 
     handleClick = e => {
-        console.log('click ', e);
+        console.log('click ', e)
         this.setState({
-            current: e.key,
-        });
-    };
+            current: e.key
+        })
+    }
 
     onOpenChange = openKeys => {
-        const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
+        const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1)
         if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-            this.setState({ openKeys });
+            this.setState({ openKeys })
         } else {
             this.setState({
-                openKeys: latestOpenKey ? [latestOpenKey] : [],
-            });
+                openKeys: latestOpenKey ? [latestOpenKey] : []
+            })
         }
-    };
+    }
 
     toggleCollapsed = () => {
         this.setState({
-            collapsed: !this.state.collapsed,
-        });
-    };
+            collapsed: !this.state.collapsed
+        })
+    }
 
     changeMode = value => {
         this.setState({
-            mode: value ? 'vertical' : 'inline',
-        });
-    };
+            mode: value ? 'vertical' : 'inline'
+        })
+    }
 
     changeTheme = value => {
         this.setState({
-            theme: value ? 'dark' : 'light',
-        });
-    };
+            theme: value ? 'dark' : 'light'
+        })
+    }
 
     render() {
         const { current, openKeys, collapsed, mode, theme } = this.state
         return (
-            <Layout className='animated fadeIn'>
-                <div><CustomBreadcrumb arr={['导航', '下拉菜单']}></CustomBreadcrumb></div>
-                <div className='base-style'>
+            <Layout className="animated fadeIn">
+                <div>
+                    <CustomBreadcrumb arr={['导航', '下拉菜单']}></CustomBreadcrumb>
+                </div>
+                <div className="base-style">
                     <h3>何时使用</h3>
                     <Divider />
-                    <p>导航菜单是一个网站的灵魂，用户依赖导航在各个页面中进行跳转。一般分为顶部导航和侧边导航，顶部导航提供全局性的类目和功能，侧边导航提供多级结构来收纳和排列网站架构。</p>
+                    <p>
+                        导航菜单是一个网站的灵魂，用户依赖导航在各个页面中进行跳转。一般分为顶部导航和侧边导航，顶部导航提供全局性的类目和功能，侧边导航提供多级结构来收纳和排列网站架构。
+                    </p>
                 </div>
                 <Row gutter={8}>
                     <Col>
@@ -70,17 +73,17 @@ class MenuView extends Component {
                                 <Menu.Item key="mail">
                                     <Icon type="mail" />
                                     Navigation One
-                            </Menu.Item>
+                                </Menu.Item>
                                 <Menu.Item key="app" disabled>
                                     <Icon type="appstore" />
                                     Navigation Two
-                            </Menu.Item>
+                                </Menu.Item>
                                 <SubMenu
                                     title={
                                         <span className="submenu-title-wrapper">
                                             <Icon type="setting" />
                                             Navigation Three - Submenu
-                                    </span>
+                                        </span>
                                     }
                                 >
                                     <Menu.ItemGroup title="Item 1">
@@ -93,9 +96,7 @@ class MenuView extends Component {
                                     </Menu.ItemGroup>
                                 </SubMenu>
                                 <Menu.Item key="alipay">
-                                    <Button type='link'>
-                                        Navigation Four - Link
-                                    </Button>
+                                    <Button type="link">Navigation Four - Link</Button>
                                 </Menu.Item>
                             </Menu>
                         </div>
@@ -280,9 +281,9 @@ class MenuView extends Component {
                             <Divider>可切换动态菜单</Divider>
                             <div>
                                 <Switch onChange={this.changeMode} /> Change Mode
-                                    <span className="ant-divider" style={{ margin: '0 1em' }} />
+                                <span className="ant-divider" style={{ margin: '0 1em' }} />
                                 <Switch onChange={this.changeTheme} /> Change Theme
-                                 <br />
+                                <br />
                                 <br />
                                 <Menu
                                     style={{ width: 256 }}
@@ -294,11 +295,11 @@ class MenuView extends Component {
                                     <Menu.Item key="1">
                                         <Icon type="mail" />
                                         Navigation One
-          </Menu.Item>
+                                    </Menu.Item>
                                     <Menu.Item key="2">
                                         <Icon type="calendar" />
                                         Navigation Two
-          </Menu.Item>
+                                    </Menu.Item>
                                     <SubMenu
                                         key="sub1"
                                         title={
@@ -335,8 +336,8 @@ class MenuView extends Component {
                     </Col>
                 </Row>
             </Layout>
-        );
+        )
     }
 }
 
-export default MenuView;
+export default MenuView
