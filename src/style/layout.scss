@@ -1,14 +1,13 @@
-$color: #6af3ec;
-$fontColor: #7b7b7b;
-
 .app {
     font-size: 1.6rem;
+    @media screen and (max-width: 960px) {
+        font-size: 1.4rem;
+    }
     .aside {
         position: fixed;
         left: 0;
         height: 100vh;
         overflow-y: auto;
-
         .logo {
             height: 3rem;
             margin: 1rem;
@@ -16,7 +15,6 @@ $fontColor: #7b7b7b;
             border-radius: 1rem;
             padding: 0 1rem;
             text-align: center;
-            // font-size: 2.4rem;
             img {
                 height: 100%;
             }

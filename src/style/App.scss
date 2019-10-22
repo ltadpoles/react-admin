@@ -26,17 +26,18 @@
     box-shadow: 0px 2px 13px 0px rgba(228, 228, 228, 0.6);
 }
 
-@font-face {
-    font-family: 'FangZhengKaiTi';
-    src: url(../assets/font/FangZhengKaiTiJianTi-1.ttf);
-}
+// @font-face {
+//     font-family: 'webfont';
+//     font-display: swap;
+//     src: url('../assets/font/webfont.eot'); /* IE9 */
+//     src: url('../assets/font/webfont.eot') format('embedded-opentype'), /* IE6-IE8 */
+//     url('../assets/font/webfont.woff2') format('woff2'),
+//     url('../assets/font/webfont.woff') format('woff'), /* chrome、firefox */
+//     url('../assets/font/webfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+//     url('../assets/font/webfont.svg') format('svg'); /* iOS 4.1- */
+// }
 
-@font-face {
-    font-family: 'KuXingKaiTi';
-    src: url(../assets/font/RuiZiYunZiKuXingKaiTiGBK-1.ttf);
-}
-
-html,
-body {
-    font-family: 'KuXingKaiTi' !important;
-}
+// html,
+// body {
+//     font-family: 'webfont' !important;
+// }

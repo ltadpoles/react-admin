@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Layout, Input, Icon, Form, Button, Divider, message, notification } from 'antd'
 import { withRouter } from 'react-router-dom'
-import axios from '../../api'
-import { API } from '../../api/config'
+// import axios from '../../api'
+// import { API } from '../../api/config'
 import '../../style/view-style/login.scss'
 
 class Login extends Component {
@@ -16,19 +16,23 @@ class Login extends Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 let { username, password } = values
-                axios
-                    .post(`${API}/login`, { username, password })
-                    .then(res => {
-                        if (res.data.code === 0) {
-                            localStorage.setItem('user', JSON.stringify(res.data.data.user))
-                            localStorage.setItem('token', res.data.data.token)
-                            this.props.history.push('/')
-                            message.success('登录成功!')
-                        } else {
-                            // 这里处理一些错误信息
-                        }
-                    })
-                    .catch(err => {})
+                // axios
+                //     .post(`${API}/login`, { username, password })
+                //     .then(res => {
+                //         if (res.data.code === 0) {
+                //             localStorage.setItem('user', JSON.stringify(res.data.data.user))
+                //             localStorage.setItem('token', res.data.data.token)
+                //             this.props.history.push('/')
+                //             message.success('登录成功!')
+                //         } else {
+                //             // 这里处理一些错误信息
+                //         }
+                //     })
+                //     .catch(err => {})
+
+                localStorage.setItem('user', JSON.stringify(values))
+                this.props.history.push('/')
+                message.success('登录成功!')
             }
         })
     }
@@ -48,9 +52,9 @@ class Login extends Component {
     render() {
         const { getFieldDecorator } = this.props.form
         return (
-            <Layout className="login animated fadeIn">
-                <div className="model">
-                    <div className="login-form">
+            <Layout className='login animated fadeIn'>
+                <div className='model'>
+                    <div className='login-form'>
                         <h3>后台管理系统</h3>
                         <Divider />
                         <Form onSubmit={this.handleSubmit}>
@@ -59,8 +63,8 @@ class Login extends Component {
                                     rules: [{ required: true, message: '请输入用户名!' }]
                                 })(
                                     <Input
-                                        prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                        placeholder="用户名"
+                                        prefix={<Icon type='user' style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                        placeholder='用户名'
                                     />
                                 )}
                             </Form.Item>
@@ -69,14 +73,14 @@ class Login extends Component {
                                     rules: [{ required: true, message: '请输入密码' }]
                                 })(
                                     <Input
-                                        prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                        type="password"
-                                        placeholder="密码"
+                                        prefix={<Icon type='lock' style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                        type='password'
+                                        placeholder='密码'
                                     />
                                 )}
                             </Form.Item>
                             <Form.Item>
-                                <Button type="primary" htmlType="submit" className="login-form-button">
+                                <Button type='primary' htmlType='submit' className='login-form-button'>
                                     登录
                                 </Button>
                             </Form.Item>
