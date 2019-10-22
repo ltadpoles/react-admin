@@ -25,3 +25,18 @@
     border-radius: 5px;
     box-shadow: 0px 2px 13px 0px rgba(228, 228, 228, 0.6);
 }
+
+@font-face {
+    font-family: 'FangZhengKaiTi';
+    src: url(../assets/font/FangZhengKaiTiJianTi-1.ttf);
+}
+
+@font-face {
+    font-family: 'KuXingKaiTi';
+    src: url(../assets/font/RuiZiYunZiKuXingKaiTiGBK-1.ttf);
+}
+
+html,
+body {
+    font-family: 'KuXingKaiTi' !important;
+}
