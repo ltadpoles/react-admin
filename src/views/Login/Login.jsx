@@ -15,7 +15,7 @@ class Login extends Component {
         e.preventDefault()
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                let { username, password } = values
+                // let { username, password } = values
                 // axios
                 //     .post(`${API}/login`, { username, password })
                 //     .then(res => {
@@ -30,6 +30,15 @@ class Login extends Component {
                 //     })
                 //     .catch(err => {})
 
+                // 这里可以做权限校验 模拟接口返回用户权限标识
+                switch (values.username) {
+                    case 'admin':
+                        values.auth = 0
+                        break
+                    default:
+                        values.auth = 1
+                }
+
                 localStorage.setItem('user', JSON.stringify(values))
                 this.props.history.push('/')
                 message.success('登录成功!')
@@ -41,7 +50,7 @@ class Login extends Component {
         notification.open({
             message: '欢迎使用后台管理平台',
             duration: null,
-            description: '账号密码随意'
+            description: '账号 admin(管理员) 其他(游客) 密码随意'
         })
     }
 
