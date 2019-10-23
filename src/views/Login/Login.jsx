@@ -6,10 +6,6 @@ import { withRouter } from 'react-router-dom'
 import '../../style/view-style/login.scss'
 
 class Login extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {}
-    }
 
     handleSubmit = e => {
         e.preventDefault()

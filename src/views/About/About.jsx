@@ -3,10 +3,6 @@ import { Layout, Divider } from 'antd'
 import CustomBreadcrumb from '../../components/CustomBreadcrumb'
 
 class AboutView extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {}
-    }
     render() {
         return (
             <Layout>
