@@ -74,6 +74,7 @@ class DefaultLayout extends Component {
 
     render() {
         let { menuClick, menuToggle } = this.props
+        let { auth } = JSON.parse(localStorage.getItem('user'))
         return (
             <Layout className='app'>
                 <BackTop />
@@ -88,13 +89,22 @@ class DefaultLayout extends Component {
                     />
                     <Content className='content'>
                         <Switch>
-                            {routes.map(res => {
+                            {routes.map(item => {
                                 return (
                                     <Route
-                                        key={res.path}
-                                        path={res.path}
-                                        exact={res.exact}
-                                        component={res.component}></Route>
+                                        key={item.path}
+                                        path={item.path}
+                                        exact={item.exact}
+                                        render={props =>
+                                            !auth ? (
+                                                <item.component {...props} />
+                                            ) : item.auth && item.auth.indexOf(auth) !== -1 ? (
+                                                <item.component {...props} />
+                                            ) : (
+                                                // 这里也可以跳转到 403 页面
+                                                <Redirect to='/404' {...props} />
+                                            )
+                                        }></Route>
                                 )
                             })}
                             <Redirect to='/404' />
