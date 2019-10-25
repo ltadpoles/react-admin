@@ -16,25 +16,25 @@
 
 ### 技术栈
 
-`react + react-Router + redux + antd + axios`
+`React@16.10.1 + React-Router@5.1.1 + Redux@4.0.4 + Antd@3.23.5 + Axios@0.19.0`
 
 > `Create React App`    脚手架工具快速搭建项目结构
 
-> `react-loadable`    路由懒加载
+> `react-loadable@5.5.0`    路由懒加载
 
-> `react-redux`     配合 `Redux` 更舒心
+> `react-redux@7.1.1`     配合 `Redux` 更舒心
 
-> `animate.css`     页面动画展示
+> `animate.css@3.7.2`     页面动画展示
 
-> `braft-editor`    富文本插件
+> `braft-editor@2.3.8`    富文本插件
 
-> `echarts`   数据可视化
+> `echarts@4.4.0`   数据可视化
 
-> `nprogress`     顶部加载条
+> `nprogress@0.2.0`     顶部加载条
 
-> `screenfull`    全屏插件
+> `screenfull@5.0.0`    全屏插件
 
-> `prettier`    代码风格统一
+> `prettier@1.18.2`    代码风格统一
 
 ### 基本功能
 
