@@ -14,6 +14,10 @@
 
 如果觉得不错或者对你有些许的帮助，欢迎 `star`，或者你有更好的实现方式、有趣的 `idea`，也欢迎留言交流 
 
+如果你想了解项目更为详细的信息，推荐阅读以下文章
+
+- [如何打造 react 后台管理系统](https://github.com/ltadpoles/web-document/blob/master/React/%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0react%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.md)
+
 以下为项目基本信息↓
 
 ### 技术栈
