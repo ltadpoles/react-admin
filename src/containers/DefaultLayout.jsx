@@ -45,9 +45,11 @@ class DefaultLayout extends Component {
     }
 
     componentDidMount() {
-        this.setState({
-            menu: this.getMenu(menu)
-        })
+        if(localStorage.getItem('user')){
+            this.setState({
+                menu: this.getMenu(menu)
+            })
+        }
         this.isLogin()
     }
 
@@ -74,7 +76,7 @@ class DefaultLayout extends Component {
 
     render() {
         let { menuClick, menuToggle } = this.props
-        let { auth } = JSON.parse(localStorage.getItem('user'))
+        let { auth } = JSON.parse(localStorage.getItem('user')) ? JSON.parse(localStorage.getItem('user')) : ''
         return (
             <Layout className='app'>
                 <BackTop />

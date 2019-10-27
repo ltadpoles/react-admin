@@ -7,6 +7,16 @@ import '../../style/view-style/login.scss'
 
 class Login extends Component {
 
+    state = {
+        loading: false
+    }
+
+    enterLoading = () => {
+        this.setState({
+            loading: true
+        })
+    }
+
     handleSubmit = e => {
         e.preventDefault()
         this.props.form.validateFields((err, values) => {
@@ -36,8 +46,11 @@ class Login extends Component {
                 }
 
                 localStorage.setItem('user', JSON.stringify(values))
-                this.props.history.push('/')
-                message.success('登录成功!')
+                this.enterLoading()
+                this.timer = setTimeout(() => {
+                    message.success('登录成功!')
+                    this.props.history.push('/')
+                }, 2000);
             }
         })
     }
@@ -52,6 +65,7 @@ class Login extends Component {
 
     componentWillUnmount() {
         notification.destroy()
+        this.timer && clearTimeout(this.timer)
     }
 
     render() {
@@ -85,7 +99,7 @@ class Login extends Component {
                                 )}
                             </Form.Item>
                             <Form.Item>
-                                <Button type='primary' htmlType='submit' className='login-form-button'>
+                                <Button type='primary' htmlType='submit' className='login-form-button' loading={this.state.loading}>
                                     登录
                                 </Button>
                             </Form.Item>
