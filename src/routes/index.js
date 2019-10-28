@@ -40,7 +40,7 @@ const routes = [
     { path: '/form/base-form', exact: false, name: '表单', component: FormBaseView },
     { path: '/form/step-form', exact: false, name: '表单', component: FormStepView },
     { path: '/show/table', exact: false, name: '表格', component: TableView },
-    { path: '/show/collapse', exact: false, name: '折叠面板', component: CollapseView },
+    // { path: '/show/collapse', exact: false, name: '折叠面板', component: CollapseView },
     { path: '/show/tree', exact: false, name: '树形控件', component: TreeView },
     { path: '/show/tabs', exact: false, name: '标签页', component: TabsView },
     { path: '/others/progress', exact: false, name: '进度条', component: ProgressView, auth: [1] },
