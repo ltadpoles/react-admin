@@ -25,6 +25,10 @@ class DefaultLayout extends Component {
     isLogin = () => {
         if (!localStorage.getItem('user')) {
             this.props.history.push('/login')
+        } else {
+            this.setState({
+                menu: this.getMenu(menu)
+            })
         }
     }
 
@@ -45,11 +49,6 @@ class DefaultLayout extends Component {
     }
 
     componentDidMount() {
-        if(localStorage.getItem('user')){
-            this.setState({
-                menu: this.getMenu(menu)
-            })
-        }
         this.isLogin()
     }
 
