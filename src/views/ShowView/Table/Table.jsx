@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
+import CustomBreadcrumb from '@/components/CustomBreadcrumb'
 import { Layout, Divider, Row, Col, Tag, Table, Button, Anchor } from 'antd'
-import '../../../style/view-style/table.scss'
+import '@/style/view-style/table.scss'
 
 const { Column } = Table
 const { Link } = Anchor

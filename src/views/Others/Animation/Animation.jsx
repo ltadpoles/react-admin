@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Layout, Divider, Row, Col, Button, Tabs } from 'antd'
-import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
-import '../../../style/view-style/animation.scss'
+import CustomBreadcrumb from '@/components/CustomBreadcrumb'
+import '@/style/view-style/animation.scss'
 
 const { TabPane } = Tabs
 const typeIn = [

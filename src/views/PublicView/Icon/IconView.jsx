@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Layout, Divider, Icon, Tooltip } from 'antd'
-import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
-import '../../../style/view-style/icon.scss'
+import CustomBreadcrumb from '@/components/CustomBreadcrumb'
+import '@/style/view-style/icon.scss'
 
 const HeartSvg = () => (
     <svg width='1em' height='1em' fill='currentColor' viewBox='0 0 1024 1024'>

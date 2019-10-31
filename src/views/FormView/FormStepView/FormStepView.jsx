@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
+import CustomBreadcrumb from '@/components/CustomBreadcrumb'
 import { Layout, Divider, Row, Col, Steps, Button, Form, Input, Select, Alert, Result } from 'antd'
-import '../../../style/view-style/form.scss'
+import '@/style/view-style/form.scss'
 
 const { Step } = Steps
 const { Option } = Select

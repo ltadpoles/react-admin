@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Layout, Row, Col, Upload, message, Button, Icon, Divider, Modal } from 'antd'
-import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
+import CustomBreadcrumb from '@/components/CustomBreadcrumb'
 
 const { Dragger } = Upload
 

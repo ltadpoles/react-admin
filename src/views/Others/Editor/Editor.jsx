@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import BraftEditor from 'braft-editor'
 import 'braft-editor/dist/index.css'
-import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
+import CustomBreadcrumb from '@/components/CustomBreadcrumb'
 import { Layout, Divider } from 'antd'
-import '../../../style/view-style/editor.scss'
+import '@/style/view-style/editor.scss'
 
 class EditorView extends Component {
     state = {

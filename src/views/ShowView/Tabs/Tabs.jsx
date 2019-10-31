@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
+import CustomBreadcrumb from '@/components/CustomBreadcrumb'
 import { Layout, Divider, Row, Col, Tabs, Select, Icon, Radio, Button } from 'antd'
 
 const { TabPane } = Tabs

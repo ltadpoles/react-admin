@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
+import CustomBreadcrumb from '@/components/CustomBreadcrumb'
 import {
     Alert,
     Layout,
@@ -23,7 +23,7 @@ import {
     AutoComplete,
     message
 } from 'antd'
-import '../../../style/view-style/form.scss'
+import '@/style/view-style/form.scss'
 
 const { Option } = Select
 const AutoCompleteOption = AutoComplete.Option

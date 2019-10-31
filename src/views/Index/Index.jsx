@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Layout, Row, Col, Icon, Divider } from 'antd'
 import screenfull from 'screenfull'
-import '../../style/view-style/index.scss'
+import '@/style/view-style/index.scss'
 
 import BarEcharts from './bar.jsx'
 import PieEcharts from './pie.jsx'

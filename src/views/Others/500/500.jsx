@@ -1,5 +1,5 @@
 import React from 'react'
-import img500 from '../../../assets/images/500.png'
+import img500 from '@/assets/images/500.png'
 
 const View500 = () => (
     <div style={{ textAlign: 'center' }}>

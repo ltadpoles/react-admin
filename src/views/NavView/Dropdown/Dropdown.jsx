@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Layout, Divider, Menu, Dropdown, Icon, Row, Col, message, Button } from 'antd'
-import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
-import '../../../style/view-style/dropdown.scss'
+import CustomBreadcrumb from '@/components/CustomBreadcrumb'
+import '@/style/view-style/dropdown.scss'
 
 const { SubMenu } = Menu
 

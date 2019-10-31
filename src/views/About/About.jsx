@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Layout, Divider } from 'antd'
-import CustomBreadcrumb from '../../components/CustomBreadcrumb'
+import CustomBreadcrumb from '@/components/CustomBreadcrumb'
 
 class AboutView extends Component {
     render() {
