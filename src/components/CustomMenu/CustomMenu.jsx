@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Menu, Icon } from 'antd'
 import { Link, withRouter } from 'react-router-dom'
 
@@ -83,8 +84,7 @@ class CustomMenu extends Component {
                         {icon && <Icon type={icon} />}
                         <span>{title}</span>
                     </span>
-                }
-            >
+                }>
                 {subs &&
                     subs.map(item => {
                         return item.subs && item.subs.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
@@ -97,13 +97,12 @@ class CustomMenu extends Component {
         let { openKeys, selectedKeys } = this.state
         return (
             <Menu
-                mode="inline"
-                theme="dark"
+                mode='inline'
+                theme='dark'
                 openKeys={openKeys}
                 selectedKeys={selectedKeys}
                 onClick={({ key }) => this.setState({ selectedKeys: [key] })}
-                onOpenChange={this.onOpenChange}
-            >
+                onOpenChange={this.onOpenChange}>
                 {this.props.menu &&
                     this.props.menu.map(item => {
                         return item.subs && item.subs.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
@@ -111,6 +110,10 @@ class CustomMenu extends Component {
             </Menu>
         )
     }
+}
+
+CustomMenu.propTypes = {
+    menu: PropTypes.array.isRequired
 }
 
 export default withRouter(CustomMenu)

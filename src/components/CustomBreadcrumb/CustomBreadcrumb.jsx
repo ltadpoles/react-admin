@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Breadcrumb } from 'antd'
 import { Link } from 'react-router-dom'
 
@@ -6,7 +7,7 @@ const CustomBreadcrumb = props => {
     return (
         <Breadcrumb style={{ marginBottom: 16 }}>
             <Breadcrumb.Item>
-                <Link to="/index">首页</Link>
+                <Link to='/index'>首页</Link>
             </Breadcrumb.Item>
             {props.arr &&
                 props.arr.map(res => {
@@ -22,6 +23,10 @@ const CustomBreadcrumb = props => {
                 })}
         </Breadcrumb>
     )
+}
+
+CustomBreadcrumb.propTypes = {
+    arr: PropTypes.array.isRequired
 }
 
 export default CustomBreadcrumb

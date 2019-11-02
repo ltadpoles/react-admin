@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Layout, Icon } from 'antd'
 import CustomMenu from '@/components/CustomMenu'
 
@@ -18,6 +19,11 @@ class AppAside extends Component {
             </Sider>
         )
     }
+}
+
+AppAside.propTypes = {
+    menuToggle: PropTypes.bool,
+    menu: PropTypes.array.isRequired
 }
 
 export default AppAside
