@@ -12,12 +12,12 @@ class EditorView extends Component {
     }
 
     componentDidMount() {
-        this.isLivinig = true
+        this.isLiving = true
         setTimeout(this.setEditorContentAsync, 3000)
     }
 
     componentWillUnmount() {
-        this.isLivinig = false
+        this.isLiving = false
     }
 
     handleEditorChange = editorState => {
@@ -28,7 +28,7 @@ class EditorView extends Component {
     }
 
     setEditorContentAsync = () => {
-        this.isLivinig &&
+        this.isLiving &&
             this.setState({
                 editorState: BraftEditor.createEditorState('你好,<b>可爱的人! 很幸运在这里与你相遇!</b>')
             })
