@@ -120,7 +120,7 @@ class Step1 extends Component {
 class Step2From extends Component {
     state = {
         visible: true,
-        loading: false
+        iconLoading: false
     }
 
     handleClose = () => {
