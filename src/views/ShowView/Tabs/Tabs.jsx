@@ -9,21 +9,19 @@ function callback(key) {
     console.log(key)
 }
 
+const panes = [
+    { title: 'Tab 1', content: 'Content of Tab Pane 1', key: '1' },
+    { title: 'Tab 2', content: 'Content of Tab Pane 2', key: '2' }
+]
+
 class TabsViews extends Component {
-    constructor(props) {
-        super(props)
-        this.newTabIndex = 0
-        const panes = [
-            { title: 'Tab 1', content: 'Content of Tab Pane 1', key: '1' },
-            { title: 'Tab 2', content: 'Content of Tab Pane 2', key: '2' }
-        ]
-        this.state = {
-            activeKey: panes[0].key,
-            panes,
-            tabPosition: 'top',
-            size: 'small'
-        }
+    state = {
+        activeKey: panes[0].key,
+        panes,
+        tabPosition: 'top',
+        size: 'small'
     }
+    newTabIndex = 0
 
     changeTabPosition = tabPosition => {
         this.setState({ tabPosition })

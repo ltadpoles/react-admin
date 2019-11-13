@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Layout, Divider, Icon, Tooltip } from 'antd'
 import CustomBreadcrumb from '@/components/CustomBreadcrumb'
 import '@/style/view-style/icon.scss'
@@ -58,437 +58,433 @@ const HeartIcon = props => <Icon component={HeartSvg} {...props} />
 
 const PandaIcon = props => <Icon component={PandaSvg} {...props} />
 
-class IconView extends Component {
-    render() {
-        return (
-            <Layout className='icon animated fadeIn'>
-                <div>
-                    <CustomBreadcrumb arr={['通用', '图标']}></CustomBreadcrumb>
-                </div>
-                <div className='base-style'>
-                    <h3>何时使用</h3>
-                    <Divider />
-                    <p>语义化的矢量图形。</p>
-                </div>
+const IconView = () => (
+    <Layout className='icon animated fadeIn'>
+        <div>
+            <CustomBreadcrumb arr={['通用', '图标']}></CustomBreadcrumb>
+        </div>
+        <div className='base-style'>
+            <h3>何时使用</h3>
+            <Divider />
+            <p>语义化的矢量图形。</p>
+        </div>
 
-                <div className='base-style'>
-                    <ul className='anticons-list'>
-                        <li>
-                            <Icon type='sync' spin />
-                        </li>
-                        <li>
-                            <Icon type='smile' theme='outlined' spin />
-                        </li>
-                        <li>
-                            <Icon type='smile' rotate={180} />
-                        </li>
-                        <li>
-                            <Icon type='smile' theme='twoTone' />
-                        </li>
-                        <li>
-                            <Icon type='heart' theme='twoTone' twoToneColor='#eb2f96' />
-                        </li>
-                        <li>
-                            <Icon type='check-circle' theme='twoTone' twoToneColor='#52c41a' />
-                        </li>
-                        <li>
-                            <HeartIcon style={{ color: 'hotpink' }} />
-                            <PandaIcon style={{ fontSize: '32px' }} />
-                        </li>
-                    </ul>
-                </div>
+        <div className='base-style'>
+            <ul className='anticons-list'>
+                <li>
+                    <Icon type='sync' spin />
+                </li>
+                <li>
+                    <Icon type='smile' theme='outlined' spin />
+                </li>
+                <li>
+                    <Icon type='smile' rotate={180} />
+                </li>
+                <li>
+                    <Icon type='smile' theme='twoTone' />
+                </li>
+                <li>
+                    <Icon type='heart' theme='twoTone' twoToneColor='#eb2f96' />
+                </li>
+                <li>
+                    <Icon type='check-circle' theme='twoTone' twoToneColor='#52c41a' />
+                </li>
+                <li>
+                    <HeartIcon style={{ color: 'hotpink' }} />
+                    <PandaIcon style={{ fontSize: '32px' }} />
+                </li>
+            </ul>
+        </div>
 
-                <div className='base-style'>
-                    <h4>方向性图标</h4>
-                    <Divider />
-                    <ul className='anticons-list'>
-                        <Tooltip title='step-backward'>
-                            <li>
-                                <Icon type='step-backward' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='step-forward'>
-                            <li>
-                                <Icon type='step-forward' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='fast-backward'>
-                            <li>
-                                <Icon type='fast-backward' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='fast-forward'>
-                            <li>
-                                <Icon type='fast-forward' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='down'>
-                            <li>
-                                <Icon type='down' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='up'>
-                            <li>
-                                <Icon type='up' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='left'>
-                            <li>
-                                <Icon type='left' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='right'>
-                            <li>
-                                <Icon type='right' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='up-circle'>
-                            <li>
-                                <Icon type='up-circle' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='down-circle'>
-                            <li>
-                                <Icon type='down-circle' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='left-circle'>
-                            <li>
-                                <Icon type='left-circle' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='right-circle'>
-                            <li>
-                                <Icon type='right-circle' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='vertical-align-bottom'>
-                            <li>
-                                <Icon type='vertical-align-bottom' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='forward'>
-                            <li>
-                                <Icon type='forward' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='backward'>
-                            <li>
-                                <Icon type='backward' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='arrow-up'>
-                            <li>
-                                <Icon type='arrow-up' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='arrow-down'>
-                            <li>
-                                <Icon type='arrow-down' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='arrow-left'>
-                            <li>
-                                <Icon type='arrow-left' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='arrow-right'>
-                            <li>
-                                <Icon type='arrow-right' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='login'>
-                            <li>
-                                <Icon type='login' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='logout'>
-                            <li>
-                                <Icon type='logout' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='fullscreen'>
-                            <li>
-                                <Icon type='fullscreen' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='fullscreen-exit'>
-                            <li>
-                                <Icon type='fullscreen-exit' />
-                            </li>
-                        </Tooltip>
-                    </ul>
-                </div>
-                <div className='base-style'>
-                    <h4>提示建议性图标</h4>
-                    <Divider />
-                    <ul className='anticons-list'>
-                        <Tooltip title='question-circle'>
-                            <li>
-                                <Icon type='question-circle' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='plus-circle'>
-                            <li>
-                                <Icon type='plus-circle' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='pause-circle'>
-                            <li>
-                                <Icon type='pause-circle' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='minus-circle'>
-                            <li>
-                                <Icon type='minus-circle' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='plus-square'>
-                            <li>
-                                <Icon type='plus-square' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='minus-square'>
-                            <li>
-                                <Icon type='minus-square' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='info-circle'>
-                            <li>
-                                <Icon type='info-circle' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='exclamation-circle'>
-                            <li>
-                                <Icon type='exclamation-circle' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='close-circle'>
-                            <li>
-                                <Icon type='close-circle' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='check-circle'>
-                            <li>
-                                <Icon type='check-circle' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='clock-circle'>
-                            <li>
-                                <Icon type='clock-circle' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='warning'>
-                            <li>
-                                <Icon type='warning' />
-                            </li>
-                        </Tooltip>
-                    </ul>
-                </div>
+        <div className='base-style'>
+            <h4>方向性图标</h4>
+            <Divider />
+            <ul className='anticons-list'>
+                <Tooltip title='step-backward'>
+                    <li>
+                        <Icon type='step-backward' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='step-forward'>
+                    <li>
+                        <Icon type='step-forward' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='fast-backward'>
+                    <li>
+                        <Icon type='fast-backward' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='fast-forward'>
+                    <li>
+                        <Icon type='fast-forward' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='down'>
+                    <li>
+                        <Icon type='down' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='up'>
+                    <li>
+                        <Icon type='up' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='left'>
+                    <li>
+                        <Icon type='left' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='right'>
+                    <li>
+                        <Icon type='right' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='up-circle'>
+                    <li>
+                        <Icon type='up-circle' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='down-circle'>
+                    <li>
+                        <Icon type='down-circle' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='left-circle'>
+                    <li>
+                        <Icon type='left-circle' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='right-circle'>
+                    <li>
+                        <Icon type='right-circle' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='vertical-align-bottom'>
+                    <li>
+                        <Icon type='vertical-align-bottom' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='forward'>
+                    <li>
+                        <Icon type='forward' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='backward'>
+                    <li>
+                        <Icon type='backward' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='arrow-up'>
+                    <li>
+                        <Icon type='arrow-up' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='arrow-down'>
+                    <li>
+                        <Icon type='arrow-down' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='arrow-left'>
+                    <li>
+                        <Icon type='arrow-left' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='arrow-right'>
+                    <li>
+                        <Icon type='arrow-right' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='login'>
+                    <li>
+                        <Icon type='login' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='logout'>
+                    <li>
+                        <Icon type='logout' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='fullscreen'>
+                    <li>
+                        <Icon type='fullscreen' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='fullscreen-exit'>
+                    <li>
+                        <Icon type='fullscreen-exit' />
+                    </li>
+                </Tooltip>
+            </ul>
+        </div>
+        <div className='base-style'>
+            <h4>提示建议性图标</h4>
+            <Divider />
+            <ul className='anticons-list'>
+                <Tooltip title='question-circle'>
+                    <li>
+                        <Icon type='question-circle' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='plus-circle'>
+                    <li>
+                        <Icon type='plus-circle' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='pause-circle'>
+                    <li>
+                        <Icon type='pause-circle' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='minus-circle'>
+                    <li>
+                        <Icon type='minus-circle' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='plus-square'>
+                    <li>
+                        <Icon type='plus-square' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='minus-square'>
+                    <li>
+                        <Icon type='minus-square' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='info-circle'>
+                    <li>
+                        <Icon type='info-circle' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='exclamation-circle'>
+                    <li>
+                        <Icon type='exclamation-circle' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='close-circle'>
+                    <li>
+                        <Icon type='close-circle' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='check-circle'>
+                    <li>
+                        <Icon type='check-circle' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='clock-circle'>
+                    <li>
+                        <Icon type='clock-circle' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='warning'>
+                    <li>
+                        <Icon type='warning' />
+                    </li>
+                </Tooltip>
+            </ul>
+        </div>
 
-                <div className='base-style'>
-                    <h4>编辑类图标</h4>
-                    <Divider />
-                    <ul className='anticons-list'>
-                        <Tooltip title='edit'>
-                            <li>
-                                <Icon type='edit' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='form'>
-                            <li>
-                                <Icon type='form' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='copy'>
-                            <li>
-                                <Icon type='copy' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='delete'>
-                            <li>
-                                <Icon type='delete' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='align-left'>
-                            <li>
-                                <Icon type='align-left' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='align-right'>
-                            <li>
-                                <Icon type='align-right' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='italic'>
-                            <li>
-                                <Icon type='italic' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='redo'>
-                            <li>
-                                <Icon type='redo' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='undo'>
-                            <li>
-                                <Icon type='undo' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='zoom-in'>
-                            <li>
-                                <Icon type='zoom-in' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='zoom-out'>
-                            <li>
-                                <Icon type='zoom-out' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='drag'>
-                            <li>
-                                <Icon type='drag' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='unordered-list'>
-                            <li>
-                                <Icon type='unordered-list' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='ordered-list'>
-                            <li>
-                                <Icon type='ordered-list' />
-                            </li>
-                        </Tooltip>
-                    </ul>
-                </div>
+        <div className='base-style'>
+            <h4>编辑类图标</h4>
+            <Divider />
+            <ul className='anticons-list'>
+                <Tooltip title='edit'>
+                    <li>
+                        <Icon type='edit' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='form'>
+                    <li>
+                        <Icon type='form' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='copy'>
+                    <li>
+                        <Icon type='copy' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='delete'>
+                    <li>
+                        <Icon type='delete' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='align-left'>
+                    <li>
+                        <Icon type='align-left' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='align-right'>
+                    <li>
+                        <Icon type='align-right' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='italic'>
+                    <li>
+                        <Icon type='italic' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='redo'>
+                    <li>
+                        <Icon type='redo' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='undo'>
+                    <li>
+                        <Icon type='undo' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='zoom-in'>
+                    <li>
+                        <Icon type='zoom-in' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='zoom-out'>
+                    <li>
+                        <Icon type='zoom-out' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='drag'>
+                    <li>
+                        <Icon type='drag' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='unordered-list'>
+                    <li>
+                        <Icon type='unordered-list' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='ordered-list'>
+                    <li>
+                        <Icon type='ordered-list' />
+                    </li>
+                </Tooltip>
+            </ul>
+        </div>
 
-                <div className='base-style'>
-                    <h4>数据类图标</h4>
-                    <Divider />
-                    <ul className='anticons-list'>
-                        <Tooltip title='area-chart'>
-                            <li>
-                                <Icon type='area-chart' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='pie-chart'>
-                            <li>
-                                <Icon type='pie-chart' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='bar-chart'>
-                            <li>
-                                <Icon type='bar-chart' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='dot-chart'>
-                            <li>
-                                <Icon type='dot-chart' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='line-chart'>
-                            <li>
-                                <Icon type='line-chart' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='stock'>
-                            <li>
-                                <Icon type='stock' />
-                            </li>
-                        </Tooltip>
-                    </ul>
-                </div>
+        <div className='base-style'>
+            <h4>数据类图标</h4>
+            <Divider />
+            <ul className='anticons-list'>
+                <Tooltip title='area-chart'>
+                    <li>
+                        <Icon type='area-chart' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='pie-chart'>
+                    <li>
+                        <Icon type='pie-chart' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='bar-chart'>
+                    <li>
+                        <Icon type='bar-chart' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='dot-chart'>
+                    <li>
+                        <Icon type='dot-chart' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='line-chart'>
+                    <li>
+                        <Icon type='line-chart' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='stock'>
+                    <li>
+                        <Icon type='stock' />
+                    </li>
+                </Tooltip>
+            </ul>
+        </div>
 
-                <div className='base-style'>
-                    <h4>品牌和标识</h4>
-                    <Divider />
-                    <ul className='anticons-list'>
-                        <Tooltip title='ant-design'>
-                            <li>
-                                <Icon type='ant-design' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='android'>
-                            <li>
-                                <Icon type='android' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='apple'>
-                            <li>
-                                <Icon type='apple' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='windows'>
-                            <li>
-                                <Icon type='windows' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='github'>
-                            <li>
-                                <Icon type='github' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='weibo-circle'>
-                            <li>
-                                <Icon type='weibo-circle' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='weibo'>
-                            <li>
-                                <Icon type='weibo' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='taobao-circle'>
-                            <li>
-                                <Icon type='taobao-circle' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='taobao'>
-                            <li>
-                                <Icon type='taobao' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='wechat'>
-                            <li>
-                                <Icon type='wechat' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='alipay-circle'>
-                            <li>
-                                <Icon type='alipay-circle' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='qq'>
-                            <li>
-                                <Icon type='qq' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='google'>
-                            <li>
-                                <Icon type='google' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='facebook'>
-                            <li>
-                                <Icon type='facebook' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='twitter'>
-                            <li>
-                                <Icon type='twitter' />
-                            </li>
-                        </Tooltip>
-                        <Tooltip title='youtube'>
-                            <li>
-                                <Icon type='youtube' />
-                            </li>
-                        </Tooltip>
-                    </ul>
-                </div>
-            </Layout>
-        )
-    }
-}
+        <div className='base-style'>
+            <h4>品牌和标识</h4>
+            <Divider />
+            <ul className='anticons-list'>
+                <Tooltip title='ant-design'>
+                    <li>
+                        <Icon type='ant-design' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='android'>
+                    <li>
+                        <Icon type='android' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='apple'>
+                    <li>
+                        <Icon type='apple' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='windows'>
+                    <li>
+                        <Icon type='windows' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='github'>
+                    <li>
+                        <Icon type='github' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='weibo-circle'>
+                    <li>
+                        <Icon type='weibo-circle' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='weibo'>
+                    <li>
+                        <Icon type='weibo' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='taobao-circle'>
+                    <li>
+                        <Icon type='taobao-circle' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='taobao'>
+                    <li>
+                        <Icon type='taobao' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='wechat'>
+                    <li>
+                        <Icon type='wechat' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='alipay-circle'>
+                    <li>
+                        <Icon type='alipay-circle' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='qq'>
+                    <li>
+                        <Icon type='qq' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='google'>
+                    <li>
+                        <Icon type='google' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='facebook'>
+                    <li>
+                        <Icon type='facebook' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='twitter'>
+                    <li>
+                        <Icon type='twitter' />
+                    </li>
+                </Tooltip>
+                <Tooltip title='youtube'>
+                    <li>
+                        <Icon type='youtube' />
+                    </li>
+                </Tooltip>
+            </ul>
+        </div>
+    </Layout>
+)
 
 export default IconView

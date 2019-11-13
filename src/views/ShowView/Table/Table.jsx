@@ -67,48 +67,40 @@ for (let i = 0; i < 46; i++) {
     })
 }
 
-class Table1 extends Component {
-    render() {
-        return <Table columns={columns} dataSource={data} />
-    }
-}
+const Table1 = () => <Table columns={columns} dataSource={data} />
 
-class Table2 extends Component {
-    render() {
-        return (
-            <Table dataSource={data}>
-                <Column title='Name' dataIndex='name' key='lastName' />
-                <Column title='Age' dataIndex='age' key='age' />
-                <Column title='Address' dataIndex='address' key='address' />
-                <Column
-                    title='Tags'
-                    dataIndex='tags'
-                    key='tags'
-                    render={tags => (
-                        <span>
-                            {tags.map(tag => (
-                                <Tag color='blue' key={tag}>
-                                    {tag}
-                                </Tag>
-                            ))}
-                        </span>
-                    )}
-                />
-                <Column
-                    title='Action'
-                    key='action'
-                    render={(text, record) => (
-                        <span>
-                            <Button type='link'>Invite {record.lastName}</Button>
-                            <Divider type='vertical' />
-                            <Button type='link'>Delete</Button>
-                        </span>
-                    )}
-                />
-            </Table>
-        )
-    }
-}
+const Table2 = () => (
+    <Table dataSource={data}>
+        <Column title='Name' dataIndex='name' key='lastName' />
+        <Column title='Age' dataIndex='age' key='age' />
+        <Column title='Address' dataIndex='address' key='address' />
+        <Column
+            title='Tags'
+            dataIndex='tags'
+            key='tags'
+            render={tags => (
+                <span>
+                    {tags.map(tag => (
+                        <Tag color='blue' key={tag}>
+                            {tag}
+                        </Tag>
+                    ))}
+                </span>
+            )}
+        />
+        <Column
+            title='Action'
+            key='action'
+            render={(text, record) => (
+                <span>
+                    <Button type='link'>Invite {record.lastName}</Button>
+                    <Divider type='vertical' />
+                    <Button type='link'>Delete</Button>
+                </span>
+            )}
+        />
+    </Table>
+)
 
 class Table3 extends Component {
     state = {
@@ -250,59 +242,55 @@ class Table4 extends Component {
     }
 }
 
-class TableView extends Component {
-    render() {
-        return (
-            <Layout className='animated fadeIn'>
-                <div>
-                    <CustomBreadcrumb arr={['通用', '按钮']}></CustomBreadcrumb>
-                </div>
-                <div className='base-style'>
-                    <h3>何时使用</h3>
-                    <Divider />
-                    <p>当有大量结构化的数据需要展现时；</p>
-                    <p>当需要对数据进行排序、搜索、分页、自定义操作等复杂行为时。</p>
-                </div>
+const TableView = () => (
+    <Layout className='animated fadeIn'>
+        <div>
+            <CustomBreadcrumb arr={['通用', '按钮']}></CustomBreadcrumb>
+        </div>
+        <div className='base-style'>
+            <h3>何时使用</h3>
+            <Divider />
+            <p>当有大量结构化的数据需要展现时；</p>
+            <p>当需要对数据进行排序、搜索、分页、自定义操作等复杂行为时。</p>
+        </div>
 
-                <Row>
-                    <Anchor className='toc-affix'>
-                        <Link href='#basic' title='基础表格' />
-                        <Link href='#JSX' title='JSX表格' />
-                        <Link href='#checked' title='可选表格' />
-                        <Link href='#sort' title='可筛选排序表格' />
-                    </Anchor>
-                    <Col>
-                        <div className='base-style'>
-                            <h3 id='basic'>基础表格</h3>
-                            <Divider />
-                            <Table1 />
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className='base-style'>
-                            <h3 id='JSX'>JSX表单</h3>
-                            <Divider orientation='left'>JSX表格</Divider>
-                            <Table2 />
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className='base-style'>
-                            <h3 id='checked'>可选表单</h3>
-                            <Divider orientation='left'>可选表格</Divider>
-                            <Table3 />
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className='base-style'>
-                            <h3 id='sort'>可筛选排序表单</h3>
-                            <Divider orientation='left'>可筛选排序表格</Divider>
-                            <Table4 />
-                        </div>
-                    </Col>
-                </Row>
-            </Layout>
-        )
-    }
-}
+        <Row>
+            <Anchor className='toc-affix'>
+                <Link href='#basic' title='基础表格' />
+                <Link href='#JSX' title='JSX表格' />
+                <Link href='#checked' title='可选表格' />
+                <Link href='#sort' title='可筛选排序表格' />
+            </Anchor>
+            <Col>
+                <div className='base-style'>
+                    <h3 id='basic'>基础表格</h3>
+                    <Divider />
+                    <Table1 />
+                </div>
+            </Col>
+            <Col>
+                <div className='base-style'>
+                    <h3 id='JSX'>JSX表单</h3>
+                    <Divider orientation='left'>JSX表格</Divider>
+                    <Table2 />
+                </div>
+            </Col>
+            <Col>
+                <div className='base-style'>
+                    <h3 id='checked'>可选表单</h3>
+                    <Divider orientation='left'>可选表格</Divider>
+                    <Table3 />
+                </div>
+            </Col>
+            <Col>
+                <div className='base-style'>
+                    <h3 id='sort'>可筛选排序表单</h3>
+                    <Divider orientation='left'>可筛选排序表格</Divider>
+                    <Table4 />
+                </div>
+            </Col>
+        </Row>
+    </Layout>
+)
 
 export default TableView
