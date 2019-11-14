@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import echarts from 'echarts/lib/echarts'
 import 'echarts/lib/chart/pie'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/title'
 import 'echarts/lib/component/legend'
 
-class Pie extends Component {
-    componentDidMount() {
+const Pie = () => {
+    useEffect(() => {
         let myChart = echarts.init(document.getElementById('pie'))
         myChart.setOption({
             tooltip: {
@@ -44,10 +44,12 @@ class Pie extends Component {
         window.addEventListener('resize', function() {
             myChart.resize()
         })
-    }
-    render() {
-        return <div id='pie' style={{ height: 300 }}></div>
-    }
+        return () => {
+            window.removeEventListener('resize')
+        }
+    }, [])
+
+    return <div id='pie' style={{ height: 300 }}></div>
 }
 
 export default Pie

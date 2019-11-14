@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import echarts from 'echarts/lib/echarts'
 import 'echarts/lib/chart/scatter'
 import 'echarts/lib/component/tooltip'
@@ -50,8 +50,8 @@ let data = [
     ]
 ]
 
-class Scatter extends Component {
-    componentDidMount() {
+const Scatter = () => {
+    useEffect(() => {
         let myChart = echarts.init(document.getElementById('scatter'))
         myChart.setOption({
             legend: {
@@ -147,10 +147,12 @@ class Scatter extends Component {
         window.addEventListener('resize', function() {
             myChart.resize()
         })
-    }
-    render() {
-        return <div id='scatter' style={{ height: 300 }}></div>
-    }
+        return () => {
+            window.removeEventListener('resize')
+        }
+    }, [])
+
+    return <div id='scatter' style={{ height: 300 }}></div>
 }
 
 export default Scatter

@@ -2,7 +2,7 @@ import React from 'react'
 import { Layout, Divider } from 'antd'
 import CustomBreadcrumb from '@/components/CustomBreadcrumb'
 
-const AboutView = props => (
+const AboutView = () => (
     <Layout>
         <div>
             <CustomBreadcrumb arr={['关于']}></CustomBreadcrumb>

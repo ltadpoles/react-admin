@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import echarts from 'echarts/lib/echarts'
 import 'echarts/lib/chart/bar'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/title'
 import 'echarts/lib/component/legend'
 
-class Bar extends Component {
-    componentDidMount() {
+const Bar = () => {
+    useEffect(() => {
         let myChart = echarts.init(document.getElementById('bar'))
         myChart.setOption({
             tooltip: {
@@ -103,10 +103,11 @@ class Bar extends Component {
         window.addEventListener('resize', function() {
             myChart.resize()
         })
-    }
-    render() {
-        return <div id='bar' style={{ height: 300, background: '#fff' }}></div>
-    }
+        return () => {
+            window.removeEventListener('resize')
+        }
+    }, [])
+    return <div id='bar' style={{ height: 300, background: '#fff' }}></div>
 }
 
 export default Bar
