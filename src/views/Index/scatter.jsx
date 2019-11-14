@@ -147,9 +147,6 @@ const Scatter = () => {
         window.addEventListener('resize', function() {
             myChart.resize()
         })
-        return () => {
-            window.removeEventListener('resize')
-        }
     }, [])
 
     return <div id='scatter' style={{ height: 300 }}></div>

@@ -103,9 +103,6 @@ const Bar = () => {
         window.addEventListener('resize', function() {
             myChart.resize()
         })
-        return () => {
-            window.removeEventListener('resize')
-        }
     }, [])
     return <div id='bar' style={{ height: 300, background: '#fff' }}></div>
 }

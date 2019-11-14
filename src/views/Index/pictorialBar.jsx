@@ -127,9 +127,6 @@ const PictorialBar = () => {
         window.addEventListener('resize', function() {
             myChart.resize()
         })
-        return () => {
-            window.removeEventListener('resize')
-        }
     }, [])
 
     return <div id='pictorialBar' style={{ height: 300 }}></div>

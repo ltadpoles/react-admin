@@ -55,9 +55,6 @@ const Line = () => {
         window.addEventListener('resize', function() {
             myChart.resize()
         })
-        return () => {
-            window.removeEventListener('resize')
-        }
     }, [])
 
     return <div id='line' style={{ height: 300 }}></div>
