@@ -54,6 +54,7 @@ class UploadView extends Component {
         loading: false,
         previewVisible: false,
         previewImage: '',
+        imageUrl: '',
         fileList: [
             {
                 uid: '-1',
@@ -91,7 +92,6 @@ class UploadView extends Component {
     handleChange = info => {
         if (info.file.status === 'uploading') {
             this.setState({ loading: true })
-            return
         }
         if (info.file.status === 'done') {
             // Get this url from response in real world.
