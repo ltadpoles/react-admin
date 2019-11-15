@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { Layout, Row, Col, Upload, message, Button, Icon, Divider, Modal } from 'antd'
 import CustomBreadcrumb from '@/components/CustomBreadcrumb'
 
@@ -49,9 +49,8 @@ function beforeUpload(file) {
     return isJpgOrPng && isLt2M
 }
 
-class UploadView extends Component {
-    state = {
-        loading: false,
+const UploadView = () => {
+    const [state, setState] = useState({
         previewVisible: false,
         previewImage: '',
         fileList: [
@@ -86,118 +85,115 @@ class UploadView extends Component {
                 url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
             }
         ]
+    })
+
+    const [loading, setLoading] = useState(false)
+    const [imageUrl, setimageUrl] = useState()
+
+    let { previewVisible, previewImage, fileList } = state
+
+    const handleChange = info => {
+        getBase64(info.file.originFileObj, imageUrl => {
+            setimageUrl(() => {
+                if (info.file.status === 'done') {
+                    return imageUrl
+                }
+            })
+            setLoading(() => (info.file.status === 'uploading' ? true : false))
+        })
     }
 
-    handleChange = info => {
-        if (info.file.status === 'uploading') {
-            this.setState({ loading: true })
-            return
-        }
-        if (info.file.status === 'done') {
-            // Get this url from response in real world.
-            getBase64(info.file.originFileObj, imageUrl =>
-                this.setState({
-                    imageUrl,
-                    loading: false
-                })
-            )
-        }
-    }
+    const handleCancel = () =>
+        setState(prevState => {
+            return { ...prevState, previewVisible: false }
+        })
 
-    handleCancel = () => this.setState({ previewVisible: false })
-
-    handlePreview = async file => {
+    const handlePreview = async file => {
         if (!file.url && !file.preview) {
             file.preview = await getBase_64(file.originFileObj)
         }
-
-        this.setState({
-            previewImage: file.url || file.preview,
-            previewVisible: true
+        setState(prevState => {
+            return { ...prevState, previewImage: file.url || file.preview, previewVisible: true }
         })
     }
-    handle_Change = ({ fileList }) => this.setState({ fileList })
+    const handle_Change = ({ fileList }) =>
+        setState(prevState => {
+            return { ...prevState, fileList }
+        })
 
-    render() {
-        const uploadButton = (
+    const uploadButton = (
+        <div>
+            <Icon type={loading ? 'loading' : 'plus'} />
+            <div className='ant-upload-text'>Upload</div>
+        </div>
+    )
+    return (
+        <Layout>
             <div>
-                <Icon type={this.state.loading ? 'loading' : 'plus'} />
-                <div className='ant-upload-text'>Upload</div>
+                <CustomBreadcrumb arr={['其它', '上传']}></CustomBreadcrumb>
             </div>
-        )
-        const { imageUrl, previewVisible, previewImage, fileList } = this.state
-        return (
-            <Layout>
-                <div>
-                    <CustomBreadcrumb arr={['其它', '上传']}></CustomBreadcrumb>
-                </div>
-                <div className='base-style'>
-                    <h3>何时使用</h3>
-                    <p>上传是将信息（网页、文字、图片、视频等）通过网页或者上传工具发布到远程服务器上的过程</p>
-                </div>
-                <Row gutter={8}>
-                    <Col span={12}>
-                        <div className='base-style'>
-                            <Divider orientation='left'>普通模式</Divider>
-                            <Upload {...props}>
-                                <Button>
-                                    <Icon type='upload' /> Click to Upload
-                                </Button>
-                            </Upload>
-                        </div>
-                        <div className='base-style'>
-                            <Divider orientation='left'>照片墙</Divider>
-                            <div className='clearfix'>
-                                <Upload
-                                    action='https://www.mocky.io/v2/5cc8019d300000980a055e76'
-                                    listType='picture-card'
-                                    fileList={fileList}
-                                    onPreview={this.handlePreview}
-                                    onChange={this.handle_Change}>
-                                    {fileList.length >= 8 ? null : uploadButton}
-                                </Upload>
-                                <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
-                                    <img alt='example' style={{ width: '100%' }} src={previewImage} />
-                                </Modal>
-                            </div>
-                        </div>
-                    </Col>
-                    <Col span={12}>
-                        <div className='base-style'>
-                            <Divider orientation='left'>自定义模式</Divider>
+            <div className='base-style'>
+                <h3>何时使用</h3>
+                <p>上传是将信息（网页、文字、图片、视频等）通过网页或者上传工具发布到远程服务器上的过程</p>
+            </div>
+            <Row gutter={8}>
+                <Col span={12}>
+                    <div className='base-style'>
+                        <Divider orientation='left'>普通模式</Divider>
+                        <Upload {...props}>
+                            <Button>
+                                <Icon type='upload' /> Click to Upload
+                            </Button>
+                        </Upload>
+                    </div>
+                    <div className='base-style'>
+                        <Divider orientation='left'>照片墙</Divider>
+                        <div className='clearfix'>
                             <Upload
-                                name='avatar'
-                                listType='picture-card'
-                                className='avatar-uploader'
-                                showUploadList={false}
                                 action='https://www.mocky.io/v2/5cc8019d300000980a055e76'
-                                beforeUpload={beforeUpload}
-                                onChange={this.handleChange}>
-                                {imageUrl ? (
-                                    <img src={imageUrl} alt='avatar' style={{ width: '100%' }} />
-                                ) : (
-                                    uploadButton
-                                )}
+                                listType='picture-card'
+                                fileList={fileList}
+                                onPreview={handlePreview}
+                                onChange={handle_Change}>
+                                {fileList.length >= 8 ? null : uploadButton}
                             </Upload>
+                            <Modal visible={previewVisible} footer={null} onCancel={handleCancel}>
+                                <img alt='example' style={{ width: '100%' }} src={previewImage} />
+                            </Modal>
                         </div>
-                        <div className='base-style'>
-                            <Divider orientation='left'>可拖拽上传</Divider>
-                            <Dragger {...props}>
-                                <p className='ant-upload-drag-icon'>
-                                    <Icon type='inbox' />
-                                </p>
-                                <p className='ant-upload-text'>Click or drag file to this area to upload</p>
-                                <p className='ant-upload-hint'>
-                                    Support for a single or bulk upload. Strictly prohibit from uploading company data
-                                    or other band files
-                                </p>
-                            </Dragger>
-                        </div>
-                    </Col>
-                </Row>
-            </Layout>
-        )
-    }
+                    </div>
+                </Col>
+                <Col span={12}>
+                    <div className='base-style'>
+                        <Divider orientation='left'>自定义模式</Divider>
+                        <Upload
+                            name='avatar'
+                            listType='picture-card'
+                            className='avatar-uploader'
+                            showUploadList={false}
+                            action='https://www.mocky.io/v2/5cc8019d300000980a055e76'
+                            beforeUpload={beforeUpload}
+                            onChange={handleChange}>
+                            {imageUrl ? <img src={imageUrl} alt='avatar' style={{ width: '100%' }} /> : uploadButton}
+                        </Upload>
+                    </div>
+                    <div className='base-style'>
+                        <Divider orientation='left'>可拖拽上传</Divider>
+                        <Dragger {...props}>
+                            <p className='ant-upload-drag-icon'>
+                                <Icon type='inbox' />
+                            </p>
+                            <p className='ant-upload-text'>Click or drag file to this area to upload</p>
+                            <p className='ant-upload-hint'>
+                                Support for a single or bulk upload. Strictly prohibit from uploading company data or
+                                other band files
+                            </p>
+                        </Dragger>
+                    </div>
+                </Col>
+            </Row>
+        </Layout>
+    )
 }
 
 export default UploadView

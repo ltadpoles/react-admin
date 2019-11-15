@@ -15,9 +15,11 @@ const EditorView = () => {
 
     useEffect(() => {
         let timer = setTimeout(() => {
-            setState({
-                ...state,
-                editorState: BraftEditor.createEditorState('你好,<b>可爱的人! 很幸运在这里与你相遇!</b>')
+            setState(prevState => {
+                return {
+                    ...prevState,
+                    editorState: BraftEditor.createEditorState('你好,<b>可爱的人! 很幸运在这里与你相遇!</b>')
+                }
             })
         }, 3000)
         return () => {
@@ -26,7 +28,9 @@ const EditorView = () => {
     }, [state])
 
     let editorChange = editorState => {
-        setState({ ...state, editorState, outputHTML: editorState.toHTML() })
+        setState(prevState => {
+            return { ...prevState, editorState, outputHTML: editorState.toHTML() }
+        })
     }
 
     return (
