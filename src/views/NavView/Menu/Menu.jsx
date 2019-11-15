@@ -20,11 +20,13 @@ const MenuView = () => {
 
     const onOpenChange = keys => {
         const latestOpenKey = keys.find(key => openKeys.indexOf(key) === -1)
-        if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-            setOpenkeys(openKeys)
-        } else {
-            setOpenkeys(() => (latestOpenKey ? [latestOpenKey] : []))
-        }
+        setOpenkeys(prevState => {
+            if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+                return openKeys
+            } else {
+                return latestOpenKey ? [latestOpenKey] : []
+            }
+        })
     }
 
     return (

@@ -13,7 +13,7 @@ const View404 = loadable(() => import(/* webpackChunkName: '404' */ './views/Oth
 const View500 = loadable(() => import(/* webpackChunkName: '500' */ './views/Others/500'))
 const Login = loadable(() => import(/* webpackChunkName: 'login' */ './views/Login'))
 
-const App = props => (
+const App = () => (
     <Router>
         <Switch>
             <Route path='/' exact render={() => <Redirect to='/index' />} />

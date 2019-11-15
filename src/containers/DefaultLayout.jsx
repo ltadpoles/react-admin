@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
 import { Layout, BackTop, message } from 'antd'
 import routes from '@/routes'
-import { menuToggleAction } from '@/store/actionCreators'
 import echarts from 'echarts/lib/echarts'
 import avatar from '@/assets/images/user.jpg'
 import menus from './menu'
@@ -14,6 +12,17 @@ import AppAside from './AppAside.jsx'
 import AppFooter from './AppFooter.jsx'
 
 const { Content } = Layout
+
+const MENU_TOGGLE = 'menuToggle'
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case MENU_TOGGLE:
+            return { ...state, menuToggle: !state.menuToggle }
+        default:
+            return state
+    }
+}
 
 const getMenu = menu => {
     let newMenu,
@@ -36,8 +45,13 @@ const DefaultLayout = props => {
         }
     })
 
-    let { menuClick, menuToggle } = props
+    const [state, dispatch] = useReducer(reducer, { menuToggle: false })
+
     let { auth } = JSON.parse(localStorage.getItem('user')) ? JSON.parse(localStorage.getItem('user')) : ''
+
+    const menuClick = () => {
+        dispatch({ type: 'menuToggle' })
+    }
 
     const loginOut = () => {
         localStorage.clear()
@@ -69,9 +83,9 @@ const DefaultLayout = props => {
     return (
         <Layout className='app'>
             <BackTop />
-            <AppAside menuToggle={menuToggle} menu={menu} />
-            <Layout style={{ marginLeft: menuToggle ? '80px' : '200px', minHeight: '100vh' }}>
-                <AppHeader menuToggle={menuToggle} menuClick={menuClick} avatar={avatar} loginOut={loginOut} />
+            <AppAside menuToggle={state.menuToggle} menu={menu} />
+            <Layout style={{ marginLeft: state.menuToggle ? '80px' : '200px', minHeight: '100vh' }}>
+                <AppHeader menuToggle={state.menuToggle} menuClick={menuClick} avatar={avatar} loginOut={loginOut} />
                 <Content className='content'>
                     <Switch>
                         {routes.map(item => {
@@ -101,19 +115,4 @@ const DefaultLayout = props => {
     )
 }
 
-const stateToProp = state => ({
-    menuToggle: state.menuToggle
-})
-
-const dispatchToProp = dispatch => ({
-    menuClick() {
-        dispatch(menuToggleAction())
-    }
-})
-
-export default withRouter(
-    connect(
-        stateToProp,
-        dispatchToProp
-    )(DefaultLayout)
-)
+export default withRouter(DefaultLayout)

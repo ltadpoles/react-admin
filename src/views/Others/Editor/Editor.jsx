@@ -6,23 +6,27 @@ import '@/style/view-style/editor.scss'
 import 'braft-editor/dist/index.css'
 
 const EditorView = () => {
-    const [editorState, setEditorState] = useState(BraftEditor.createEditorState('<p>你好 <b>世界!</b></p>'))
-    const [outputHTML, setOutputHTML] = useState('<p>你好 <b>世界!</b></p>')
-    const [isLivinig, setisLivinig] = useState(true)
+    const [state, setState] = useState({
+        editorState: BraftEditor.createEditorState('<p>你好 <b>世界!</b></p>'),
+        outputHTML: '<p>你好 <b>世界!</b></p>'
+    })
+
+    let { editorState, outputHTML } = state
 
     useEffect(() => {
         let timer = setTimeout(() => {
-            isLivinig && setEditorState(BraftEditor.createEditorState('你好,<b>可爱的人! 很幸运在这里与你相遇!</b>'))
+            setState({
+                ...state,
+                editorState: BraftEditor.createEditorState('你好,<b>可爱的人! 很幸运在这里与你相遇!</b>')
+            })
         }, 3000)
         return () => {
-            setisLivinig(false)
             clearTimeout(timer)
         }
-    }, [isLivinig])
+    }, [state])
 
     let editorChange = editorState => {
-        setEditorState(editorState)
-        setOutputHTML(editorState.toHTML())
+        setState({ ...state, editorState, outputHTML: editorState.toHTML() })
     }
 
     return (
