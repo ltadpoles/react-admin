@@ -6,7 +6,6 @@ import 'nprogress/nprogress.css'
 const useLoadingComponent = () => {
     useEffect(() => {
         NProgress.start()
-        console.log(123)
         return () => {
             NProgress.done()
         }
