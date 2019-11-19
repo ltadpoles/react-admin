@@ -68,4 +68,12 @@ AppHeader.propTypes = {
     loginOut: PropTypes.func
 }
 
-export default AppHeader
+function shouldRender(nextProps, prevProps) {
+    console.log(nextProps, prevProps)
+    if (nextProps === prevProps) {
+        return true
+    }
+    return false
+}
+
+export default React.memo(AppHeader, shouldRender)
