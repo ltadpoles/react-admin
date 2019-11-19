@@ -27,4 +27,11 @@ CustomBreadcrumb.propTypes = {
     arr: PropTypes.array.isRequired
 }
 
-export default CustomBreadcrumb
+function shouldRender(nextProps, prevProps) {
+    if (nextProps.arr.join() === prevProps.arr.join()) {
+        return true
+    }
+    return false
+}
+
+export default React.memo(CustomBreadcrumb, shouldRender)
