@@ -3,29 +3,35 @@ import PropTypes from 'prop-types'
 import { Menu, Icon } from 'antd'
 import { Link, withRouter } from 'react-router-dom'
 
+// 处理 pathname
+const getOpenKeys = string => {
+    let newStr = '',
+        newArr = [],
+        arr = string.split('/').map(i => '/' + i)
+    for (let i = 1; i < arr.length - 1; i++) {
+        newStr += arr[i]
+        newArr.push(newStr)
+    }
+    return newArr
+}
+
 const CustomMenu = props => {
     const [state, setstate] = useState({
         openKeys: [],
         selectedKeys: []
     })
 
-    // 处理 pathname
-    const getOpenKeys = string => {
-        let newStr = '',
-            newArr = [],
-            arr = string.split('/').map(i => '/' + i)
-        for (let i = 1; i < arr.length - 1; i++) {
-            newStr += arr[i]
-            newArr.push(newStr)
-        }
-        return newArr
-    }
+    let { openKeys, selectedKeys } = state
 
     // 页面刷新的时候可以定位到 menu 显示
     useEffect(() => {
         let { pathname } = props.location
         setstate(prevState => {
-            return { ...prevState, selectedKeys: [pathname], openKeys: getOpenKeys(pathname) }
+            return {
+                ...prevState,
+                selectedKeys: [pathname],
+                openKeys: getOpenKeys(pathname)
+            }
         })
     }, [props])
 
@@ -74,7 +80,6 @@ const CustomMenu = props => {
         )
     }
 
-    let { openKeys, selectedKeys } = state
     return (
         <Menu
             mode='inline'
