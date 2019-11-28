@@ -2,6 +2,8 @@
 
 > [项目预览地址](https://ltadpoles.github.io/#/index)
 
+> [Hook 版本](https://github.com/ltadpoles/react-admin/tree/hook)
+
 基于 `React` 生态系统搭建的后台管理系统模板
 
 此项目为闲暇时间所做，主要是为了熟悉 `React` 项目的开发流程，打造一个快速开发后台管理系统的模板
