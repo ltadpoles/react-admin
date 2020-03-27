@@ -1,6 +1,6 @@
 ## React 后台管理系统
 
-> [项目预览地址](https://ltadpoles.github.io/#/index)
+> [项目预览地址](http://react.ltadpole.top/)
 
 > [Hook 版本](https://github.com/ltadpoles/react-admin/tree/hook)
 
