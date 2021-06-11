@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import CustomBreadcrumb from '@/components/CustomBreadcrumb'
+import { QuestionCircleOutlined } from '@ant-design/icons';
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
 import {
     Alert,
     Layout,
     Row,
     Col,
     Divider,
-    Form,
     Button,
-    Icon,
     Input,
     InputNumber,
     Checkbox,
@@ -21,8 +22,8 @@ import {
     Switch,
     Slider,
     AutoComplete,
-    message
-} from 'antd'
+    message,
+} from 'antd';
 import '@/style/view-style/form.scss'
 
 const { Option } = Select
@@ -179,7 +180,7 @@ const FromView = props => {
                                     <span>
                                         用户名&nbsp;
                                         <Tooltip title='可以尽量好听点，真的!'>
-                                            <Icon type='question-circle-o' />
+                                            <QuestionCircleOutlined />
                                         </Tooltip>
                                     </span>
                                 }>
@@ -334,7 +335,7 @@ const FromView = props => {
                 </Col>
             </Row>
         </Layout>
-    )
+    );
 }
 
 const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(FromView)

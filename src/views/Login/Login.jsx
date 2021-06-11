@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Layout, Input, Icon, Form, Button, Divider, message, notification } from 'antd'
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
+import { Layout, Input, Button, Divider, message, notification } from 'antd';
 import { withRouter } from 'react-router-dom'
 // import axios from '@/api'
 // import { API } from '@/api/config'
@@ -71,7 +74,7 @@ const Login = props => {
                                 rules: [{ required: true, message: '请输入用户名!' }]
                             })(
                                 <Input
-                                    prefix={<Icon type='user' style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                    prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
                                     placeholder='用户名'
                                 />
                             )}
@@ -81,7 +84,7 @@ const Login = props => {
                                 rules: [{ required: true, message: '请输入密码' }]
                             })(
                                 <Input
-                                    prefix={<Icon type='lock' style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                    prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
                                     type='password'
                                     placeholder='密码'
                                 />
@@ -96,7 +99,7 @@ const Login = props => {
                 </div>
             </div>
         </Layout>
-    )
+    );
 }
 
 export default withRouter(Form.create()(Login))

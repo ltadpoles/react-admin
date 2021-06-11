@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import CustomBreadcrumb from '@/components/CustomBreadcrumb'
-import { Layout, Divider, Row, Col, Tabs, Select, Icon, Radio, Button } from 'antd'
+import { AndroidOutlined } from '@ant-design/icons';
+import { Layout, Divider, Row, Col, Tabs, Select, Radio, Button } from 'antd';
 
 const { TabPane } = Tabs
 const { Option } = Select
@@ -126,7 +127,7 @@ const TabsViews = () => {
                                 <TabPane
                                     tab={
                                         <span>
-                                            <Icon type='android' />
+                                            <AndroidOutlined />
                                             Tab 2
                                         </span>
                                     }
@@ -162,7 +163,7 @@ const TabsViews = () => {
                 </Col>
             </Row>
         </Layout>
-    )
+    );
 }
 
 export default TabsViews

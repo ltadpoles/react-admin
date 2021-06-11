@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import CustomBreadcrumb from '@/components/CustomBreadcrumb'
-import { Layout, Divider, Row, Col, Steps, Button, Form, Input, Select, Alert, Result } from 'antd'
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
+import { Layout, Divider, Row, Col, Steps, Button, Input, Select, Alert, Result } from 'antd';
 import '@/style/view-style/form.scss'
 
 const { Step } = Steps

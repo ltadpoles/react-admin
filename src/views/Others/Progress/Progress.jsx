@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import CustomBreadcrumb from '@/components/CustomBreadcrumb'
+import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { Layout, Row, Col, Progress, Divider, Button } from 'antd'
 import '@/style/view-style/progress.scss'
 
@@ -33,11 +34,11 @@ const DrawerView = () => {
                         <ButtonGroup>
                             <Button
                                 onClick={() => setPercent(percent => (percent < 0 ? 0 : percent - 10))}
-                                icon='minus'
+                                icon={<MinusOutlined />}
                             />
                             <Button
                                 onClick={() => setPercent(percent => (percent > 100 ? 100 : percent + 10))}
-                                icon='plus'
+                                icon={<PlusOutlined />}
                             />
                         </ButtonGroup>
                     </div>
@@ -57,7 +58,7 @@ const DrawerView = () => {
                 </Col>
             </Row>
         </Layout>
-    )
+    );
 }
 
 export default DrawerView

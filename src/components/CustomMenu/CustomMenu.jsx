@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { Menu, Icon } from 'antd'
+import { Icon as LegacyIcon } from '@ant-design/compatible';
+import { Menu } from 'antd';
 import { Link, withRouter } from 'react-router-dom'
 
 // 处理 pathname
@@ -55,7 +56,7 @@ const CustomMenu = props => {
     const renderMenuItem = ({ key, icon, title }) => (
         <Menu.Item key={key}>
             <Link to={key}>
-                {icon && <Icon type={icon} />}
+                {icon && <LegacyIcon type={icon} />}
                 <span>{title}</span>
             </Link>
         </Menu.Item>
@@ -68,7 +69,7 @@ const CustomMenu = props => {
                 key={key}
                 title={
                     <span>
-                        {icon && <Icon type={icon} />}
+                        {icon && <LegacyIcon type={icon} />}
                         <span>{title}</span>
                     </span>
                 }>
@@ -77,7 +78,7 @@ const CustomMenu = props => {
                         return item.subs && item.subs.length > 0 ? renderSubMenu(item) : renderMenuItem(item)
                     })}
             </Menu.SubMenu>
-        )
+        );
     }
 
     return (
