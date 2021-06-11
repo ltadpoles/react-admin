@@ -14,9 +14,11 @@ const useLoadingComponent = () => {
     return <div />
 }
 
-export default (loader, loading = useLoadingComponent) => {
+const load = (loader, loading = useLoadingComponent) => {
     return Loadable({
         loader,
         loading
     })
 }
+
+export default load
