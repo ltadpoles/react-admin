@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Layout, Divider, Row, Col, Steps, Icon, Button, message } from 'antd'
+import { LoadingOutlined, SmileOutlined, SolutionOutlined, UserOutlined } from '@ant-design/icons';
+import { Layout, Divider, Row, Col, Steps, Button, message } from 'antd';
 import CustomBreadcrumb from '@/components/CustomBreadcrumb'
 import '@/style/view-style/step.scss'
 
@@ -75,10 +76,10 @@ const StepView = () => {
                 <Col>
                     <div className='base-style'>
                         <Steps>
-                            <Step status='finish' title='Login' icon={<Icon type='user' />} />
-                            <Step status='finish' title='Verification' icon={<Icon type='solution' />} />
-                            <Step status='process' title='Pay' icon={<Icon type='loading' />} />
-                            <Step status='wait' title='Done' icon={<Icon type='smile-o' />} />
+                            <Step status='finish' title='Login' icon={<UserOutlined />} />
+                            <Step status='finish' title='Verification' icon={<SolutionOutlined />} />
+                            <Step status='process' title='Pay' icon={<LoadingOutlined />} />
+                            <Step status='wait' title='Done' icon={<SmileOutlined />} />
                         </Steps>
                     </div>
                 </Col>
@@ -122,7 +123,7 @@ const StepView = () => {
                 </Col>
             </Row>
         </Layout>
-    )
+    );
 }
 
 export default StepView

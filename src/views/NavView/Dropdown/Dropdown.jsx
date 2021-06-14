@@ -1,5 +1,6 @@
 import React from 'react'
-import { Layout, Divider, Menu, Dropdown, Icon, Row, Col, message, Button } from 'antd'
+import { DownOutlined, UserOutlined } from '@ant-design/icons';
+import { Layout, Divider, Menu, Dropdown, Row, Col, message, Button } from 'antd';
 import CustomBreadcrumb from '@/components/CustomBreadcrumb'
 import '@/style/view-style/dropdown.scss'
 
@@ -45,7 +46,7 @@ const DropdownView = () => (
                 <div className='base-style'>
                     <Dropdown overlay={menu}>
                         <Button type='link'>
-                            Hover me <Icon type='down' />
+                            Hover me <DownOutlined />
                         </Button>
                     </Dropdown>
                 </div>
@@ -75,7 +76,7 @@ const DropdownView = () => (
                 <div className='base-style'>
                     <Dropdown overlay={menu} trigger={['click']}>
                         <Button type='link'>
-                            Click me <Icon type='down' />
+                            Click me <DownOutlined />
                         </Button>
                     </Dropdown>
                 </div>
@@ -86,7 +87,7 @@ const DropdownView = () => (
                         <Dropdown.Button onClick={handleButtonClick} overlay={menu}>
                             Dropdown
                         </Dropdown.Button>
-                        <Dropdown.Button overlay={menu} icon={<Icon type='user' />}>
+                        <Dropdown.Button overlay={menu} icon={<UserOutlined />}>
                             Dropdown
                         </Dropdown.Button>
                         <Dropdown.Button onClick={handleButtonClick} overlay={menu} disabled>
@@ -94,7 +95,7 @@ const DropdownView = () => (
                         </Dropdown.Button>
                         <Dropdown overlay={menu}>
                             <Button>
-                                Button <Icon type='down' />
+                                Button <DownOutlined />
                             </Button>
                         </Dropdown>
                     </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import CustomBreadcrumb from '@/components/CustomBreadcrumb'
-import { Layout, Divider, Row, Col, Tree, Input, Icon } from 'antd'
+import { MehOutlined } from '@ant-design/icons';
+import { Layout, Divider, Row, Col, Tree, Input } from 'antd';
 
 const { TreeNode } = Tree
 
@@ -8,11 +9,11 @@ const treeData = [
     {
         title: '0-0',
         key: '0-0',
-        children: [
+        treeData: [
             {
                 title: '0-0-0',
                 key: '0-0-0',
-                children: [
+                treeData: [
                     { title: '0-0-0-0', key: '0-0-0-0' },
                     { title: '0-0-0-1', key: '0-0-0-1' },
                     { title: '0-0-0-2', key: '0-0-0-2' }
@@ -21,7 +22,7 @@ const treeData = [
             {
                 title: '0-0-1',
                 key: '0-0-1',
-                children: [
+                treeData: [
                     { title: '0-0-1-0', key: '0-0-1-0' },
                     { title: '0-0-1-1', key: '0-0-1-1' },
                     { title: '0-0-1-2', key: '0-0-1-2' }
@@ -36,7 +37,7 @@ const treeData = [
     {
         title: '0-1',
         key: '0-1',
-        children: [
+        treeData: [
             { title: '0-1-0-0', key: '0-1-0-0' },
             { title: '0-1-0-1', key: '0-1-0-1' },
             { title: '0-1-0-2', key: '0-1-0-2' }
@@ -59,21 +60,21 @@ const generateData = (_level, _preKey, _tns) => {
     const preKey = _preKey || '0'
     const tns = _tns || gData
 
-    const children = []
+    const treeData = []
     for (let i = 0; i < x; i++) {
         const key = `${preKey}-${i}`
         tns.push({ title: key, key })
         if (i < y) {
-            children.push(key)
+            treeData.push(key)
         }
     }
     if (_level < 0) {
         return tns
     }
     const level = _level - 1
-    children.forEach((key, index) => {
-        tns[index].children = []
-        return generateData(level, key, tns[index].children)
+    treeData.forEach((key, index) => {
+        tns[index].treeData = []
+        return generateData(level, key, tns[index].treeData)
     })
 }
 generateData(z)
@@ -84,8 +85,8 @@ const generateList = data => {
         const node = data[i]
         const { key } = node
         dataList.push({ key, title: key })
-        if (node.children) {
-            generateList(node.children)
+        if (node.treeData) {
+            generateList(node.treeData)
         }
     }
 }
@@ -95,11 +96,11 @@ const getParentKey = (key, tree) => {
     let parentKey
     for (let i = 0; i < tree.length; i++) {
         const node = tree[i]
-        if (node.children) {
-            if (node.children.some(item => item.key === key)) {
+        if (node.treeData) {
+            if (node.treeData.some(item => item.key === key)) {
                 parentKey = node.key
-            } else if (getParentKey(key, node.children)) {
-                parentKey = getParentKey(key, node.children)
+            } else if (getParentKey(key, node.treeData)) {
+                parentKey = getParentKey(key, node.treeData)
             }
         }
     }
@@ -131,8 +132,8 @@ const TreeView = () => {
                 if (item.key === key) {
                     return callback(item, index, arr)
                 }
-                if (item.children) {
-                    return loop(item.children, key, callback)
+                if (item.treeData) {
+                    return loop(item.treeData, key, callback)
                 }
             })
         }
@@ -148,19 +149,19 @@ const TreeView = () => {
         if (!info.dropToGap) {
             // Drop on the content
             loop(data, dropKey, item => {
-                item.children = item.children || []
+                item.treeData = item.treeData || []
                 // where to insert 示例添加到尾部，可以是随意位置
-                item.children.push(dragObj)
+                item.treeData.push(dragObj)
             })
         } else if (
-            (info.node.props.children || []).length > 0 && // Has children
+            (info.node.props.treeData || []).length > 0 && // Has treeData
             info.node.props.expanded && // Is expanded
             dropPosition === 1 // On the bottom gap
         ) {
             loop(data, dropKey, item => {
-                item.children = item.children || []
+                item.treeData = item.treeData || []
                 // where to insert 示例添加到尾部，可以是随意位置
-                item.children.unshift(dragObj)
+                item.treeData.unshift(dragObj)
             })
         } else {
             let ar
@@ -188,10 +189,10 @@ const TreeView = () => {
 
     const renderTreeNodes = data =>
         data.map(item => {
-            if (item.children) {
+            if (item.treeData) {
                 return (
                     <TreeNode title={item.title} key={item.key} dataRef={item}>
-                        {renderTreeNodes(item.children)}
+                        {renderTreeNodes(item.treeData)}
                     </TreeNode>
                 )
             }
@@ -215,10 +216,10 @@ const TreeView = () => {
 
     const loopDrop = data =>
         data.map(item => {
-            if (item.children && item.children.length) {
+            if (item.treeData && item.treeData.length) {
                 return (
                     <TreeNode key={item.key} title={item.title}>
-                        {loops(item.children)}
+                        {loops(item.treeData)}
                     </TreeNode>
                 )
             }
@@ -239,10 +240,10 @@ const TreeView = () => {
                 ) : (
                     <span>{item.title}</span>
                 )
-            if (item.children) {
+            if (item.treeData) {
                 return (
                     <TreeNode key={item.key} title={title}>
-                        {loops(item.children)}
+                        {loops(item.treeData)}
                     </TreeNode>
                 )
             }
@@ -274,11 +275,11 @@ const TreeView = () => {
                             onSelect={onSelect}
                             onCheck={onCheck}>
                             <TreeNode title='parent 1' key='0-0'>
-                                <TreeNode icon={<Icon type='meh-o' />} title='parent 1-0' key='0-0-0' disabled>
+                                <TreeNode icon={<MehOutlined />} title='parent 1-0' key='0-0-0' disabled>
                                     <TreeNode title='leaf' key='0-0-0-0' disableCheckbox />
                                     <TreeNode title='leaf' key='0-0-0-1' />
                                 </TreeNode>
-                                <TreeNode title='parent 1-1' key='0-0-1' icon={<Icon type='meh-o' />}>
+                                <TreeNode title='parent 1-1' key='0-0-1' icon={<MehOutlined />}>
                                     <TreeNode title={<span style={{ color: '#1890ff' }}>sss</span>} key='0-0-1-0' />
                                 </TreeNode>
                             </TreeNode>
@@ -326,7 +327,7 @@ const TreeView = () => {
                 </Col>
             </Row>
         </Layout>
-    )
+    );
 }
 
 export default TreeView

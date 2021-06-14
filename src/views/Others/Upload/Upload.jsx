@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { Layout, Row, Col, Upload, message, Button, Icon, Divider, Modal } from 'antd'
+import { Icon as LegacyIcon } from '@ant-design/compatible';
+import { InboxOutlined, UploadOutlined } from '@ant-design/icons';
+import { Layout, Row, Col, Upload, message, Button, Divider, Modal } from 'antd';
 import CustomBreadcrumb from '@/components/CustomBreadcrumb'
 
 const { Dragger } = Upload
@@ -123,7 +125,7 @@ const UploadView = () => {
 
     const uploadButton = (
         <div>
-            <Icon type={loading ? 'loading' : 'plus'} />
+            <LegacyIcon type={loading ? 'loading' : 'plus'} />
             <div className='ant-upload-text'>Upload</div>
         </div>
     )
@@ -142,7 +144,7 @@ const UploadView = () => {
                         <Divider orientation='left'>普通模式</Divider>
                         <Upload {...props}>
                             <Button>
-                                <Icon type='upload' /> Click to Upload
+                                <UploadOutlined /> Click to Upload
                             </Button>
                         </Upload>
                     </div>
@@ -181,7 +183,7 @@ const UploadView = () => {
                         <Divider orientation='left'>可拖拽上传</Divider>
                         <Dragger {...props}>
                             <p className='ant-upload-drag-icon'>
-                                <Icon type='inbox' />
+                                <InboxOutlined />
                             </p>
                             <p className='ant-upload-text'>Click or drag file to this area to upload</p>
                             <p className='ant-upload-hint'>
@@ -193,7 +195,7 @@ const UploadView = () => {
                 </Col>
             </Row>
         </Layout>
-    )
+    );
 }
 
 export default UploadView

@@ -1,5 +1,85 @@
 import React from 'react'
-import { Layout, Divider, Icon, Tooltip } from 'antd'
+
+import Icon, {
+    AlignLeftOutlined,
+    AlignRightOutlined,
+    AlipayCircleOutlined,
+    AndroidOutlined,
+    AntDesignOutlined,
+    AppleOutlined,
+    AreaChartOutlined,
+    ArrowDownOutlined,
+    ArrowLeftOutlined,
+    ArrowRightOutlined,
+    ArrowUpOutlined,
+    BackwardOutlined,
+    BarChartOutlined,
+    CheckCircleOutlined,
+    CheckCircleTwoTone,
+    ClockCircleOutlined,
+    CloseCircleOutlined,
+    CopyOutlined,
+    DeleteOutlined,
+    DotChartOutlined,
+    DownCircleOutlined,
+    DownOutlined,
+    DragOutlined,
+    EditOutlined,
+    ExclamationCircleOutlined,
+    FacebookOutlined,
+    FastBackwardOutlined,
+    FastForwardOutlined,
+    FormOutlined,
+    ForwardOutlined,
+    FullscreenExitOutlined,
+    FullscreenOutlined,
+    GithubOutlined,
+    GoogleOutlined,
+    HeartTwoTone,
+    InfoCircleOutlined,
+    ItalicOutlined,
+    LeftCircleOutlined,
+    LeftOutlined,
+    LineChartOutlined,
+    LoginOutlined,
+    LogoutOutlined,
+    MinusCircleOutlined,
+    MinusSquareOutlined,
+    OrderedListOutlined,
+    PauseCircleOutlined,
+    PieChartOutlined,
+    PlusCircleOutlined,
+    PlusSquareOutlined,
+    QqOutlined,
+    QuestionCircleOutlined,
+    RedoOutlined,
+    RightCircleOutlined,
+    RightOutlined,
+    SmileOutlined,
+    SmileTwoTone,
+    StepBackwardOutlined,
+    StepForwardOutlined,
+    StockOutlined,
+    SyncOutlined,
+    TaobaoCircleOutlined,
+    TaobaoOutlined,
+    TwitterOutlined,
+    UndoOutlined,
+    UnorderedListOutlined,
+    UpCircleOutlined,
+    UpOutlined,
+    VerticalAlignBottomOutlined,
+    WarningOutlined,
+    WechatOutlined,
+    WeiboCircleOutlined,
+    WeiboOutlined,
+    WindowsOutlined,
+    YoutubeOutlined,
+    ZoomInOutlined,
+    ZoomOutOutlined,
+} from '@ant-design/icons';
+
+import { Layout, Divider, Tooltip } from 'antd';
 import CustomBreadcrumb from '@/components/CustomBreadcrumb'
 import '@/style/view-style/icon.scss'
 
@@ -73,22 +153,22 @@ const IconView = () => {
             <div className='base-style'>
                 <ul className='anticons-list'>
                     <li>
-                        <Icon type='sync' spin />
+                        <SyncOutlined spin />
                     </li>
                     <li>
-                        <Icon type='smile' theme='outlined' spin />
+                        <SmileOutlined spin />
                     </li>
                     <li>
-                        <Icon type='smile' rotate={180} />
+                        <SmileOutlined rotate={180} />
                     </li>
                     <li>
-                        <Icon type='smile' theme='twoTone' />
+                        <SmileTwoTone />
                     </li>
                     <li>
-                        <Icon type='heart' theme='twoTone' twoToneColor='#eb2f96' />
+                        <HeartTwoTone twoToneColor='#eb2f96' />
                     </li>
                     <li>
-                        <Icon type='check-circle' theme='twoTone' twoToneColor='#52c41a' />
+                        <CheckCircleTwoTone twoToneColor='#52c41a' />
                     </li>
                     <li>
                         <HeartIcon style={{ color: 'hotpink' }} />
@@ -103,117 +183,117 @@ const IconView = () => {
                 <ul className='anticons-list'>
                     <Tooltip title='step-backward'>
                         <li>
-                            <Icon type='step-backward' />
+                            <StepBackwardOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='step-forward'>
                         <li>
-                            <Icon type='step-forward' />
+                            <StepForwardOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='fast-backward'>
                         <li>
-                            <Icon type='fast-backward' />
+                            <FastBackwardOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='fast-forward'>
                         <li>
-                            <Icon type='fast-forward' />
+                            <FastForwardOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='down'>
                         <li>
-                            <Icon type='down' />
+                            <DownOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='up'>
                         <li>
-                            <Icon type='up' />
+                            <UpOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='left'>
                         <li>
-                            <Icon type='left' />
+                            <LeftOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='right'>
                         <li>
-                            <Icon type='right' />
+                            <RightOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='up-circle'>
                         <li>
-                            <Icon type='up-circle' />
+                            <UpCircleOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='down-circle'>
                         <li>
-                            <Icon type='down-circle' />
+                            <DownCircleOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='left-circle'>
                         <li>
-                            <Icon type='left-circle' />
+                            <LeftCircleOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='right-circle'>
                         <li>
-                            <Icon type='right-circle' />
+                            <RightCircleOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='vertical-align-bottom'>
                         <li>
-                            <Icon type='vertical-align-bottom' />
+                            <VerticalAlignBottomOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='forward'>
                         <li>
-                            <Icon type='forward' />
+                            <ForwardOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='backward'>
                         <li>
-                            <Icon type='backward' />
+                            <BackwardOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='arrow-up'>
                         <li>
-                            <Icon type='arrow-up' />
+                            <ArrowUpOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='arrow-down'>
                         <li>
-                            <Icon type='arrow-down' />
+                            <ArrowDownOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='arrow-left'>
                         <li>
-                            <Icon type='arrow-left' />
+                            <ArrowLeftOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='arrow-right'>
                         <li>
-                            <Icon type='arrow-right' />
+                            <ArrowRightOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='login'>
                         <li>
-                            <Icon type='login' />
+                            <LoginOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='logout'>
                         <li>
-                            <Icon type='logout' />
+                            <LogoutOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='fullscreen'>
                         <li>
-                            <Icon type='fullscreen' />
+                            <FullscreenOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='fullscreen-exit'>
                         <li>
-                            <Icon type='fullscreen-exit' />
+                            <FullscreenExitOutlined />
                         </li>
                     </Tooltip>
                 </ul>
@@ -224,62 +304,62 @@ const IconView = () => {
                 <ul className='anticons-list'>
                     <Tooltip title='question-circle'>
                         <li>
-                            <Icon type='question-circle' />
+                            <QuestionCircleOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='plus-circle'>
                         <li>
-                            <Icon type='plus-circle' />
+                            <PlusCircleOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='pause-circle'>
                         <li>
-                            <Icon type='pause-circle' />
+                            <PauseCircleOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='minus-circle'>
                         <li>
-                            <Icon type='minus-circle' />
+                            <MinusCircleOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='plus-square'>
                         <li>
-                            <Icon type='plus-square' />
+                            <PlusSquareOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='minus-square'>
                         <li>
-                            <Icon type='minus-square' />
+                            <MinusSquareOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='info-circle'>
                         <li>
-                            <Icon type='info-circle' />
+                            <InfoCircleOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='exclamation-circle'>
                         <li>
-                            <Icon type='exclamation-circle' />
+                            <ExclamationCircleOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='close-circle'>
                         <li>
-                            <Icon type='close-circle' />
+                            <CloseCircleOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='check-circle'>
                         <li>
-                            <Icon type='check-circle' />
+                            <CheckCircleOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='clock-circle'>
                         <li>
-                            <Icon type='clock-circle' />
+                            <ClockCircleOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='warning'>
                         <li>
-                            <Icon type='warning' />
+                            <WarningOutlined />
                         </li>
                     </Tooltip>
                 </ul>
@@ -291,72 +371,72 @@ const IconView = () => {
                 <ul className='anticons-list'>
                     <Tooltip title='edit'>
                         <li>
-                            <Icon type='edit' />
+                            <EditOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='form'>
                         <li>
-                            <Icon type='form' />
+                            <FormOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='copy'>
                         <li>
-                            <Icon type='copy' />
+                            <CopyOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='delete'>
                         <li>
-                            <Icon type='delete' />
+                            <DeleteOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='align-left'>
                         <li>
-                            <Icon type='align-left' />
+                            <AlignLeftOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='align-right'>
                         <li>
-                            <Icon type='align-right' />
+                            <AlignRightOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='italic'>
                         <li>
-                            <Icon type='italic' />
+                            <ItalicOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='redo'>
                         <li>
-                            <Icon type='redo' />
+                            <RedoOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='undo'>
                         <li>
-                            <Icon type='undo' />
+                            <UndoOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='zoom-in'>
                         <li>
-                            <Icon type='zoom-in' />
+                            <ZoomInOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='zoom-out'>
                         <li>
-                            <Icon type='zoom-out' />
+                            <ZoomOutOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='drag'>
                         <li>
-                            <Icon type='drag' />
+                            <DragOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='unordered-list'>
                         <li>
-                            <Icon type='unordered-list' />
+                            <UnorderedListOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='ordered-list'>
                         <li>
-                            <Icon type='ordered-list' />
+                            <OrderedListOutlined />
                         </li>
                     </Tooltip>
                 </ul>
@@ -368,32 +448,32 @@ const IconView = () => {
                 <ul className='anticons-list'>
                     <Tooltip title='area-chart'>
                         <li>
-                            <Icon type='area-chart' />
+                            <AreaChartOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='pie-chart'>
                         <li>
-                            <Icon type='pie-chart' />
+                            <PieChartOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='bar-chart'>
                         <li>
-                            <Icon type='bar-chart' />
+                            <BarChartOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='dot-chart'>
                         <li>
-                            <Icon type='dot-chart' />
+                            <DotChartOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='line-chart'>
                         <li>
-                            <Icon type='line-chart' />
+                            <LineChartOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='stock'>
                         <li>
-                            <Icon type='stock' />
+                            <StockOutlined />
                         </li>
                     </Tooltip>
                 </ul>
@@ -405,88 +485,88 @@ const IconView = () => {
                 <ul className='anticons-list'>
                     <Tooltip title='ant-design'>
                         <li>
-                            <Icon type='ant-design' />
+                            <AntDesignOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='android'>
                         <li>
-                            <Icon type='android' />
+                            <AndroidOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='apple'>
                         <li>
-                            <Icon type='apple' />
+                            <AppleOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='windows'>
                         <li>
-                            <Icon type='windows' />
+                            <WindowsOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='github'>
                         <li>
-                            <Icon type='github' />
+                            <GithubOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='weibo-circle'>
                         <li>
-                            <Icon type='weibo-circle' />
+                            <WeiboCircleOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='weibo'>
                         <li>
-                            <Icon type='weibo' />
+                            <WeiboOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='taobao-circle'>
                         <li>
-                            <Icon type='taobao-circle' />
+                            <TaobaoCircleOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='taobao'>
                         <li>
-                            <Icon type='taobao' />
+                            <TaobaoOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='wechat'>
                         <li>
-                            <Icon type='wechat' />
+                            <WechatOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='alipay-circle'>
                         <li>
-                            <Icon type='alipay-circle' />
+                            <AlipayCircleOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='qq'>
                         <li>
-                            <Icon type='qq' />
+                            <QqOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='google'>
                         <li>
-                            <Icon type='google' />
+                            <GoogleOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='facebook'>
                         <li>
-                            <Icon type='facebook' />
+                            <FacebookOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='twitter'>
                         <li>
-                            <Icon type='twitter' />
+                            <TwitterOutlined />
                         </li>
                     </Tooltip>
                     <Tooltip title='youtube'>
                         <li>
-                            <Icon type='youtube' />
+                            <YoutubeOutlined />
                         </li>
                     </Tooltip>
                 </ul>
             </div>
         </Layout>
-    )
+    );
 }
 
 export default IconView

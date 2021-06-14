@@ -1,6 +1,7 @@
 import React from 'react'
 import CustomBreadcrumb from '@/components/CustomBreadcrumb'
-import { Layout, Divider, Row, Col, Collapse, Icon } from 'antd'
+import { CaretRightOutlined } from '@ant-design/icons';
+import { Layout, Divider, Row, Col, Collapse } from 'antd';
 
 const { Panel } = Collapse
 
@@ -45,7 +46,7 @@ const CollapseView = () => {
                             <Panel header='This is panel header 2' key='2'>
                                 <p>{text}</p>
                             </Panel>
-                            <Panel header='This is panel header 3' key='3' disabled>
+                            <Panel header='This is panel header 3' key='3' collapsible="disabled">
                                 <p>{text}</p>
                             </Panel>
                         </Collapse>
@@ -75,7 +76,7 @@ const CollapseView = () => {
                             onChange={callback}
                             bordered={false}
                             defaultActiveKey={['1']}
-                            expandIcon={({ isActive }) => <Icon type='caret-right' rotate={isActive ? 90 : 0} />}>
+                            expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}>
                             <Panel header='This is panel header 1' key='1' style={customPanelStyle}>
                                 <Collapse defaultActiveKey='1'>
                                     <Panel header='This is panel nest panel' key='1'>
@@ -94,7 +95,7 @@ const CollapseView = () => {
                 </Col>
             </Row>
         </Layout>
-    )
+    );
 }
 
 export default CollapseView

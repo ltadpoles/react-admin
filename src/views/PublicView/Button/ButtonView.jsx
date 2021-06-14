@@ -1,6 +1,14 @@
 import React, { useState } from 'react'
 import CustomBreadcrumb from '@/components/CustomBreadcrumb'
-import { Layout, Row, Col, Button, Divider, Icon } from 'antd'
+import {
+    CloudDownloadOutlined,
+    CloudOutlined,
+    LeftOutlined,
+    PoweroffOutlined,
+    RightOutlined,
+    SearchOutlined,
+} from '@ant-design/icons';
+import { Layout, Row, Col, Button, Divider } from 'antd';
 import '@/style/view-style/button.scss'
 
 const ButtonGroup = Button.Group
@@ -40,7 +48,7 @@ const ButtonView = () => {
                             </Button>
                             <Button
                                 type='primary'
-                                icon='poweroff'
+                                icon={<PoweroffOutlined />}
                                 loading={iconLoading}
                                 onClick={() => setIconLoading(true)}>
                                 Click me!
@@ -65,37 +73,37 @@ const ButtonView = () => {
                             <h4>With Icon</h4>
                             <ButtonGroup>
                                 <Button type='primary'>
-                                    <Icon type='left' />
+                                    <LeftOutlined />
                                     Go back
                                 </Button>
                                 <Button type='primary'>
                                     Go forward
-                                    <Icon type='right' />
+                                    <RightOutlined />
                                 </Button>
                             </ButtonGroup>
                             <ButtonGroup>
-                                <Button type='primary' icon='cloud' />
-                                <Button type='primary' icon='cloud-download' />
+                                <Button type='primary' icon={<CloudOutlined />} />
+                                <Button type='primary' icon={<CloudDownloadOutlined />} />
                             </ButtonGroup>
                             <ButtonGroup>
-                                <Button type='primary' size='small' icon='cloud' />
-                                <Button type='primary' size='small' icon='cloud-download' />
+                                <Button type='primary' size='small' icon={<CloudOutlined />} />
+                                <Button type='primary' size='small' icon={<CloudDownloadOutlined />} />
                             </ButtonGroup>
                         </div>
                     </Col>
                     <Col span={12}>
                         <div className='base-style'>
-                            <Button type='primary' shape='circle' icon='search' />
+                            <Button type='primary' shape='circle' icon={<SearchOutlined />} />
                             <Button type='primary' shape='circle'>
                                 A
                             </Button>
-                            <Button type='primary' icon='search'>
+                            <Button type='primary' icon={<SearchOutlined />}>
                                 Search
                             </Button>
-                            <Button shape='circle' icon='search' />
-                            <Button icon='search'>Search</Button>
-                            <Button type='dashed' shape='circle' icon='search' />
-                            <Button type='dashed' icon='search'>
+                            <Button shape='circle' icon={<SearchOutlined />} />
+                            <Button icon={<SearchOutlined />}>Search</Button>
+                            <Button type='dashed' shape='circle' icon={<SearchOutlined />} />
+                            <Button type='dashed' icon={<SearchOutlined />}>
                                 Search
                             </Button>
                         </div>
@@ -130,7 +138,7 @@ const ButtonView = () => {
                 </Row>
             </div>
         </Layout>
-    )
+    );
 }
 
 export default ButtonView
