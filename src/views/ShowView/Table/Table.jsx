@@ -245,7 +245,7 @@ class Table4 extends Component {
 const TableView = () => (
     <Layout className='animated fadeIn'>
         <div>
-            <CustomBreadcrumb arr={['通用', '按钮']}></CustomBreadcrumb>
+            <CustomBreadcrumb arr={['展开', '表格']}></CustomBreadcrumb>
         </div>
         <div className='base-style'>
             <h3>何时使用</h3>
