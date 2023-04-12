@@ -11,7 +11,7 @@ const AppAside = props => {
         <Sider className='aside' collapsed={menuToggle}>
             <div className='logo'>
                 <a rel='noopener noreferrer' href='https://github.com/SkyHeyi' target='_blank'>
-                    <Icon type='github' style={{ fontSize: '3.8rem', color: '#fff' }} />
+                    <Icon type='branches' style={{ fontSize: '3.8rem', color: '#fff' }} />
                 </a>
             </div>
             <CustomMenu menu={menu}></CustomMenu>

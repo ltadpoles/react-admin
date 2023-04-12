@@ -16,10 +16,10 @@ const FormBaseView = loadable(() => import(/* webpackChunkName: 'formBase' */ '@
 const FormStepView = loadable(() => import(/* webpackChunkName: 'formStep' */ '@/views/FormView/FormStepView'))
 
 // 展示
-const TableView = loadable(() => import(/* webpackChunkName: 'table' */ '@/views/ShowView/Table'))
-const CollapseView = loadable(() => import(/* webpackChunkName: 'collapse' */ '@/views/ShowView/Collapse'))
-const TreeView = loadable(() => import(/* webpackChunkName: 'tree' */ '@/views/ShowView/Tree'))
-const TabsView = loadable(() => import(/* webpackChunkName: 'tabs' */ '@/views/ShowView/Tabs'))
+const VersionView = loadable(() => import(/* webpackChunkName: 'table' */ '@/views/ShowView/Version'))
+const ReleasePlanView = loadable(() => import(/* webpackChunkName: 'collapse' */ '@/views/ShowView/ReleasePlan'))
+// const TreeView = loadable(() => import(/* webpackChunkName: 'tree' */ '@/views/ShowView/Tree'))
+// const TabsView = loadable(() => import(/* webpackChunkName: 'tabs' */ '@/views/ShowView/Tabs'))
 
 // 其它
 const ProgressView = loadable(() => import(/* webpackChunkName: 'progress' */ '@/views/Others/Progress'))
@@ -39,10 +39,10 @@ const routes = [
     { path: '/nav/steps', exact: false, name: '步骤条', component: StepView },
     { path: '/form/base-form', exact: false, name: '表单', component: FormBaseView },
     { path: '/form/step-form', exact: false, name: '表单', component: FormStepView },
-    { path: '/show/table', exact: false, name: '表格', component: TableView },
-    { path: '/show/collapse', exact: false, name: '折叠面板', component: CollapseView },
-    { path: '/show/tree', exact: false, name: '树形控件', component: TreeView },
-    { path: '/show/tabs', exact: false, name: '标签页', component: TabsView },
+    { path: '/show/table', exact: false, name: '表格', component: VersionView },
+    { path: '/show/collapse', exact: false, name: '折叠面板', component: ReleasePlanView },
+    // { path: '/show/tree', exact: false, name: '树形控件', component: TreeView },
+    // { path: '/show/tabs', exact: false, name: '标签页', component: TabsView },
     { path: '/others/progress', exact: false, name: '进度条', component: ProgressView, auth: [1] },
     { path: '/others/animation', exact: false, name: '动画', component: AnimationView, auth: [1] },
     { path: '/others/editor', exact: false, name: '富文本', component: EditorView, auth: [1] },
