@@ -38,7 +38,7 @@ const AppHeader = props => {
             </div>
             <div className='right'>
                 <div className='mr15'>
-                    <a rel='noopener noreferrer' href='https://github.com/ltadpoles/react-admin' target='_blank'>
+                    <a rel='noopener noreferrer' href='https://github.com/SkyHeyi/react-admin' target='_blank'>
                         <Icon type='github' style={{ color: '#000' }} />
                     </a>
                 </div>
