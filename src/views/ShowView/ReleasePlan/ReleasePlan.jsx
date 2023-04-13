@@ -1,7 +1,7 @@
 import React from 'react'
 import CustomBreadcrumb from '@/components/CustomBreadcrumb'
 import { Layout, Divider, Row, Col, Collapse, Icon } from 'antd'
-import StageView from './Stage.jsx'
+// import StageView from './Stage.jsx'
 import TaskView from './Task.jsx'
 import CodeCheckView from './CodeCheck.jsx'
 import ConfigView from './Config.jsx'
@@ -31,12 +31,6 @@ const ReleasePlanView = () => (
         <div>
             <CustomBreadcrumb arr={['版本管理', '发布计划']}></CustomBreadcrumb>
         </div>
-        {/* <div className='base-style'>
-            <h3>何时使用</h3>
-            <Divider />
-            <p>对复杂区域进行分组和隐藏，保持页面的整洁。</p>
-            <p>手风琴 是一种特殊的折叠面板，只允许单个内容区域展开。</p>
-        </div> */}
         <Row>
             <Col>
                 {/* 需要调整画板为全屏 */}
@@ -44,7 +38,7 @@ const ReleasePlanView = () => (
                     {/* <Divider orientation='left'>简单使用</Divider> */}
                     <Collapse defaultActiveKey={['1']} onChange={callback} ghost>
                         <Panel header='发布步骤' key='1'>
-                            <StageView />
+                            {/* <StageView /> */}
                         </Panel>
                         <Panel header='需求/bug列表' key='2'>
                             <TaskView />
@@ -58,46 +52,6 @@ const ReleasePlanView = () => (
                     </Collapse>
                 </div>
             </Col>
-            {/* <Col>
-                <div className='base-style'>
-                    <Divider orientation='left'>手风琴</Divider>
-                    <Collapse accordion>
-                        <Panel header='This is panel header 1' key='1'>
-                            <p>{text}</p>
-                        </Panel>
-                        <Panel header='This is panel header 2' key='2'>
-                            <p>{text}</p>
-                        </Panel>
-                        <Panel header='This is panel header 3' key='3'>
-                            <p>{text}</p>
-                        </Panel>
-                    </Collapse>
-                </div>
-            </Col> */}
-            {/* <Col>
-                <div className='base-style'>
-                    <Divider orientation='left'>自定义样式功能</Divider>
-                    <Collapse
-                        onChange={callback}
-                        bordered={false}
-                        defaultActiveKey={['1']}
-                        expandIcon={({ isActive }) => <Icon type='caret-right' rotate={isActive ? 90 : 0} />}>
-                        <Panel header='This is panel header 1' key='1' style={customPanelStyle}>
-                            <Collapse defaultActiveKey='1'>
-                                <Panel header='This is panel nest panel' key='1'>
-                                    <p>{text}</p>
-                                </Panel>
-                            </Collapse>
-                        </Panel>
-                        <Panel header='This is panel header 2' key='2' style={customPanelStyle}>
-                            <p>{text}</p>
-                        </Panel>
-                        <Panel header='This is panel header 3' key='3' style={customPanelStyle}>
-                            <p>{text}</p>
-                        </Panel>
-                    </Collapse>
-                </div>
-            </Col> */}
         </Row>
     </Layout>
 )
