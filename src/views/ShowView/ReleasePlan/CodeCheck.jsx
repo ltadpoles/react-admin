@@ -8,15 +8,10 @@ const { Link } = Anchor
 
 const columns = [
     {
-        title: 'Stage',
-        dataIndex: 'stage',
-        key: 'stage',
-        render: text => <Button type='link'>{text}</Button>
-    },
-    {
-        title: 'ServiceType',
-        dataIndex: 'service_type',
-        key: 'service_type'
+        title: 'FE/BE',
+        dataIndex: 'fe_be',
+        key: 'fe_be'
+        // render: text => <Button type='link'>{text}</Button>
     },
     {
         title: 'Service',
@@ -24,16 +19,18 @@ const columns = [
         key: 'service'
     },
     {
-        title: 'Owner',
-        key: 'owner',
-        dataIndex: 'owner',
+        title: 'Type',
+        dataIndex: 'type',
+        key: 'type'
+    },
+    {
+        title: '代码合入检查结果',
+        key: 'merged',
+        dataIndex: 'merged',
         render: reporter => (
             <span>
                 {reporter.map(reporter => {
-                    let color = reporter.length > 5 ? 'geekblue' : 'green'
-                    if (reporter === 'loser') {
-                        color = 'volcano'
-                    }
+                    let color = reporter.length > 2 ? 'success' : 'error'
                     return (
                         <Tag color={color} key={reporter}>
                             {reporter.toUpperCase()}
@@ -44,15 +41,9 @@ const columns = [
         )
     },
     {
-        title: 'Action',
-        key: 'action',
-        render: (text, record) => (
-            <span>
-                <Button type='link'>Invite {record.name}</Button>
-                <Divider type='vertical' />
-                <Button type='link'>Delete</Button>
-            </span>
-        )
+        title: '代码合并错误信息',
+        dataIndex: 'merged_message',
+        key: 'merged_message'
     }
 ]
 
@@ -60,12 +51,14 @@ const Table1 = () => <Table columns={columns} dataSource={data} />
 
 const data = []
 for (let i = 0; i < 46; i++) {
+    let merge = i % 2 === 0 ? 'Yes' : 'No'
     data.push({
         key: i,
-        stage: `${i + 1}`,
-        service_type: `BE`,
-        service: `London, Park Lane no. ${i}`,
-        owner: ['nice', 'developer']
+        fe_be: `BE`,
+        service: `Account`,
+        type: `Task`,
+        merged: [merge],
+        merged_message: ''
     })
 }
 

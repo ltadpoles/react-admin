@@ -8,32 +8,24 @@ const { Link } = Anchor
 
 const columns = [
     {
-        title: 'Stage',
-        dataIndex: 'stage',
-        key: 'stage',
+        title: 'Jira Id',
+        dataIndex: 'jiraid',
+        key: 'jiraid',
         render: text => <Button type='link'>{text}</Button>
     },
     {
-        title: 'ServiceType',
-        dataIndex: 'service_type',
-        key: 'service_type'
+        title: 'Ticket Name',
+        dataIndex: 'ticket_name',
+        key: 'ticket_name'
     },
     {
-        title: 'Service',
-        dataIndex: 'service',
-        key: 'service'
-    },
-    {
-        title: 'Owner',
-        key: 'owner',
-        dataIndex: 'owner',
+        title: 'Type',
+        dataIndex: 'type',
+        key: 'type',
         render: reporter => (
             <span>
                 {reporter.map(reporter => {
-                    let color = reporter.length > 5 ? 'geekblue' : 'green'
-                    if (reporter === 'loser') {
-                        color = 'volcano'
-                    }
+                    let color = reporter.length > 3 ? 'geekblue' : 'green'
                     return (
                         <Tag color={color} key={reporter}>
                             {reporter.toUpperCase()}
@@ -44,15 +36,31 @@ const columns = [
         )
     },
     {
-        title: 'Action',
-        key: 'action',
-        render: (text, record) => (
+        title: 'Status',
+        key: 'status',
+        dataIndex: 'status',
+        render: reporter => (
             <span>
-                <Button type='link'>Invite {record.name}</Button>
-                <Divider type='vertical' />
-                <Button type='link'>Delete</Button>
+                {reporter.map(reporter => {
+                    let color = reporter.length > 4 ? 'success' : 'error'
+                    return (
+                        <Tag color={color} key={reporter}>
+                            {reporter.toUpperCase()}
+                        </Tag>
+                    )
+                })}
             </span>
         )
+    },
+    {
+        title: 'Assignee',
+        dataIndex: 'assignee',
+        key: 'assignee'
+    },
+    {
+        title: 'Reporter',
+        dataIndex: 'reporter',
+        key: 'reporter'
     }
 ]
 
@@ -60,12 +68,16 @@ const Table1 = () => <Table columns={columns} dataSource={data} />
 
 const data = []
 for (let i = 0; i < 46; i++) {
+    let typeName = i % 2 === 0 ? 'Task' : 'Bug'
+    let status = i % 2 === 0 ? 'Doing' : 'Done'
     data.push({
         key: i,
-        stage: `${i + 1}`,
-        service_type: `BE`,
-        service: `London, Park Lane no. ${i}`,
-        owner: ['nice', 'developer']
+        jiraid: `spcsp-${i + 1}`,
+        ticket_name: `eeeee`,
+        type: [typeName],
+        status: [status],
+        assignee: 'yi.he@shopee.com',
+        reporter: 'yi.he@shopee.com'
     })
 }
 

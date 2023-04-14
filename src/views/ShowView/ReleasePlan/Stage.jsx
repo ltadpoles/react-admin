@@ -1,129 +1,110 @@
-// // import { MenuOutlined } from '@ant-design/icons';
-// import type { ActionType, ProColumns } from '@ant-design/pro-components';
-// import DragSortTable from '@ant-design/pro-components';
-// import message from 'antd';
+// import { MenuOutlined } from '@ant-design/icons';
+// import type { ProColumns } from '@ant-design/pro-components';
+// import { ProTable } from '@ant-design/pro-components';
+// import { message, Table } from 'antd';
 // import { useRef, useState } from 'react';
-
-// const data = [
-//   {
-//     key: 'key1',
-//     name: 'John Brown',
-//     age: 32,
-//     address: 'New York No. 1 Lake Park',
-//     index: 0,
-//   },
-//   {
-//     key: 'key2',
-//     name: 'Jim Green',
-//     age: 42,
-//     address: 'London No. 1 Lake Park',
-//     index: 1,
-//   },
-//   {
-//     key: 'key3',
-//     name: 'Joe Black',
-//     age: 32,
-//     address: 'Sidney No. 1 Lake Park',
-//     index: 2,
-//   },
-// ];
-// const wait = async (delay = 1000) =>
-//   new Promise((resolve) => setTimeout(() => resolve(void 0), delay));
-
-// let remoteData = data.map((item) => ({ ...item, name: `[remote data] ${item.name}` }));
-// const request = async () => {
-//   await wait(3000);
-//   return {
-//     data: remoteData,
-//     total: remoteData.length,
-//     success: true,
-//   };
-// };
+// import { columns}
 
 // export default function StageView() {
-//   const columns: ProColumns[] = [
-//     {
-//       title: '排序',
-//       dataIndex: 'sort',
-//       render: (dom, rowData, index) => {
-//         return <span className="customRender">{`自定义Render[${rowData.name}-${index}]`}</span>;
-//       },
-//     },
-//     {
-//       title: '姓名',
-//       dataIndex: 'name',
-//       className: 'drag-visible',
-//     },
-//     {
-//       title: '年龄',
-//       dataIndex: 'age',
-//     },
-//     {
-//       title: '地址',
-//       dataIndex: 'address',
-//     },
-//   ];
-//   const columns2: ProColumns[] = [
-//     {
-//       title: '排序',
-//       dataIndex: 'sort',
-//     },
-//     {
-//       title: '姓名',
-//       dataIndex: 'name',
-//       className: 'drag-visible',
-//     },
-//     {
-//       title: '年龄',
-//       dataIndex: 'age',
-//     },
-//     {
-//       title: '地址',
-//       dataIndex: 'address',
-//     },
-//   ];
-// //   const actionRef = useRef<ActionType>();
-//   const [dataSource1, setDatasource1] = useState(data);
-//   const [dataSource2, setDatasource2] = useState(data);
-//   const handleDragSortEnd1 = (newDataSource: any) => {
-//     console.log('排序后的数据', newDataSource);
-//     setDatasource1(newDataSource);
-//     message.success('修改列表排序成功');
-//   };
-//   const handleDragSortEnd2 = (newDataSource: any) => {
-//     console.log('排序后的数据', newDataSource);
-//     setDatasource2(newDataSource);
-//     message.success('修改列表排序成功');
-//   };
-//   const handleDragSortEnd3 = (newDataSource: any) => {
-//     console.log('排序后的数据', newDataSource);
-//     // 模拟将排序后数据发送到服务器的场景
-//     remoteData = newDataSource;
-//     // 请求成功之后刷新列表
-// //     actionRef.current?.reload();
-//     message.success('修改列表排序成功');
-//   };
-
-//   const dragHandleRender = (rowData: any, idx: any) => (
-//     <>
-//       {/* <Menu style={{ cursor: 'grab', color: 'gold' }} /> */}
-//       &nbsp;{idx + 1} - {rowData.name}
-//     </>
-//   );
 
 //   return (
 //     <>
-//       <DragSortTable
-//         headerTitle="拖拽排序(自定义把手)"
-//         columns={columns2}
-//         rowKey="index"
-//         search={false}
-//         pagination={false}
-//         dataSource={dataSource2}
-//         dragSortKey="sort"
-//         dragSortHandlerRender={dragHandleRender}
-//         onDragSortEnd={handleDragSortEnd2}
-//       />
+//       <ProTable
+//       rowKey="index"
+//       columns={columns}
+//       actionRef={actionRef}
+//       form={form}
+//       pagination={{
+//         pageSize: 10,
+//       }}
+//       dataSource={dataSource}
+//       search={true}
+//       request={async (params) => {
+//         const res = await getRuleList(p, {
+//           ...params,
+//           orderByPriority: true,
+//           current: 1,
+//           pageSize: 10,
+//           status: 3,
+//         });
+//         const list = res.data.list.map((item: any, index: number) => ({ ...item, index }));
+//         setDataSource(list);
+//         setDisableBtn(list[0].inPriorityAudit);
+//         return {
+//           data: list,
+//           success: res?.success,
+//           total: res?.data?.total,
+//         };
+//       }}
+//       components={{
+//         body: {
+//           wrapper: DraggableContainer,
+//           row: DraggableBodyRow,
+//         },
+//       }}
+//       toolBarRender={() => [
+//         <Button
+//           onClick={() => setIsEdit(true)}
+//           type="primary"
+//           disabled={disableBtn}
+//           style={{ display: isEdit ? 'none' : 'block' }}
+//         >
+//           编 辑
+//         </Button>,
+
+//         <Button
+//           onClick={() => setIsEdit(false)}
+//           type="primary"
+//           style={{ display: isEdit ? 'block' : 'none' }}
+//         >
+//           取消编辑
+//         </Button>,
+//         <Popconfirm
+//           title="确认提交审核吗？"
+//           onConfirm={confirmSubmit}
+//           okText="确认"
+//           cancelText="取消"
+//         >
+//           <Button type="primary" disabled={!isEdit}>
+//             提交审核
+//           </Button>
+//         </Popconfirm>,
+
+//         <Popconfirm
+//           title="是否审核通过"
+//           onConfirm={async () => {
+//             await client<any>(`审核通过接口`, {
+//               method: 'put',
+//               params: {},
+//             }).then((res) => {
+//               if (res?.success)
+//                 notification.success({
+//                   message: '审核完成',
+//                 });
+//             });
+//             actionRef?.current?.reload();
+//           }}
+//           onCancel={async () => {
+//             await client<any>(`审核失败接口`, {
+//               method: 'put',
+//               params: {},
+//             }).then((res) => {
+//               if (res?.success)
+//                 notification.success({
+//                   message: '审核完成',
+//                 });
+//             });
+//             actionRef?.current?.reload();
+//           }}
+//           okText="通过"
+//           cancelText="拒绝"
+//         >
+//           <Button type="primary" disabled={!disableBtn}>
+//             审 核
+//           </Button>
+//         </Popconfirm>,
+//       ]}
+// />
 //     </>
 //   );
 // }
