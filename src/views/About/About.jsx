@@ -8,9 +8,9 @@ const AboutView = () => (
             <CustomBreadcrumb arr={['关于']}></CustomBreadcrumb>
         </div>
         <div className='base-style'>
-            <h3>关于作者</h3>
+            <h3>WFS</h3>
             <Divider />
-            <p>这个人很懒，什么都没有留下……</p>
+            <p>介绍WFS的基本功能，版本更新情况</p>
         </div>
     </Layout>
 )
